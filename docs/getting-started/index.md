@@ -15,6 +15,12 @@ Before you can use DecentHousing, ensure you have the following:
 - **Kubernetes** v1.28+
 - **Helm** v3.17+
 
+Recommended infrastructure requirements:
+
+- A running **MariaDB** instance v10.11+
+- A running **Redis** instance v7.0+
+- A running **RabbitMQ** instance v3.12+
+
 Recommended specs for a smooth production experience on **one node**:
 
 | Component | Minimum (not really smooth) | Recommended (~50-player codebase) |
