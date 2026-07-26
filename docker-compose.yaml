@@ -1,0 +1,15 @@
+name: DecentHousing-Wiki
+
+services:
+  server:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      # live reloading support
+      - .:/app
+    environment:
+      # force python output to be sent straight to terminal without buffering
+      - PYTHONUNBUFFERED=1
+    stdin_open: true
+    tty: true

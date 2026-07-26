@@ -1,15 +1,12 @@
-site_name: 'DecentHolograms Wiki'
-site_description: 'Wiki of the DecentHolograms plugin'
+site_name: 'DecentHousing Wiki'
+site_description: 'Wiki of the DecentHousing plugin'
 site_author: 'decentsoftware-eu contributors'
-site_url: 'https://wiki.decentholograms.eu'
+site_url: 'https://wiki.decenthousing.eu'
 
 copyright: |
-  Documentation licensed under the <a href="https://github.com/DecentSoftware-eu/DecentHolograms-Wiki/blob/main/LICENSE">GNU GPL v3.0 License</a>.
+  Documentation licensed under the <a href="https://github.com/DecentSoftware-eu/DecentHousing-Wiki/blob/main/LICENSE">GNU GPL v3.0 License</a>.
 
 docs_dir: 'docs/'
-
-repo_name: 'DecentHolograms'
-repo_url: 'https://github.com/DecentSoftware-eu/DecentHolograms'
 
 theme:
   name: 'materialx'
