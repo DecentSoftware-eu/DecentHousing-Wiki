@@ -22,5 +22,5 @@ Should the HeadDatabase plugin be present and enabled, will DecentHolograms enab
 
 ## Next Steps
 
-Once you've installed DecentHolograms, is it time to create your first hologram!  
+Once you've installed DecentHolograms, is it time to create your first hologram!
 Check out the [Create your first Hologram]() guide for more info!

@@ -72,6 +72,7 @@ Housing-0.0.1.zip
 │   ├── meta.json
 │   ├── repo-update.sh ──────────── [1.1]
 │   ├── version.txt
+│   ├── repo.txt
 │   ├── api/
 │   ├── k8s-controller/
 │   ├── k8s-metrics-exporter/
@@ -107,9 +108,52 @@ Now, we will walk you through the simplest way to do this, by running your own l
 
 TODO
 
+**Push apps to the Docker Registry**
+
+Now navigate to the `apps/` folder and run the `repo-login.sh` script to log in to your Docker Registry. After that, run the `repo-update.sh` script to build and push all the apps to the registry.
+
+```bash
+cd apps/
+```
+
+(Optional) If you have started up the local Docker Registry somewhere else than `localhost:5050`, you will need to set the registry
+address in the `repo.txt` file before running the scripts.
+
+```bash
+echo "localhost:5050" >> repo.txt
+```
+
+Now after you have started up the registry and set the registry address, run the following commands:
+
+```bash
+# set your credentials that you used when starting the registry
+./repo-login.sh your-registry-username your-registry-password
+./repo-update.sh
+```
+
+This log-ins you to the local docker registry and pushes all apps from the apps/ folder to the registry.
+
+**Exposing registry at a domain**
+
+It is necessary to expose the registry at a domain so that the Kubernetes cluster can pull the images from it.
+If you skip this step, you will need to set up an unsafe access from the cluster to the registry, which is not recommended.
+
+For walkthrough on how to do that, **go to the [Exposing services at a domain](configuration/exposing-services.md) guide**.
+
 ### Deployment
 
+Now we're finally ready to configure and start DecentHousing. Navigate to the `chart/` folder and run the `setup.sh` script to configure the platform.
+
+```bash
+cd chart/
+./setup.sh
+```
+
+TODO
+
 ## Configuration
+
+## Exposing services at a domain
 
 ## Updating to a newer version
 
