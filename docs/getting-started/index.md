@@ -504,6 +504,12 @@ At the end, the setup shows a large overview of everything that was deployed.
 After you have set up the infrastructure and successfully exposed all required ports, you need to set up the plot
 servers.
 
+**Open MinIO console URL**
+
+Now, open your MinIO console url (example: https://s3-console.example.com) and log in using your MinIO credentials you've chosen.
+
+**Copy required plugins and set up your plot server template**
+
 TODO: opening minio console url, copying plugins
 
 ## Configuring the infrastructure
