@@ -186,7 +186,8 @@ If you want to learn more about the configuration options, please refer to the [
 
 Each of the step will be explained here and if you follow this guide, you will have a fully working infrastructure running.
 
----
+/// details | Setup Wizard full steps walkthrough
+    open: True
 
 **Step 1:** `Enter Helm release name`
 
@@ -477,7 +478,7 @@ Your choice: `y`
 
 *Yes, you want to deploy immediately.*
 
----
+///
 
 Now the setup starts deploying the infrastructure. If this shows up, you did well:
 ```
