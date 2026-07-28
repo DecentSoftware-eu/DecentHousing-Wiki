@@ -1,8 +1,8 @@
 nav:
   - Home:
     - index.md
-  - Getting Started:
-    - getting-started/index.md
+  - Installation:
+    - installation/index.md
   #- Commands:
   #  - commands/index.md
   #  - commands/permissions.md

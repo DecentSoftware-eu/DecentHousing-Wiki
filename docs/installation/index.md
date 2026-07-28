@@ -509,11 +509,92 @@ servers.
 
 Now, open your MinIO console url (example: https://s3-console.example.com) and log in using your MinIO credentials you've chosen.
 
+*(Copy them from the summary shown at the end of the setup wizard if you don't remember them)*
+
+![MinIO 1](/assets/images/setup/minio-1.png)
+
 **Copy required plugins and set up your plot server template**
 
-TODO: opening minio console url, copying plugins
+Now navigate to the `housing-server-template` in the navigation bar at the left and open it.
+
+![MinIO 2](/assets/images/setup/minio-2.png)
+
+*This is your space where you will upload assets you want your generated plot servers to have. If you upload any plugins
+in the plugins folder, they will be automatically copied to every plot server that is generated.*
+
+> You can use the `housing-server-template` to override any files that are in the server template by default.
+> For example, if you want to change the `server.properties` file, you can upload your own `server.properties` file to the `housing-server-template`
+> and it will be used instead of the default one.
+
+1. Copy the `Housing-Plot-<version>.jar` plugin from the `plugin/` folder of the archive you received to the `plugins/` folder
+in the `housing-server-template`.
+2. Copy a **dependency plugins*** to the `plugins/` folder in the `housing-server-template`.
+
+(*) Dependency plugins:
+
+- **FastAsyncWorldEdit**
+- **ProtocolLib**
+- **PlaceholderAPI**
+- **DecentHolograms**
+
+### Setting up Housing before first start
+
+Now if you wanna reach **global `config.global.yml` file** and other configuration files, head to the `housing-resources` bucket
+and edit anything you want.
+
+![MinIO 3](/assets/images/setup/minio-3.png)
+
+*(To edit the config files, you need to download them, edit them locally and upload them back.)*
+
+### Connecting your current Minecraft server to the infrastructure
+
+Now, you may be asking, how do we connect our current Minecraft server to the infrastructure we've just set up?
+Well, it's simple.
+
+**Connecting your proxy server**
+
+Currently, **the only supported proxy server software is BungeeCord**. If you are using any other proxy server software, you will
+need to switch to any BungeeCord fork or wait for future support. (which is planned)
+
+Steps to connect your proxy server:
+
+1. Copy the `Housing-Proxy-<version>.jar` plugin from the `plugin/` folder of the archive you received to the `plugins/` folder
+of your proxy server.
+2. Restart your proxy server.
+3. Fill up the `config.yml` file of the plugin with the connection details to your infrastructure.
+4. Restart your proxy server again.
+
+**Connecting you Lobby servers**
+
+Steps to connect your lobby servers:
+
+- Copy the `Housing-Lobby-<version>.jar` plugin from the `plugin/` folder of the archive you received to the `plugins/` folder
+of all your lobby servers from where you want your players to connect to the Housing.
+- Restart your lobby servers.
+- Fill up the `config.yml` file of the plugin with the connection details to your infrastructure.
+- Restart your lobby servers again.
+
+### Start plot servers
+
+Last step is to start the plot servers. You can do that by running the following:
+
+```bash
+cd chart/
+./manage.sh start-plots
+```
+
+If you've configured everything correctly, you should see a success message and in few moments, the plot servers
+should be appearing in your BungeeCord server list and your players should be able to connect to open plots.
+
+TODO: common mistakes and troubleshooting section
+
+---
 
 ## Configuring the infrastructure
+
+This section covers the most common configuration flows you may need.
+
+TODO
 
 ---
 
