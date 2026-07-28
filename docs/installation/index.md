@@ -117,7 +117,7 @@ from where the infrastructure will download them.
 DecentHousing requires a Docker Registry to store the app components. We'll walk you through the steps to set up
 a local registry with our **pre-built template**.
 
-First, download the template [here](assets/), unzip it and go to the folder where you unzipped it.
+First, download the template [here](/assets/misc/DecentHousing-Registry-Template-0.0.1.zip), unzip it and go to the folder where you unzipped it.
 
 Then, copy the example .env.example file to a new .env file and set a strong credentials that we'll use in the next
 sections:
@@ -586,6 +586,10 @@ cd chart/
 If you've configured everything correctly, you should see a success message and in few moments, the plot servers
 should be appearing in your BungeeCord server list and your players should be able to connect to open plots.
 
+---
+
+## Common mistakes and troubleshooting
+
 TODO: common mistakes and troubleshooting section
 
 ---
@@ -595,6 +599,10 @@ TODO: common mistakes and troubleshooting section
 This section covers the most common configuration flows you may need.
 
 TODO
+
+---
+
+## Securing the infrastructure
 
 ---
 

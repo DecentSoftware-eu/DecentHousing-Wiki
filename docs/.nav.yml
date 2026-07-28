@@ -1,7 +1,7 @@
 nav:
   - Home:
     - index.md
-  - Installation:
+  - Installation & Deployment:
     - installation/index.md
   #- Commands:
   #  - commands/index.md
