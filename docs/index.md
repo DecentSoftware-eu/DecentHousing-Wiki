@@ -17,7 +17,7 @@ publish them to the public.
 
 Are you ready to set up DecentHousing on your server? Get started with these guides:
 
-*   [**Getting Started**](installation/index.md) – Step-by-step instructions on how to install the platform on your network.
+*   [**Installation & Deployment**](installation/index.md) – Step-by-step instructions on how to install the platform on your network.
 
 ---
 
