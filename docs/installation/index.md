@@ -14,14 +14,8 @@ Before you can use DecentHousing, ensure you have the following:
 
 - At least one **dedicated Linux server** with a min. of **16GB RAM** and **8-CPU cores**.
 - **Docker** v29.6.1+ ([Installation Guide](https://docs.docker.com/engine/install/))
-- **Kubernetes** v1.28+
-- **Helm** v3.17+
-
-Recommended infrastructure requirements:
-
-- A running **MariaDB** instance v10.11+
-- A running **Redis** instance v7.0+
-- A running **RabbitMQ** instance v3.12+
+- **Kubernetes** v1.28+ (Installation down below)
+- **Helm** v3.17+ (Installation down below)
 
 Recommended specs for a smooth production experience on **one node**:
 
@@ -134,6 +128,14 @@ Now, start the registry by running the following command:
 docker compose up -d
 ```
 
+**Expose registry at a subdomain**
+
+It is necessary to expose the registry at a subdomain so that the Kubernetes cluster can pull the images from it.
+If you skip this step, you will need to set up an unsafe access from the cluster to the registry, which is not recommended.
+
+**Go to the [Exposing services at a domain](configuration/exposing-services.md) guide** and expose the port you've set
+for the registry (default: 5050) at a subdomain of your liking (for example registry.example.com).
+
 **Push apps to the Docker Registry**
 
 Now navigate to the `apps/` folder and run the `repo-login.sh` script to log in to your Docker Registry.
@@ -143,11 +145,10 @@ After that, run the `repo-update.sh` script to build and push all the apps to th
 cd apps/
 ```
 
-(Optional) If you have started up the local Docker Registry somewhere else than `localhost:5050`, you will need to set the registry
-address in the `repo.txt` file before running the scripts.
+Put the repo address to the `repo.txt` file before running the scripts.
 
 ```bash
-echo "localhost:5050" >> repo.txt
+echo "registry.example.com" > repo.txt
 ```
 
 Now after you have started up the registry and set the registry address, run the following commands:
@@ -155,25 +156,20 @@ Now after you have started up the registry and set the registry address, run the
 ```bash
 # set your credentials that you used when starting the registry
 ./repo-login.sh your-registry-username your-registry-password
+# push the version to the registry
 ./repo-update.sh
 ```
 
 This log-ins you to the local docker registry and pushes all apps from the apps/ folder to the registry.
-
-**Expose registry at a subdomain**
-
-It is necessary to expose the registry at a subdomain so that the Kubernetes cluster can pull the images from it.
-If you skip this step, you will need to set up an unsafe access from the cluster to the registry, which is not recommended.
-
-**Go to the [Exposing services at a domain](configuration/exposing-services.md) guide** and expose the port you've set
-for the registry (default: 5050) at a subdomain of your liking (for example registry.example.com).
 
 ### Deployment
 
 Now we're finally ready to configure and start DecentHousing. Navigate to the `chart/` folder and run the `setup.sh` script to configure the platform.
 
 ```bash
-cd chart/
+cd ../chart/
+# create kubernetes namespace first
+kubectl create namespace housing
 ./setup.sh
 ```
 
@@ -187,7 +183,7 @@ If you want to learn more about the configuration options, please refer to the [
 Each of the step will be explained here and if you follow this guide, you will have a fully working infrastructure running.
 
 /// details | Setup Wizard full steps walkthrough
-    open: True
+    open: False
 
 **Step 1:** `Enter Helm release name`
 
@@ -229,72 +225,63 @@ Your choice: `your-registry-password` (the password you set up for the registry)
 
 **Step 7:** `Use internal Redis?`
 
-Your choice: `n`
+Your choice: `y`
 
 *In this step, you can choose to use an internal Redis instance or an external one. If you have an external Redis instance
-running (which we suppose), choose `n` and set the connection details in the next steps. If you choose `y`, you will need
-to expose the port of the internal Redis to your proxy server (BungeeCord) using the
-[Exposing services at a domain](configuration/exposing-services.md) guide.*
+running, choose `n` and set the connection details in the next steps.
 
-**Step 8:** `Redis host`
-
-Your choice: `123.456.789.123` (the host/IP of your Redis instance)
-
-*In this step, you need to set the host/IP of your Redis instance.*
-
-**Step 9:** `Redis port`
-
-Your choice: `6379` (the port of your Redis instance)
-
-**Step 10:** `Redis username`
-
-Your choice: `your-redis-username` (the username of your Redis instance, or enter if you don't have one)
-
-*In this step, you need to set the username of your Redis instance, or leave it empty if you don't have one.*
-
-**Step 11:** `Redis password`
-
-Your choice: `your-redis-password` (the password of your Redis instance, or enter if you don't have one)
-
-*In this step, you need to set the password of your Redis instance, or leave it empty if you don't have one.*
-
-**Step 12:** `Use internal RabbitMQ?`
+**Step 8:** `Expose Redis via Ingress?`
 
 Your choice: `n`
 
+**Step 9:** `Expose Redis via NodePort?`
+
+Your choice: `y`
+
+**Step 10:** `NodePort to expose Redis on`
+
+Your choice: `30090` (default)
+
+Now, you need to set the port the Housing Redis will listen on your machine(s). This port should be properly secured behind
+firewall.
+
+**Step 11:** `Use internal RabbitMQ?`
+
+Your choice: `y`
+
 *In this step, you can choose to use an internal RabbitMQ instance or an external one. If you have an external RabbitMQ instance
-running (which we suppose), choose `n` and set the connection details in the next steps. If you choose `y`, you will need to expose the port of the internal RabbitMQ to your proxy server (BungeeCord) using the
-[Exposing services at a domain](configuration/exposing-services.md) guide.*
+running, choose `n` and set the connection details in the next steps.
 
-**Step 13:** `RabbitMQ host`
+**Step 12:** `RabbitMQ username`
 
-Your choice: `123.456.789.123` (the host/IP of your RabbitMQ instance)
-
-*In this step, you need to set the host/IP of your RabbitMQ instance.*
-
-**Step 14:** `RabbitMQ port`
-
-Your choice: `5672` (the port of your RabbitMQ instance)
-
-*In this step, you need to set the port of your RabbitMQ instance.*
-
-**Step 15:** `RabbitMQ username`
-
-Your choice: `your-rabbitmq-username` (the username of your RabbitMQ instance)
+Your choice: `housing` (default)
 
 *In this step, you need to set the username of your RabbitMQ instance.*
 
-**Step 16:** `RabbitMQ password`
+**Step 13:** `RabbitMQ virtual host`
 
-Your choice: `your-rabbitmq-password` (the password of your RabbitMQ instance)
-
-*In this step, you need to set the password of your RabbitMQ instance.*
-
-**Step 17:** `RabbitMQ virtual host`
-
-Your choice: `/` (the virtual host of your RabbitMQ instance)
+Your choice: `/` (default)
 
 *In this step, you need to set the virtual host of your RabbitMQ instance.*
+
+**Step 14:** `Expose RabbitMQ Management via Ingress?`
+
+Your choice: `n`
+
+**Step 15:** `Expose RabbitMQ via NodePort?`
+
+Your choice: `y`
+
+**Step 16:** `NodePort to expose RabbitMQ AMQP on`
+
+Your choice: `30672` (default)
+
+Now, you need to set the port the Housing RabbitMQ will listen on your machine(s). This port should be properly secured behind
+firewall.
+
+**Step 17:** `NodePort to expose RabbitMQ Management on`
+
+Your choice: `31672` (default)
 
 **Step 18:** `Use internal MinIO?`
 
@@ -344,27 +331,38 @@ If you have already a service running on this port, you need to pick a port from
 
 **Step 24:** `Use internal MariaDB?`
 
-Your choice: `n`
+Your choice: `y`
 
 *In this step, you can choose to use an internal MariaDB instance or an external one. If you have an external MariaDB instance
-running (which we suppose), choose `n` and set the connection details in the next steps. If you choose `y`, you will need to expose the port of the internal MariaDB to your proxy server (BungeeCord) using the
-[Exposing services at a domain](configuration/exposing-services.md) guide.*
+running, choose `n` and set the connection details in the next steps.
 
-**Step 25:** `Database URL`
+**Step 25:** `MariaDB username`
 
-Your choice: `mysql://mariadb-username:mariadb-password@mariadb-host:3306/housing` (database connection url)
+Your choice: `housing` (default)
 
-Format: `mysql://<username>:<password>@<host>:<port>/<database>`
-
-*Set up connection to your MariaDB instance using Database URL.*
-
-**Step 26:** `API key`
+**Step 26:** `MariaDB password`
 
 Your choice: `<generated>` (default)
 
-*A safe API key for api server will be auto-generated for you. Use that.*
+*A safe password for MariaDB will be auto-generated for you. Use that.*
 
-**Step 27:** `Expose API via Ingress?`
+**Step 27:** `Expose MariaDB via Ingress?`
+
+Your choice: `n`
+
+**Step 28:** `Expose MariaDB via NodePort?`
+
+Your choice: `y`
+
+**Step 29:** `NodePort to expose MariaDB on`
+
+Your choice: `30306` (default)
+
+**Step 30:** `API key`
+
+Your choice: `<generated>` (default)
+
+**Step 31:** `Expose API via Ingress?`
 
 Your choice: `n`
 
@@ -372,14 +370,14 @@ Your choice: `n`
 set up an Ingress controller on your Kubernetes cluster and configure it to expose the API service. Choose no, so we
 can expose the API service via a NodePort in the next step.*
 
-**Step 28:** `Expose API via NodePort?`
+**Step 32:** `Expose API via NodePort?`
 
 Your choice: `y`
 
 *In this step, you can choose to expose the API instance via NodePort. If you choose `y`, you will need to
 set up the port exposal, which we will do in the next step. If you choose `n`, the service won't be exposed at all.*
 
-**Step 29:** `NodePort to expose API on`
+**Step 33:** `NodePort to expose API on`
 
 Your choice: `30080` (default)
 
@@ -389,14 +387,14 @@ If you have already a service running on this port, you need to pick a port from
 **After setup, expose the port you've chose (30080) to a subdomain (for example housing-api.example.com by following
 [Exposing services at a domain](configuration/exposing-services.md) guide.**
 
-**Step 30:** `Enter core image tag (required)`
+**Step 34:** `Enter core image tag (required)`
 
 Your choice: `<housing-version>` (housing version you've downloaded)
 
 *Now you are prompted to enter the image tag that will be used for all core services when downloading from your
 docker registry. For example, if you downloaded `Housing-0.0.1.zip`, you will input `0.0.1` here.*
 
-**Step 31:** `Minecraft version to use for plots`
+**Step 35:** `Minecraft version to use for plots`
 
 Your choice: `<compatible-minecraft-version>` (a compatible version for your plots, example: 1.20.4)
 
@@ -407,7 +405,7 @@ If you choose unsupported version, the plot servers won't start.*
 
 - 1.20.4
 
-**Step 32:** `Number of free plots to keep`
+**Step 36:** `Number of free plots to keep`
 
 Your choice: `3` (number of plots to keep without plot loaded)
 
@@ -416,28 +414,28 @@ on for players switching plots to always have a server to load target plots on. 
 about this number as it may vary depending on your player count and intensity of players switching servers. This
 can be later re-configured. More about re-configuring values in the [Configuring the infrastructure](configuration/configuring-the-infrastructure.md) section.*
 
-**Step 33:** `Minimum number of plot servers to keep running`
+**Step 37:** `Minimum number of plot servers to keep running`
 
 Your choice: `3` (min. number of plot servers to keep even if they are not occupied)
 
 *This is a number of plot servers that will be guaranteed to be existing on your cluster no matter what. It is smart
 to set this to the same number as the `Number of free plots to keep` number so it syncs with the default behavior.*
 
-**Step 34:** `Maximum number of plot servers to run`
+**Step 38:** `Maximum number of plot servers to run`
 
 Your choice: `15` (max. number of plot server that are allowed to be existing at once in the cluster)
 
 *This number sets strict limits for number of your plot servers. Set this to a number that you assure that you
 never exceed your resources limits on your nodes/machines.*
 
-**Step 35:** `Is this a bare-metal environment without cloud autoscaling?`
+**Step 39:** `Is this a bare-metal environment without cloud autoscaling?`
 
 Your choice: `y`
 
 *In most cases, you set yes since you are running on your own dedicated servers. This may be disabled only if you
 are running in cloud environment, which wasn't even tested yet.*
 
-**Step 36:** `Enter node name (as shown in 'kubectl get nodes') or leave empty to finish`
+**Step 40:** `Enter node name (as shown in 'kubectl get nodes') or leave empty to finish`
 
 Your choice: `<node-name>` (node name from /kubectl get nodes)
 
@@ -455,30 +453,52 @@ ds1    Ready    <none>   174d   v1.32.13 # ds1 is your node name
 
 Input the first name.
 
-**Step 37:** `Enter IP address or hostname to access this node`
+**Step 41:** `Enter IP address or hostname to access this node`
 
 Your choice: `<ip-of-your-machine>` (ip of your machine you are setting this on, example: 123.456.789.123)
 
 *Here, you need to input the IP address of the previously picked node. Since we picked this node/machine, we need to
 input this machine's IP.*
 
-**Step 38:**
+**Step 42:**
 
 Just enter to skip adding second machine.
 
-**Step 39:** `Start plot servers immediately after this setup? (not recommended on first setup)`
+**Step 43:** `Start plot servers immediately after this setup? (not recommended on first setup)`
 
 Your choice: `n`
 
 *As the prompt suggests, you shouldn't start the plot servers yet since we don9t have set up plugins, etc.*
 
-**Step 40:** `Deploy immediately after this setup?`
+**Step 44:** `Deploy immediately after this setup?`
 
-Your choice: `y`
+Your choice: `n`
 
-*Yes, you want to deploy immediately.*
+*No, you don't want to deploy immediately, yet.*
 
 ///
+
+At the end, the setup shows a large overview of everything that was deployed. You can always show it again using
+the `manage.sh` script:
+
+```bash
+./manage.sh describe --sensitive
+```
+
+**Finalize setup**
+
+Now, please **set subdomain for MinIO and hide all exposed ports (where you set Expose via NodePort) behind firewall so
+they are not accessible from the outer internet.** We don't take any responsibility for your misconfigured infrastructure
+or security.
+
+Here is the [Exposing services at a domain](configuration/exposing-services.md) guide.
+
+**Start up the infrastructure**
+
+After you have properly secured every port and subdomain, run this:
+```bash
+./manage.sh deploy
+```
 
 Now the setup starts deploying the infrastructure. If this shows up, you did well:
 ```
@@ -496,9 +516,7 @@ TEST SUITE: None
 ✔ Deployed/Upgraded
 ```
 
-At the end, the setup shows a large overview of everything that was deployed.
-**Now it's your turn to expose all ports you were asked to expose in this setup using the
-[Exposing services at a domain](configuration/exposing-services.md) guide.**
+All services are running now based on your configuration. You are now ready to move to the next step.
 
 ### Setting up the plot servers
 
@@ -537,7 +555,7 @@ in the `housing-server-template`.
 - **PlaceholderAPI**
 - **DecentHolograms**
 
-### Setting up Housing before first start
+### Changing global configuration
 
 Now if you wanna reach **global `config.global.yml` file** and other configuration files, head to the `housing-resources` bucket
 and edit anything you want.
@@ -564,7 +582,7 @@ of your proxy server.
 3. Fill up the `config.yml` file of the plugin with the connection details to your infrastructure.
 4. Restart your proxy server again.
 
-**Connecting you Lobby servers**
+**Connecting your Lobby servers**
 
 Steps to connect your lobby servers:
 
@@ -574,7 +592,7 @@ of all your lobby servers from where you want your players to connect to the Hou
 - Fill up the `config.yml` file of the plugin with the connection details to your infrastructure.
 - Restart your lobby servers again.
 
-### Start plot servers
+### Starting plot servers
 
 Last step is to start the plot servers. You can do that by running the following:
 
@@ -585,87 +603,6 @@ cd chart/
 
 If you've configured everything correctly, you should see a success message and in few moments, the plot servers
 should be appearing in your BungeeCord server list and your players should be able to connect to open plots.
-
----
-
-## Common mistakes and troubleshooting
-
-This section covers the most common mistakes and troubleshooting steps you may need.
-
-### Misconfigured node access address
-
-If you can't connect to your plot servers from the lobby server, one of the most common causes may be misconfigured
-IP address in the **Step #37 of setup wizard**.
-
-The IP address provided in the setup wizard must be **the address that your proxy server registers** for redirecting players.
-So, if your proxy server is running on a different machine than the node, you need to provide the **public IP address** of the node,
-or cover your machines in the same network and use the **private IP address** of the node.
-
-**Think about it like this:**
-
-If you configure BungeeCord, you add Minecraft servers to the configuration so your players can connect to them. Housing
-is doing the same thing, but dynamically, at runtime. So in this step you are basically telling him which IP address to
-use for plots that will be generated on the specific machine (node).
-
-**How to resolve the issue**
-
-To resolve this issue, you need to change the configured IP address. Follow the [Changing configuration provided in the wizard]() guide
-to change this in `values-produced.yaml` file:
-
-```
-controller:
-  bareMetalEnvironment:
-    enabled: true
-    nodeExternalAddressMappings:
-      ds1: "123.456.789.123"   # <- Change this to the correct (accessible from proxy) IP address of your machine
-```
-
----
-
-## Configuring the infrastructure
-
-This section covers the most common configuration flows you may need.
-
-TODO
-
-### Changing .global files
-
-### Changing configuration provided in the wizard
-
-The setup wizard introduced in the [First Installation](#first-installation) section generates a `values-produced.yaml` file
-that contains just some of the possible configuration that you may want to set up. If you want to change some of the values,
-you need to follow this section to do it properly.
-
-Files of infrastructure configuration:
-
-- `chart/values.yaml` - contains (all, and) the default configuration values.
-- `chart/values-produced.yaml` - contains the configuration generated by the setup wizard. You can change values here, but
-  please be aware that if you run the `setup.sh` script again, this file will be overwritten and your changes will be lost.
-  Values here overwrite the values in the `values.yaml` file.
-
-There are 2 situations:
-
-- The configuration you want to change is **not in the `values-produced.yaml` file**.
-- The configuration you want to change is there.
-
-In the first case, you need to add it in the `values-produced.yaml` file. In the second case, you can
-change it directly in the `values-produced.yaml` file.
-
-After you edit your settings, you need to **redeploy the infrastructure**. If you've already run the wizard, you
-can do it by running the `manage.sh` script in the `chart/` folder:
-
-```bash
-cd chart/
-./manage.sh deploy
-```
-
----
-
-## Securing the infrastructure
-
----
-
-## Updating to a newer version
 
 ---
 
@@ -748,6 +685,88 @@ sudo certbot --nginx -d s3.example.com
 Aand that's it! 🔥 You should now be able to access the service on the subdomain you configured.
 
 > Is your service HTTP? Test that you are able to access the service by opening a browser and navigating to `https://s3.example.com`.
+
+
+---
+
+## Common mistakes and troubleshooting
+
+This section covers the most common mistakes and troubleshooting steps you may need.
+
+### Misconfigured node access address
+
+If you can't connect to your plot servers from the lobby server, one of the most common causes may be misconfigured
+IP address in the **Step #37 of setup wizard**.
+
+The IP address provided in the setup wizard must be **the address that your proxy server registers** for redirecting players.
+So, if your proxy server is running on a different machine than the node, you need to provide the **public IP address** of the node,
+or cover your machines in the same network and use the **private IP address** of the node.
+
+**Think about it like this:**
+
+If you configure BungeeCord, you add Minecraft servers to the configuration so your players can connect to them. Housing
+is doing the same thing, but dynamically, at runtime. So in this step you are basically telling him which IP address to
+use for plots that will be generated on the specific machine (node).
+
+**How to resolve the issue**
+
+To resolve this issue, you need to change the configured IP address. Follow the [Changing configuration provided in the wizard]() guide
+to change this in `values-produced.yaml` file:
+
+```
+controller:
+  bareMetalEnvironment:
+    enabled: true
+    nodeExternalAddressMappings:
+      ds1: "123.456.789.123"   # <- Change this to the correct (accessible from proxy) IP address of your machine
+```
+
+---
+
+## Configuring the infrastructure
+
+This section covers the most common configuration flows you may need.
+
+TODO
+
+### Changing .global files
+
+### Changing configuration provided in the wizard
+
+The setup wizard introduced in the [First Installation](#first-installation) section generates a `values-produced.yaml` file
+that contains just some of the possible configuration that you may want to set up. If you want to change some of the values,
+you need to follow this section to do it properly.
+
+Files of infrastructure configuration:
+
+- `chart/values.yaml` - contains (all, and) the default configuration values.
+- `chart/values-produced.yaml` - contains the configuration generated by the setup wizard. You can change values here, but
+  please be aware that if you run the `setup.sh` script again, this file will be overwritten and your changes will be lost.
+  Values here overwrite the values in the `values.yaml` file.
+
+There are 2 situations:
+
+- The configuration you want to change is **not in the `values-produced.yaml` file**.
+- The configuration you want to change is there.
+
+In the first case, you need to add it in the `values-produced.yaml` file. In the second case, you can
+change it directly in the `values-produced.yaml` file.
+
+After you edit your settings, you need to **redeploy the infrastructure**. If you've already run the wizard, you
+can do it by running the `manage.sh` script in the `chart/` folder:
+
+```bash
+cd chart/
+./manage.sh deploy
+```
+
+---
+
+## Securing the infrastructure
+
+---
+
+## Updating to a newer version
 
 ---
 
