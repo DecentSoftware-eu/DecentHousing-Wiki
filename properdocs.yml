@@ -84,8 +84,8 @@ plugins:
         #general/actions.md: features/actions.md
         #general/flags.md: features/flags.md
         # API Pages redirects
-        "api/basic-usage/dhapi.md": "api/dhapi.md"
-        "api/basic-usage/faq.md": "api/faq.md"
+        #api/basic-usage/dhapi.md: api/dhapi.md
+        #api/basic-usage/faq.md: api/faq.md
 
 markdown_extensions:
   # Already included extensions
@@ -128,4 +128,3 @@ hooks:
 
 not_in_nav: |
   general/index.md
-  api/index.md

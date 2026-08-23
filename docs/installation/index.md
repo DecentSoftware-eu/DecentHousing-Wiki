@@ -9,7 +9,7 @@ Welcome to the DecentHousing installation and deployment guide. Please choose a 
 Check system requirements, follow the step-by-step wizard deployment instructions, and learn how to expose services under a subdomain.
 
 ### ⚙️ [Configuration](configuration.md)
-Understand how to work with configuration files like `values.yaml` and `values-produced.yaml`.
+Understand how to work with configuration files.
 
 ### 🛡️ [Security](securing.md)
 Learn how to secure the DecentHousing infrastructure.

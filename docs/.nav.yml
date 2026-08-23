@@ -78,12 +78,7 @@ nav:
   #- Guides:
   #  - guides/index.md
   #  - guides/*.md
-  #- API:
-  #  - api/get-started.md
-  #  - api/faq.md
-  #  - Events:
-  #    - api/events/*.md
-  #  - api/**/*.md
+
   #- Modrinth: 'https://modrinth.com/plugin/decentholograms'
   #- Spigot: 'http://decentholograms.eu/'
   - Discord: 'https://discord.decentsoftware.eu/'

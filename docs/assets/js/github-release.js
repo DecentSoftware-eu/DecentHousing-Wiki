@@ -10,7 +10,7 @@ document$.subscribe(async () => {
     }
     
     async function fetchApiInfo() {
-        const tag = await fetch("https://api.github.com/repos/decentsoftware-eu/DecentHolograms/releases/latest").then(_ => _.json());
+        const tag = await fetch("https://api.github.com/repos/DecentSoftware-eu/Housing/releases/latest").then(_ => _.json());
         
         const data = {
             "version": tag.tag_name
