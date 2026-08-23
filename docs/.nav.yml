@@ -3,6 +3,11 @@ nav:
     - index.md
   - Installation & Deployment:
     - installation/index.md
+    - installation/first-install.md
+    - installation/configuration.md
+    - installation/securing.md
+    - installation/updating.md
+    - installation/troubleshooting.md
   #- Commands:
   #  - commands/index.md
   #  - commands/permissions.md
