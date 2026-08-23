@@ -10,11 +10,9 @@ def define_env(env):
 
             return "\n".join(strings)
         
-        strings.append(f"- `dh.command.{command}`")
-
+        strings.append(f"- `housing.command.{command}`")
         if subcommand and subcommand != "":
-            strings.append(f"- `dh.command.{command}.{subcommand}`")
-        
+            strings.append(f"- `housing.command.{command}.{subcommand}`")
         strings.extend(["", "<small>See the [Permissions](/commands/permissions.md) page for more details.</small>"])
         return "\n".join(strings)
 

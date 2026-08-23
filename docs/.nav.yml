@@ -8,29 +8,73 @@ nav:
     - installation/securing.md
     - installation/updating.md
     - installation/troubleshooting.md
-  #- Commands:
-  #  - commands/index.md
-  #  - commands/permissions.md
-  #  - commands/*.md
-  #  - /dh displays:
-  #    - commands/displays/*.md
-  #  - /dh features:
-  #    - commands/features/*.md
-  #  - /dh hologram:
-  #    - commands/hologram/*.md
-  #  - /dh lines:
-  #    - commands/hologram-lines/*.md
-  #  - /dh pages:
-  #    - commands/hologram-pages/*.md
+  - Commands:
+    - commands/index.md
+    - Plot Commands:
+      - commands/plot/menu.md
+      - commands/plot/ban.md
+      - commands/plot/unban.md
+      - commands/plot/kick.md
+      - commands/plot/mute.md
+      - commands/plot/unmute.md
+      - commands/plot/banlist.md
+      - commands/plot/mutelist.md
+      - commands/plot/mutechat.md
+      - commands/plot/tp.md
+      - commands/plot/clearinv.md
+      - commands/plot/vote.md
+      - commands/plot/gm.md
+      - commands/plot/spawn.md
+      - commands/plot/setspawn.md
+      - Plot Admin:
+        - commands/plot/admin/build-area-factor.md
+        - commands/plot/admin/player-limit.md
+        - commands/plot/admin/roles-limit.md
+        - commands/plot/admin/item.md
+        - commands/plot/admin/vote.md
+        - commands/plot/admin/feature.md
+    - Housing Commands:
+      - commands/housing/browse.md
+      - commands/housing/search.md
+      - commands/housing/profile.md
+      - commands/housing/visit.md
+      - commands/housing/jumpto.md
+      - commands/housing/myplots.md
+      - commands/housing/plot-join.md
+      - commands/housing/plot-copy-id.md
+      - commands/housing/callback.md
+      - commands/housing/changelog.md
+      - commands/housing/dynamic.md
+      - commands/housing/top.md
+      - commands/housing/hub.md
+      - commands/housing/balance.md
+      - commands/housing/pay.md
+      - Housing Admin:
+        - commands/housing/admin/user.md
+        - commands/housing/admin/package.md
+        - commands/housing/admin/plot.md
+        - commands/housing/admin/economy.md
+        - commands/housing/admin/tags.md
+        - commands/housing/admin/reload.md
   #- Configuration:
   #  - configuration/index.md
   #  - configuration/*.md
-  #- Features:
-  #  - features/index.md
-  #  - features/actions.md
-  #  - Animations:
-  #    - features/animations/*.md
-  #  - features/*.md
+  - Features:
+    - features/index.md
+    - features/feature.md
+    - features/package.md
+    - features/item.md
+    - features/item-selector.md
+    - features/locked-item.md
+    - features/custom-item.md
+    - features/tag.md
+    - features/economy.md
+    - features/amplifier.md
+    - Use Cases:
+      - features/use-cases/worldedit.md
+      - features/use-cases/unlockable-items.md
+      - features/use-cases/custom-packages.md
+      - features/use-cases/milestones.md
   #- Guides:
   #  - guides/index.md
   #  - guides/*.md

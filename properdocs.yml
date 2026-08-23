@@ -65,24 +65,24 @@ plugins:
       redirect_maps:
         # General pages redirects
         "general/setup.md": "guides/first-hologram.md"
-        "general/compatability.md": "features/compatability.md"
-        "general/format-and-colors/index.md": "features/line-content.md"
-        "general/format-and-colors/colors.md.md": "features/line-content.md"
+        #general/compatability.md: features/compatability.md
+        #general/format-and-colors/index.md: features/line-content.md
+        #general/format-and-colors/colors.md.md: features/line-content.md
         "general/commands/index.md": "commands/index.md"
         "general/commands/general.md": "commands/index.md"
-        "general/commands/features.md": "commands/features/index.md"
-        "general/commands/hologram.md": "commands/hologram/index.md"
-        "general/commands/hologram-line.md": "commands/hologram-lines/index.md"
-        "general/commands/hologram-page.md": "commands/hologram-pages/index.md"
+        #general/commands/features.md: commands/features/index.md
+        #general/commands/hologram.md: commands/hologram/index.md
+        #general/commands/hologram-line.md: commands/hologram-lines/index.md
+        #general/commands/hologram-page.md: commands/hologram-pages/index.md
         "general/configuration/index.md": "configuration/index.md"
         "general/configuration/config.md": "configuration/config.md"
-        "general/configuration/animation.md": "features/animations/custom-animations.md"
+        #general/configuration/animation.md: features/animations/custom-animations.md
         "general/configuration/features.md": "configuration/config.md"
         "general/configuration/hologram.md": "configuration/hologram.md"
         "general/configuration/lang.md": "configuration/lang.md"
-        "general/animations.md": "features/animations/index.md"
-        "general/actions.md": "features/actions.md"
-        "general/flags.md": "features/flags.md"
+        #general/animations.md: features/animations/index.md
+        #general/actions.md: features/actions.md
+        #general/flags.md: features/flags.md
         # API Pages redirects
         "api/basic-usage/dhapi.md": "api/dhapi.md"
         "api/basic-usage/faq.md": "api/faq.md"
