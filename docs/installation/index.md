@@ -5,8 +5,6 @@ description: Installation & deployment walkthrough
 
 Welcome to the DecentHousing installation and deployment guide. Please choose a step from the list below to begin.
 
----
-
 ### 🚀 [First Installation & Prerequisites](first-install.md)
 Check system requirements, follow the step-by-step wizard deployment instructions, and learn how to expose services under a subdomain.
 
