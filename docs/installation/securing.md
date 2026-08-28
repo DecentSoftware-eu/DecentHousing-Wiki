@@ -1,5 +1,5 @@
 ---
-title: Securing the Infrastructure
+title: Security
 description: How to secure the DecentHousing infrastructure
 ---
 

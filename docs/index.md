@@ -24,7 +24,5 @@ Are you ready to set up DecentHousing on your server? Get started with these gui
 ### Support & Community
 
 /// html | div.grid.cards
-- [:simple-github: GitHub Repository](https://github.com/DecentSoftware-eu/DecentHousing){ target="_blank" rel="noopener" }
-- [:octicons-bug-24: Issue Tracker](https://github.com/DecentSoftware-eu/DecentHousing/issues){ target="_blank" rel="noopener" }
 - [:simple-discord: Discord Server](https://discord.decentsoftware.eu){ target="_blank" rel="noopener" }
 ///

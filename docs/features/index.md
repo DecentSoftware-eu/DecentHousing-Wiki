@@ -6,6 +6,7 @@ description: Features of DecentHousing
 Welcome to the DecentHousing Features section. Below is an overview of the core features and guides:
 
 ### Core Features
+- [Plot](plot.md)
 - [Feature](feature.md)
 - [Package](package.md)
 - [Item](item.md)

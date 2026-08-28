@@ -61,6 +61,7 @@ nav:
   #  - configuration/*.md
   - Features:
     - features/index.md
+    - features/plot.md
     - features/feature.md
     - features/package.md
     - features/item.md
