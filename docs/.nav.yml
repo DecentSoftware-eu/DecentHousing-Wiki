@@ -13,7 +13,9 @@ nav:
   #  - configuration/*.md
   - Features:
     - features/index.md
-    - features/plot.md
+    - Plot:
+      - features/plot/index.md
+      - features/plot/build-area-factor.md
     - features/feature.md
     - features/package.md
     - features/item.md

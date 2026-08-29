@@ -11,7 +11,7 @@ to know how to apply the changes.
 Below is an overview of the core features and guides:
 
 ### Core Features
-- [Plot](plot.md)
+- [Plot](plot/index.md)
 - [Feature](feature.md)
 - [Package](package.md)
 - [Item](item.md)
