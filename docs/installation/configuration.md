@@ -5,15 +5,20 @@ description: How to configure the DecentHousing infrastructure
 
 Now after you have installed Housing, you may want to configure it to fit your needs.
 
-Please go to [Features](../features) to see the available features and their configuration options and use this page
+> Please **go to [Features](../features)** to see the available features and their configuration options and use this page
 to understand how to apply different changes.
 
 ## Using in-game commands
 
-Some features are configurable via in-game commands. In that case it's quite simple, all changes are applied immediately,
+Some features are configurable via in-game commands. In that case it's quite simple, **all changes are applied immediately**,
 so you usually don't need to do anything else. Please refer to [Commands](../commands) for list of all available commands.
 
 ## Changing .global files
+
+.global files are shared across whole housing infrastructure. After configuring them, you need to **restart your servers** to
+apply the changes.
+
+TODO
 
 ## Changing configuration provided in the wizard
 
