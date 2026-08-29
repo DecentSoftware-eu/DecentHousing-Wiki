@@ -15,10 +15,23 @@ so you usually don't need to do anything else. Please refer to [Commands](../com
 
 ## Changing .global files
 
-.global files are shared across whole housing infrastructure. After configuring them, you need to **restart your servers** to
-apply the changes.
+.global files are shared across whole housing infrastructure. They are located in your MinIO dashboard. After configuring them, 
+you need to **restart your servers** to apply the changes.
 
-TODO
+To restart plot servers after changing .global files, use the `manage.sh` script in the `chart/` folder:
+
+```bash
+cd chart/
+./manage.sh restart-plots
+```
+
+Also restart all your (lobby) servers where you have housing plugin installed, to apply the changes there as well.
+
+## Changing housing-server-template files
+
+After changing the plot server template, you need to restart the plot servers to apply the changes.
+
+See [Changing .global files](#changing-global-files) section.
 
 ## Changing configuration provided in the wizard
 
