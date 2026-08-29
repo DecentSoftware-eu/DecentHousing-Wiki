@@ -62,6 +62,10 @@ defaults-config:
 ```
 ///
 
+## Stored files
+
+Plots are stored in the `housing-plots` bucket in your MinIO instance.
+
 ## Subsections
 
 - [Build area factor](build-area-factor.md) - The build area factor is an (optional) percentage of the template build area size that is allowed to be built on a plot. It can be extended up to 1.0 (100%).
