@@ -11,9 +11,11 @@ hide_icon: true
 DecentHousing is a highly advanced creative game mode which allows players to create their own plots on floating islands and
 publish them to the public.
 
+TODO: introduction video/trailer
+
 ---
 
-Useful links:
+Table of Contents
 
 *   [**Installation & Deployment**](installation/index.md) – Step-by-step instructions on how to install the platform on your network.
 *   [**Features**](features/index.md) – Overview of the available features and their configuration options.
