@@ -16,6 +16,9 @@ nav:
     - Plot:
       - features/plot/index.md
       - features/plot/build-area-factor.md
+    - User:
+      - features/user/index.md
+      - features/user/plot-limit.md
     - features/feature.md
     - features/package.md
     - features/item.md

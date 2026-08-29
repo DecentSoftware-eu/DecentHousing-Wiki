@@ -3,9 +3,8 @@ title: Plot
 description: Plot module
 ---
 
-A plot represents one land that belongs to one player. Player can have as many plots as his limit allows.
-
-// TODO: link from "limit" word to User#plot limit section
+A plot represents one land that belongs to one player. Player can have as many plots as his
+[limit](../user/plot-limit.md) allows, or extend that count by force-creating plot using admin commands.
 
 ## Configuration
 
@@ -14,6 +13,8 @@ using the plot menu ([/plot menu](../../commands/plot/menu.md)).
 
 Defaults are set in the `config.global.yml` file:
 
+/// details | config.global.yml
+    open: False
 ```yaml
 # A defaults for plots on your Housing network.
 # Some of them can be extended by plot owners by purchasing packages.
@@ -59,6 +60,7 @@ defaults-config:
         permissions:
           - WHITELIST
 ```
+///
 
 ## Subsections
 
