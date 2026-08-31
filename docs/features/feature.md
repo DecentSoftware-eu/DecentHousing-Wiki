@@ -19,10 +19,10 @@ A feature can add many functionalities to a plot, like:
 - New per-plot permissions for plot's custom groups
 - New commands
 - New menus in the 'Other' menu
-- New plot settings in the 'Other settings' menu
+- New plot settings in the 'Settings' menu
 - New region flags
 
-To **force-unlock a feature** on a plot, use the [/plot admin feature](../commands/plot/admin/feature.md) activate command.
+To **force-activate a feature** on a plot, use the [/plot admin feature](../commands/plot/admin/feature.md) activate command.
 
 > Hint: You can set a feature `buyable` setting to false and then create a [Package](package.md) that runs the
 > activate command. That way, you can **make a feature activation a reward from crates or sell it on your store**.
