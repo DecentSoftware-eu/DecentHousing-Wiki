@@ -16,6 +16,8 @@ nav:
     - Plot:
       - features/plot/index.md
       - features/plot/build-area-factor.md
+      - features/plot/player-limit.md
+      - features/plot/roles-limit.md
     - User:
       - features/user/index.md
       - features/user/plot-limit.md
@@ -28,11 +30,6 @@ nav:
     - features/tag.md
     - features/economy.md
     - features/amplifier.md
-    - Use Cases:
-      - features/use-cases/worldedit.md
-      - features/use-cases/unlockable-items.md
-      - features/use-cases/custom-packages.md
-      - features/use-cases/milestones.md
   - Commands:
       - commands/index.md
       - Plot Commands:
@@ -81,9 +78,16 @@ nav:
               - commands/housing/admin/economy.md
               - commands/housing/admin/tags.md
               - commands/housing/admin/reload.md
-  #- Guides:
-  #  - guides/index.md
-  #  - guides/*.md
+  - Guides:
+    - guides/index.md
+    - guides/worldedit.md
+    - guides/unlockable-items.md
+    - guides/custom-packages.md
+    - guides/milestones.md
+  - Other:
+    - other/index.md
+    - Config conventions:
+        - other/config-conventions/price.md
 
   #- Modrinth: 'https://modrinth.com/plugin/decentholograms'
   #- Spigot: 'http://decentholograms.eu/'

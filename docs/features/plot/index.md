@@ -8,13 +8,13 @@ A plot represents one land that belongs to one player. Player can have as many p
 
 ## Configuration
 
-Basic plot management like creating, deleting is done by commands ([/housing admin plot](../../commands/housing/admin/plot.md)) or by
-using the plot menu ([/plot menu](../../commands/plot/menu.md)).
+Admins use commands [/housing admin plot](../../commands/housing/admin/plot.md) and [/plot admin](../../commands/plot/admin/build-area-factor.md) (on the plot)
+to configure plots.
+
+Plot owners and players with plot permissions use [/plot menu](../../commands/plot/menu.md) (on the plot).
 
 Defaults are set in the `config.global.yml` file:
 
-/// details | config.global.yml
-    open: False
 ```yaml
 # A defaults for plots on your Housing network.
 # Some of them can be extended by plot owners by purchasing packages.
@@ -60,7 +60,6 @@ defaults-config:
         permissions:
           - WHITELIST
 ```
-///
 
 ## Stored files
 

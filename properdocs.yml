@@ -64,7 +64,12 @@ plugins:
   - redirects:
       redirect_maps:
         # General pages redirects
-        "general/setup.md": "guides/first-hologram.md"
+        "general/setup.md": "guides/index.md"
+        # Moved Use Cases redirects
+        "features/use-cases/worldedit.md": "guides/worldedit.md"
+        "features/use-cases/unlockable-items.md": "guides/unlockable-items.md"
+        "features/use-cases/custom-packages.md": "guides/custom-packages.md"
+        "features/use-cases/milestones.md": "guides/milestones.md"
         #general/compatability.md: features/compatability.md
         #general/format-and-colors/index.md: features/line-content.md
         #general/format-and-colors/colors.md.md: features/line-content.md
