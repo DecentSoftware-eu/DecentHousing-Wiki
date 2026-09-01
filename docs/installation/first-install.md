@@ -336,18 +336,12 @@ Your choice: `30900` (default)
 *In this step, you can choose the NodePort to expose the internal MinIO API instance. The default is `30900`, which is a good choice.
 If you have already a service running on this port, you need to pick a port from the 30000–32767 range.*
 
-**After setup, expose the port you've chose (30900) to a subdomain (for example s3-api.example.com by following
-[Exposing services at a domain](#exposing-services-at-a-domain) guide.**
-
 **Step 22:** `NodePort to expose MinIO Console on`
 
 Your choice: `30901` (default)
 
 *In this step, you can choose the NodePort to expose the internal MinIO Console instance. The default is `30901`, which is a good choice.
 If you have already a service running on this port, you need to pick a port from the 30000–32767 range.*
-
-**After setup, expose the port you've chose (30901) to a subdomain (for example s3-console.example.com by following
-[Exposing services at a domain](#exposing-services-at-a-domain) guide.**
 
 **Step 23:** `Use internal MariaDB?`
 
