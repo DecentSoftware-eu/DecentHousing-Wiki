@@ -42,7 +42,9 @@ provides some tools under the hood that automatically manage processes like lead
 
 For production, we recommend **MicroK8s**, which is a lightweight, very easy-to-install Kubernetes distribution.
 
-Installation guide: [here](https://canonical.com/microk8s#install-microk8s).
+→ Installation guide: [here](https://canonical.com/microk8s#install-microk8s).
+
+> Note: You **don't need to enable any addons** from the MicroK8s installation guide.
 
 **Remap kubectl command**
 
@@ -66,8 +68,8 @@ source ~/.bashrc
 When you buy DecentHousing, or download a version, you receive a `.zip` archive containing all the necessary files
 associated with that version, along with all configuration files needed to deploy the platform.
 
-### Structure of the received archive
-
+/// details | Structure of the received archive
+    open: False
 ```
 Housing-0.0.1.zip
 ├── apps/ ───────────────────────── [1]
@@ -98,6 +100,22 @@ Housing-0.0.1.zip
 | **`[2.1]`**   | Deployment manager.           | A tool for managing the deployed infrastructure.                                                                                   |
 | **`[2.2]`**   | Installation script.          | Initial setup script.                                                                                                              |
 | **`[3]`**     | Minecraft plugins.            | Contains the compiled plugins ready to be loaded and run on your Minecraft servers.                                                |
+///
+
+Before you do anything else, create a folder where you want your Housing configuration to be stored:
+
+```bash
+mkdir housing
+cd housing/
+```
+
+Now create a directory for the archive contents and unzip the archive into it:
+
+```bash
+mkdir system
+cd system/
+unzip /path/to/Housing-<version>.zip .
+```
 
 ### Preparing apps for the first start
 
@@ -109,7 +127,15 @@ from where the infrastructure will download them.
 DecentHousing requires a Docker Registry to store the app components. We'll walk you through the steps to set up
 a local registry with our **pre-built template**.
 
-First, download the template [here](/assets/misc/DecentHousing-Registry-Template-0.0.1.zip), unzip it and go to the folder where you unzipped it.
+**Download the template:** [here](/assets/misc/DecentHousing-Registry-Template-0.0.1.zip). 
+
+Unzip it and go to the folder where you unzipped it.
+
+```bash
+mkdir ../registry
+cd ../registry
+unzip /path/to/DecentHousing-Registry-Template-<version>.zip .
+```
 
 Then, copy the example .env.example file to a new .env file and set a strong credentials that we'll use in the next
 sections:
@@ -131,32 +157,39 @@ docker compose up -d
 It is necessary to expose the registry at a subdomain so that the Kubernetes cluster can pull the images from it.
 If you skip this step, you will need to set up an unsafe access from the cluster to the registry, which is not recommended.
 
-**Go to the [Exposing services at a domain](#exposing-services-at-a-domain) guide** and expose the port you've set
-for the registry (default: 5050) at a subdomain of your liking (for example registry.example.com).
+**Go to the [Exposing services at a domain](#exposing-services-at-a-domain) guide and expose the port you've set
+for the registry (default: 5050) at a subdomain of your liking (for example registry.example.com).**
+
+→ Domain: registry.your-domain.com
+
+→ Port: 5050 (default)
 
 **Push apps to the Docker Registry**
 
-Now navigate to the `apps/` folder and run the `repo-login.sh` script to log in to your Docker Registry.
-After that, run the `repo-update.sh` script to build and push all the apps to the registry.
-
 ```bash
-cd apps/
+cd ../system/apps/
 ```
 
 Put the repo address to the `repo.txt` file before running the scripts.
 
 ```bash
-echo "registry.example.com" > repo.txt
+echo "registry.your-domain.com" > repo.txt
 ```
+
+> Note: the subdomain you put here is the one you set up for the registry in the previous step.
 
 Now after you have started up the registry and set the registry address, run the following commands:
 
 ```bash
+# install jq if you don't have it yet
+sudo apt install jq -y
 # set your credentials that you used when starting the registry
 ./repo-login.sh your-registry-username your-registry-password
 # push the version to the registry
 ./repo-update.sh
 ```
+
+> Note: your-registry-username and your-registry-password are the credentials you set in the .env file of the registry template.
 
 This log-ins you to the local docker registry and pushes all apps from the apps/ folder to the registry.
 
@@ -176,9 +209,7 @@ kubectl create namespace housing
 Now you enter the setup wizard. There are many configuration options, but in this guide, we will go through the most
 common usage scenario.
 
-If you want to learn more about the configuration options, please refer to the [Configuring the infrastructure](configuration.md) guide.
-
-Each of the step will be explained here and if you follow this guide, you will have a fully working infrastructure running.
+Each of the step will be explained here and if you **follow this guide**, you will have a fully working infrastructure running.
 
 /// details | Setup Wizard full steps walkthrough
     open: False
@@ -196,103 +227,94 @@ Your choice: `housing`
 *In this step, we recommend you to set `housing` to make sure the app does not collide with any other possible apps
 on your Kubernetes cluster.*
 
-**Step 3:** `Do you want to create/update a Docker registry image pull secret?`
+**Step 3:** `Registry server URL`
 
-Your choice: `y`
+Your choice: `registry.your-domain.com` (the subdomain you set up for the registry above)
 
-*Now we need to set up the connection to the Docker Registry we have started earlier.*
-
-**Step 4:** `Registry server URL`
-
-Your choice: `registry.example.com` (the subdomain you set up for the registry)
-
-*In this step, you need to set the subdomain you have set up for the registry. If you have not set up a subdomain yet,
-go to the [Exposing services at a domain](#exposing-services-at-a-domain) guide and set up a subdomain for the registry.*
-
-**Step 5:** `Enter registry username`
+**Step 4:** `Enter registry username`
 
 Your choice: `your-registry-username` (the username you set up for the registry)
 
 *In this step, you need to set the username you have set up for the docker registry earlier.*
 
-**Step 6:** `Enter registry password or token`
+**Step 5:** `Enter registry password or token`
 
 Your choice: `your-registry-password` (the password you set up for the registry)
 
 *In this step, you need to set the password you have set up for the docker registry earlier.*
 
-**Step 7:** `Use internal Redis?`
+**Step 6:** `Use internal Redis?`
 
 Your choice: `y`
 
 *In this step, you can choose to use an internal Redis instance or an external one. If you have an external Redis instance
 running, choose `n` and set the connection details in the next steps.*
 
-**Step 8:** `Expose Redis via Ingress?`
+**Step 7:** `Expose Redis via Ingress?`
 
 Your choice: `n`
 
-**Step 9:** `Expose Redis via NodePort?`
+**Step 8:** `Expose Redis via NodePort?`
 
 Your choice: `y`
 
-**Step 10:** `NodePort to expose Redis on`
+**Step 9:** `NodePort to expose Redis on`
 
-Your choice: `30090` (default)
+Your choice: `30379` (default)
 
 Now, you need to set the port the Housing Redis will listen on your machine(s). This port should be properly secured behind
 firewall.
 
-**Step 11:** `Use internal RabbitMQ?`
+**Step 10:** `Use internal RabbitMQ?`
 
 Your choice: `y`
 
 *In this step, you can choose to use an internal RabbitMQ instance or an external one. If you have an external RabbitMQ instance
 running, choose `n` and set the connection details in the next steps.*
 
-**Step 12:** `RabbitMQ username`
+**Step 11:** `RabbitMQ username`
 
 Your choice: `housing` (default)
 
 *In this step, you need to set the username of your RabbitMQ instance.*
 
-**Step 13:** `RabbitMQ virtual host`
+**Step 12:** `RabbitMQ virtual host`
 
 Your choice: `/` (default)
 
 *In this step, you need to set the virtual host of your RabbitMQ instance.*
 
-**Step 14:** `Expose RabbitMQ Management via Ingress?`
+**Step 13:** `Expose RabbitMQ Management via Ingress?`
 
 Your choice: `n`
 
-**Step 15:** `Expose RabbitMQ via NodePort?`
+**Step 14:** `Expose RabbitMQ via NodePort?`
 
 Your choice: `y`
 
-**Step 16:** `NodePort to expose RabbitMQ AMQP on`
+**Step 15:** `NodePort to expose RabbitMQ AMQP on`
 
 Your choice: `30672` (default)
 
 Now, you need to set the port the Housing RabbitMQ will listen on your machine(s). This port should be properly secured behind
 firewall.
 
-**Step 17:** `NodePort to expose RabbitMQ Management on`
+**Step 16:** `NodePort to expose RabbitMQ Management on`
 
 Your choice: `31672` (default)
 
-**Step 18:** `Use internal MinIO?`
+**Step 17:** `Use internal MinIO?`
 
 Your choice: `y`
 
 *In this step, you can choose to use an internal MinIO instance or an external one. Now, we will use the internal MinIO instance,
 so you can have one instance of MinIO just for housing.*
 
-**Step 19:** `MinIO access key`
+**Step 18:** `MinIO access key`
 
 Your choice: `your-minio-access-key` (choose access key of your MinIO instance. for example: `admin`)
 
-**Step 20:** `Expose MinIO via Ingress?`
+**Step 19:** `Expose MinIO via Ingress?`
 
 Your choice: `n`
 
@@ -300,14 +322,14 @@ Your choice: `n`
 set up an Ingress controller on your Kubernetes cluster and configure it to expose the MinIO service. Choose no, so we
 can expose the MinIO service via a NodePort in the next step.*
 
-**Step 21:** `Expose MinIO via NodePort?`
+**Step 20:** `Expose MinIO via NodePort?`
 
 Your choice: `y`
 
 *In this step, you can choose to expose the internal MinIO instance via NodePort. If you choose `y`, you will need to
 set up the port exposal, which we will do in the next step. If you choose `n`, the service won't be exposed at all.*
 
-**Step 22:** `NodePort to expose MinIO API on`
+**Step 21:** `NodePort to expose MinIO API on`
 
 Your choice: `30900` (default)
 
@@ -317,7 +339,7 @@ If you have already a service running on this port, you need to pick a port from
 **After setup, expose the port you've chose (30900) to a subdomain (for example s3-api.example.com by following
 [Exposing services at a domain](#exposing-services-at-a-domain) guide.**
 
-**Step 23:** `NodePort to expose MinIO Console on`
+**Step 22:** `NodePort to expose MinIO Console on`
 
 Your choice: `30901` (default)
 
@@ -327,40 +349,40 @@ If you have already a service running on this port, you need to pick a port from
 **After setup, expose the port you've chose (30901) to a subdomain (for example s3-console.example.com by following
 [Exposing services at a domain](#exposing-services-at-a-domain) guide.**
 
-**Step 24:** `Use internal MariaDB?`
+**Step 23:** `Use internal MariaDB?`
 
 Your choice: `y`
 
 *In this step, you can choose to use an internal MariaDB instance or an external one. If you have an external MariaDB instance
 running, choose `n` and set the connection details in the next steps.*
 
-**Step 25:** `MariaDB username`
+**Step 24:** `MariaDB username`
 
 Your choice: `housing` (default)
 
-**Step 26:** `MariaDB password`
+**Step 25:** `MariaDB password`
 
 Your choice: `<generated>` (default)
 
 *A safe password for MariaDB will be auto-generated for you. Use that.*
 
-**Step 27:** `Expose MariaDB via Ingress?`
+**Step 26:** `Expose MariaDB via Ingress?`
 
 Your choice: `n`
 
-**Step 28:** `Expose MariaDB via NodePort?`
+**Step 27:** `Expose MariaDB via NodePort?`
 
 Your choice: `y`
 
-**Step 29:** `NodePort to expose MariaDB on`
+**Step 28:** `NodePort to expose MariaDB on`
 
 Your choice: `30306` (default)
 
-**Step 30:** `API key`
+**Step 29:** `API key`
 
 Your choice: `<generated>` (default)
 
-**Step 31:** `Expose API via Ingress?`
+**Step 30:** `Expose API via Ingress?`
 
 Your choice: `n`
 
@@ -368,31 +390,28 @@ Your choice: `n`
 set up an Ingress controller on your Kubernetes cluster and configure it to expose the API service. Choose no, so we
 can expose the API service via a NodePort in the next step.*
 
-**Step 32:** `Expose API via NodePort?`
+**Step 31:** `Expose API via NodePort?`
 
 Your choice: `y`
 
 *In this step, you can choose to expose the API instance via NodePort. If you choose `y`, you will need to
 set up the port exposal, which we will do in the next step. If you choose `n`, the service won't be exposed at all.*
 
-**Step 33:** `NodePort to expose API on`
+**Step 32:** `NodePort to expose API on`
 
 Your choice: `30080` (default)
 
 *In this step, you can choose the NodePort to expose the API instance. The default is `30080`, which is a good choice.
 If you have already a service running on this port, you need to pick a port from the 30000–32767 range.*
 
-**After setup, expose the port you've chose (30080) to a subdomain (for example housing-api.example.com by following
-[Exposing services at a domain](#exposing-services-at-a-domain) guide.**
-
-**Step 34:** `Enter core image tag (required)`
+**Step 33:** `Enter core image tag (required)`
 
 Your choice: `<housing-version>` (housing version you've downloaded)
 
 *Now you are prompted to enter the image tag that will be used for all core services when downloading from your
 docker registry. For example, if you downloaded `Housing-0.0.1.zip`, you will input `0.0.1` here.*
 
-**Step 35:** `Minecraft version to use for plots`
+**Step 34:** `Minecraft version to use for plots`
 
 Your choice: `<compatible-minecraft-version>` (a compatible version for your plots, example: 1.20.4)
 
@@ -403,7 +422,7 @@ If you choose unsupported version, the plot servers won't start.*
 
 - 1.20.4
 
-**Step 36:** `Number of free plots to keep`
+**Step 35:** `Number of free plots to keep`
 
 Your choice: `3` (number of plots to keep without plot loaded)
 
@@ -412,33 +431,33 @@ on for players switching plots to always have a server to load target plots on. 
 about this number as it may vary depending on your player count and intensity of players switching servers. This
 can be later re-configured. More about re-configuring values in the [Configuring the infrastructure](configuration.md) section.*
 
-**Step 37:** `Minimum number of plot servers to keep running`
+**Step 36:** `Minimum number of plot servers to keep running`
 
 Your choice: `3` (min. number of plot servers to keep even if they are not occupied)
 
 *This is a number of plot servers that will be guaranteed to be existing on your cluster no matter what. It is smart
 to set this to the same number as the `Number of free plots to keep` number so it syncs with the default behavior.*
 
-**Step 38:** `Maximum number of plot servers to run`
+**Step 37:** `Maximum number of plot servers to run`
 
 Your choice: `15` (max. number of plot server that are allowed to be existing at once in the cluster)
 
 *This number sets strict limits for number of your plot servers. Set this to a number that you assure that you
 never exceed your resources limits on your nodes/machines.*
 
-**Step 39:** `Is this a bare-metal environment without cloud autoscaling?`
+**Step 38:** `Is this a bare-metal environment without cloud autoscaling?`
 
 Your choice: `y`
 
 *In most cases, you set yes since you are running on your own dedicated servers. This may be disabled only if you
 are running in cloud environment, which wasn't even tested yet.*
 
-**Step 40:** `Enter node name (as shown in 'kubectl get nodes') or leave empty to finish`
+**Step 39:** `Enter node name (as shown in 'kubectl get nodes') or leave empty to finish`
 
 Your choice: `<node-name>` (node name from /kubectl get nodes)
 
 Now, we will need to set up every machine that you are currently running Housing on. Since we are on a fresh
-installation, we will input only this machine for now. When prompted, open a new console terminal and type:
+installation, we will input only this machine for now. When prompted, **open a new console terminal and type**:
 
 ```bash
 kubectl get nodes
@@ -451,24 +470,28 @@ ds1    Ready    <none>   174d   v1.32.13 # ds1 is your node name
 
 Input the first name.
 
-**Step 41:** `Enter IP address or hostname to access this node`
+**Step 40:** `Enter IP address or hostname to access this node`
 
 Your choice: `<ip-of-your-machine>` (ip of your machine you are setting this on, example: 123.456.789.123)
 
 *Here, you need to input the IP address of the previously picked node. Since we picked this node/machine, we need to
 input this machine's IP.*
 
-**Step 42:**
+> Note: The IP address you input here will be the one your proxy server (Bungee/Velocity) will use to register servers,
+> so you don't have to input machine's public IP address if you have your internal network set up properly. In that
+> case, you can input the internal IP proxy can access this node on.
+
+**Step 41:**
 
 Just enter to skip adding second machine.
 
-**Step 43:** `Start plot servers immediately after this setup? (not recommended on first setup)`
+**Step 42:** `Start plot servers immediately after this setup? (not recommended on first setup)`
 
 Your choice: `n`
 
-*As the prompt suggests, you shouldn't start the plot servers yet since we don9t have set up plugins, etc.*
+*As the prompt suggests, you shouldn't start the plot servers yet since we don't have set up plugins, etc.*
 
-**Step 44:** `Deploy immediately after this setup?`
+**Step 43:** `Deploy immediately after this setup?`
 
 Your choice: `n`
 
@@ -483,13 +506,20 @@ the `manage.sh` script:
 ./manage.sh describe --sensitive
 ```
 
-**Finalize setup**
+**Set subdomain for MinIO**
 
-Now, please **set subdomain for MinIO and hide all exposed ports (where you set Expose via NodePort) behind firewall so
-they are not accessible from the outer internet.** We don't take any responsibility for your misconfigured infrastructure
-or security.
+Domain: housing-minio.your-domain.com
 
-Here is the [Exposing services at a domain](#exposing-services-at-a-domain) guide.
+Port: 30901 (default)
+
+Guide: [Exposing services at a domain](#exposing-services-at-a-domain)
+
+**Secure the infrastructure**
+
+Exposed ports are listed in the `./manage.sh describe` output.
+We don't take any responsibility for your misconfigured infrastructure or security.
+
+Guide: [Security](securing.md)
 
 **Start up the infrastructure**
 
