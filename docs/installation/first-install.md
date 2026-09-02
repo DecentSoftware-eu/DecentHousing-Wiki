@@ -158,7 +158,7 @@ It is necessary to expose the registry at a subdomain so that the Kubernetes clu
 If you skip this step, you will need to set up an unsafe access from the cluster to the registry, which is not recommended.
 
 **Go to the [Exposing services at a domain](#exposing-services-at-a-domain) guide and expose the port you've set
-for the registry (default: 5050) at a subdomain of your liking (for example registry.example.com).**
+for the registry (default: 5050) at a subdomain of your liking (for example registry.your-domain.com).**
 
 → Domain: registry.your-domain.com
 
