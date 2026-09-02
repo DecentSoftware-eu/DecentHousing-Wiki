@@ -9,7 +9,30 @@ This section shows some basic troubleshooting steps you may need.
 
 ### Viewing logs from plot servers
 
-In construction.
+If your plot servers fail to start, players cannot connect, or you want to check for plugin errors, you can view the server console logs using the `manage.sh` script in the `chart/` folder:
+
+```bash
+cd chart/
+./manage.sh view-logs plot
+```
+
+**Viewing logs of a specific server**
+
+If you have multiple plot servers running, you can specify which server to view by adding its number (starting from `0`, which is the default):
+
+```bash
+./manage.sh view-logs plot 1
+```
+
+> If you enter a number that doesn't exist, the script will show you a list of all currently running servers you can choose from.
+
+**Viewing logs from before a crash or restart**
+
+If a plot server crashed or restarted and you want to see what happened, you can view the logs from the previous run using the `--previous` (or `-p`) flag:
+
+```bash
+./manage.sh view-logs plot --previous
+```
 
 ## Common mistakes
 
