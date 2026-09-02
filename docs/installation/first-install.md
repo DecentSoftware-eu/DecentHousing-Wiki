@@ -577,6 +577,9 @@ in the `housing-server-template`.
 - **PlaceholderAPI**
 - **DecentHolograms**
 
+> Note: There is a known issue with newer versions of FastAsyncWorldEdit and/or some other required plugins versions
+> that they show errors on start (plots use AdvancedSlimePaper). More about this at the end of this guide.
+
 ### Changing global configuration
 
 Now if you wanna reach **global `config.global.yml` file** and other configuration files, head to the `housing-resources` bucket
@@ -625,6 +628,10 @@ cd chart/
 
 If you've configured everything correctly, you should see a success message and in few moments, the plot servers
 should be appearing in your BungeeCord server list and your players should be able to connect to open plots.
+
+⚠️ If plots don't become available after a few minutes, or you can't connect to plots, please see a [Troubleshooting](troubleshooting.md) guide
+or view plot server logs ([Viewing logs from plot servers](troubleshooting.md#viewing-logs-from-plot-servers)) if there are any plugin
+errors.
 
 ---
 

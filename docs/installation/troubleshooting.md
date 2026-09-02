@@ -3,7 +3,15 @@ title: Troubleshooting
 description: Common mistakes and troubleshooting steps for DecentHousing
 ---
 
-## Common mistakes and troubleshooting
+## Troubleshooting
+
+This section shows some basic troubleshooting steps you may need.
+
+### Viewing logs from plot servers
+
+In construction.
+
+## Common mistakes
 
 This section covers the most common mistakes and troubleshooting steps you may need.
 
