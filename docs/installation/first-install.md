@@ -506,7 +506,7 @@ Domain: housing-minio.your-domain.com
 
 Port: 30901 (default)
 
-Guide: [Exposing services at a domain](#exposing-services-at-a-domain)
+Guide: [Exposing a port with websocket support](#exposing-a-port-with-websocket-support)
 
 **Secure the infrastructure**
 
@@ -547,7 +547,7 @@ servers.
 
 **Open MinIO console URL**
 
-Now, open your MinIO console url (example: https://s3-console.example.com) and log in using your MinIO credentials you've chosen.
+Now, open your MinIO console url (example: https://housing-minio.your-domain.com) and log in using your MinIO credentials you've chosen.
 
 *(Copy them from the summary shown at the end of the setup wizard if you don't remember them)*
 
@@ -707,6 +707,37 @@ sudo certbot --nginx -d s3.example.com
 Aand that's it! 🔥 You should now be able to access the service on the subdomain you configured.
 
 > Is your service HTTP? Test that you are able to access the service by opening a browser and navigating to `https://s3.example.com`.
+
+### Exposing a port with websocket support
+
+If a guide referred here, that means you need to expose a service with websocket support.
+
+Please follow a guide at [Exposing a port](#exposing-a-port), but **use this Nginx configuration instead of the one in the guide**:
+
+```bash
+sudo tee /etc/nginx/sites-available/s3.example.com > /dev/null <<'EOF'
+server {
+    listen 80;
+    server_name s3.example.com; # change this to your subdomain
+
+    client_max_body_size 0;
+
+    location / {
+        proxy_pass http://localhost:9001; # change this to the port you want to expose
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_http_version 1.1;
+    }
+}
+EOF
+```
+
+As you can see, it's the same as the previous configuration, but with added lines in the `location /` block.
 
 ---
 
