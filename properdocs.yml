@@ -70,6 +70,7 @@ plugins:
         "features/use-cases/unlockable-items.md": "guides/unlockable-items.md"
         "features/use-cases/custom-packages.md": "guides/custom-packages.md"
         "features/use-cases/milestones.md": "guides/milestones.md"
+        "features/item-selector.md": "other/config-conventions/item-selector.md"
         #general/compatability.md: features/compatability.md
         #general/format-and-colors/index.md: features/line-content.md
         #general/format-and-colors/colors.md.md: features/line-content.md

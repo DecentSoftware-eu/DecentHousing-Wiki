@@ -15,7 +15,6 @@ Below is an overview of the core features and guides:
 - [Feature](feature.md)
 - [Package](package.md)
 - [Item](item.md)
-- [Item Selector](item-selector.md)
 - [Locked Item](locked-item.md)
 - [Custom Item](custom-item.md)
 - [Tag](tag.md)

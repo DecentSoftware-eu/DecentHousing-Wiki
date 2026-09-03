@@ -24,7 +24,6 @@ nav:
     - features/feature.md
     - features/package.md
     - features/item.md
-    - features/item-selector.md
     - features/locked-item.md
     - features/custom-item.md
     - features/tag.md
@@ -88,6 +87,7 @@ nav:
     - other/index.md
     - Config conventions:
         - other/config-conventions/price.md
+        - other/config-conventions/item-selector.md
 
   #- Modrinth: 'https://modrinth.com/plugin/decentholograms'
   #- Spigot: 'http://decentholograms.eu/'
