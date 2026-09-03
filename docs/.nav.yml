@@ -25,7 +25,6 @@ nav:
     - features/package.md
     - features/item.md
     - features/locked-item.md
-    - features/custom-item.md
     - features/tag.md
     - features/economy.md
     - features/amplifier.md

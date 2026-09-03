@@ -3,7 +3,7 @@ title: Item Selector
 description: Config convention
 ---
 
-The `selector` section is a standard configuration convention used across DecentHousing (such as in [Custom Items](../../features/custom-item.md) and [Locked Items](../../features/locked-item.md)). It allows you to define rules to match specific in-game items held or used by players.
+The `selector` section is a standard configuration convention used across DecentHousing (such as in [Locked Items](../../features/locked-item.md)). It allows you to define rules to match specific in-game items held or used by players.
 
 This is commonly used to:
 - **Lock vanilla items** on plots (for example, preventing unauthorized players from using TNT or flint & steel).
@@ -109,7 +109,6 @@ If you specify multiple options (e.g. both `material` and `custom-model-data`), 
 
 ## References
 
-- [Custom Item](../../features/custom-item.md)
 - [Locked Item](../../features/locked-item.md)
 - [Item Feature](../../features/item.md)
 - [How to create unlockable items](../../guides/unlockable-items.md)

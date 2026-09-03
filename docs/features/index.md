@@ -16,7 +16,6 @@ Below is an overview of the core features and guides:
 - [Package](package.md)
 - [Item](item.md)
 - [Locked Item](locked-item.md)
-- [Custom Item](custom-item.md)
 - [Tag](tag.md)
 - [Economy](economy.md)
 - [Amplifier](amplifier.md)

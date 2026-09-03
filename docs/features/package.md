@@ -3,13 +3,15 @@ title: Package
 description: Package module
 ---
 
-Represents a premium package that a user can obtain (from your store, crates, vote rewards, etc.) and apply to any plot of their choice.
+Represents a premium package that a user can obtain (from your store, crates, vote rewards, etc.) and apply to any
+plot of their choice to unlock something.
 
 ![Package in a menu](/assets/images/features/package/menu.png)
 
-## In-Game Usage
+Players can view and apply their owned packages through the [`/plot menu`](../commands/plot/menu.md).
 
-Players can view and apply their owned packages through the [`/plot menu`](../commands/plot/menu.md) by clicking the Packages button in the main menu or market menu. Selecting a package opens a confirmation dialog, after which the perks are applied to the plot and the package is consumed. If plot requirements are not met, the application is cancelled and the package remains safely in the player's profile.
+After the package is applied, a predefined command/s or actions are made to the plot and the package is consumed.
+If there is an error applying, the package remains in the player's profile.
 
 ## Configuration
 
