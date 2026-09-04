@@ -28,6 +28,7 @@ nav:
     - features/tag.md
     - features/economy.md
     - features/amplifier.md
+    - features/leaderboard.md
   - Commands:
       - commands/index.md
       - Plot Commands:
