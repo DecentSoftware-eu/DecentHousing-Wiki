@@ -10,8 +10,19 @@ plot of their choice to unlock something.
 
 Players can view and apply their owned packages through the [`/plot menu`](../commands/plot/menu.md).
 
-After the package is applied, a predefined command/s or actions are made to the plot and the package is consumed.
+After the package is applied, a **predefined command/s or actions are made to the plot** and the **package is consumed**.
 If there is an error applying, the package remains in the player's profile.
+
+## Usage
+
+After the package is configured, you can give it to a player on any server that runs Housing plugin.
+
+The typical flow may be like this:
+
+1. You **set up the package** in the `packages.global.yml` file.
+2. You **reward the player with the package** using the [`/housing admin package give`](../commands/housing/admin/package.md) command.
+3. The player **applies the package to a plot** of their choice using the [`/plot menu`](../commands/plot/menu.md) command.
+4. (Optional) You can use the [PlaceholderAPI Placeholders](#placeholderapi-placeholders) to dynamically display package details in crate menus, etc.
 
 ## Configuration
 
