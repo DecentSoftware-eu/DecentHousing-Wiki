@@ -7,7 +7,7 @@ A Feature is an additional module (jar file) that you buy/download from our stor
 
 ![Market menu](/assets/images/features/feature/menu.png)
 
-Optionally, a feature module can have price so players can buy it from the market menu in the
+Optionally, a feature module can have [price](../other/config-conventions/price.md) so players can buy it from the market menu in the
 [/plot menu](../../commands/plot/menu.md) command.
 
 Even if its free, you can set up if the feature is auto-activated on every plot or if the player has to activate it first in
