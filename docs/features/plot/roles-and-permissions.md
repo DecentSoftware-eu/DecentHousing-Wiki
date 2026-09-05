@@ -45,36 +45,36 @@ Each role can also specify a **default game mode** (such as *Survival*, *Creativ
 
 Permissions are assigned to roles to grant or revoke specific abilities on the plot. Below is the complete list of all available per-plot permissions:
 
-| Permission | Category | Description |
-|:---|:---|:---|
-| `BUILD` | Building | Allows placing, breaking, and interacting with blocks within the plot's build area. |
-| `WORLD_EDIT` | Building | Allows using FastAsyncWorldEdit / WorldEdit commands, selections, and brushes on the plot. |
-| `SPECIAL_ITEMS` | Building | Allows opening and obtaining privileged items from the [Items catalog](../item.md). Items marked with `obtainable-without-privileges: true` can be accessed even without this permission. |
-| `PLOT_MAIN_MENU` | Management | Allows opening the main plot management GUI via [`/plot menu`](../../commands/plot/menu.md). |
-| `PLOT_SETTINGS` | Management | Allows accessing and modifying plot settings (e.g. time of day, weather, physics, flags) in the Settings menu. |
-| `PLOT_USERS` | Management | Allows managing players on the plot (viewing visitor lists, assigning roles, promoting, or demoting members). |
-| `PLOT_GROUPS` | Management | Allows creating, modifying, or deleting custom roles and editing their permissions on the plot. |
-| `PLOT_REGION` | Management | Allows accessing world and region boundary management for the plot. |
-| `PLOT_RESET` | Management | Allows resetting the plot back to its original template state. |
-| `PLOT_DELETE` | Management | Allows permanently deleting the plot. |
-| `PLOT_BYPASS_RESTRICTIONS` | Management | Allows bypassing plot region restrictions and limits. |
-| `PLOT_PACKAGES` | Economy & Features | Allows opening the Packages menu and applying owned [Packages](../package.md) to the plot. |
-| `PLOT_BANK` | Economy & Features | Allows accessing the plot bank balance, depositing funds, and withdrawing currency. |
-| `PLOT_MARKET` | Economy & Features | Allows accessing the Market menu to purchase or activate features on the plot. |
-| `PLOT_PANEL` | Economy & Features | Allows viewing and interacting with the plot control panel. |
-| `PLOT_MILESTONES` | Economy & Features | Allows viewing, progressing, and claiming plot milestones. |
-| `PLOT_ESSENTIALS_BAN` | Moderation | Allows banning disruptive players from entering the plot (`/plot ban`). |
-| `PLOT_ESSENTIALS_KICK` | Moderation | Allows kicking visitors from the plot back to the server spawn (`/plot kick`). |
-| `PLOT_ESSENTIALS_MUTE` | Moderation | Allows muting individual players within the plot's local chat (`/plot mute`). |
-| `PLOT_ESSENTIALS_MUTECHAT` | Moderation | Allows muting or unmuting the entire plot chat (`/plot mutechat`). |
-| `PLOT_IGNORE_MUTE` | Moderation | Allows players with this permission to speak in plot chat even when plot chat is muted or when they are muted. |
-| `PLOT_ESSENTIALS_TP` | Moderation | Allows teleporting to players or teleporting players across the plot (`/plot tp`). |
-| `PLOT_ESSENTIALS_CLEARINV` | Moderation | Allows clearing a player's inventory on the plot (`/plot clearinv`). |
-| `PLOT_ESSENTIALS_GAMEMODE` | Moderation | Allows changing gamemode (e.g. Creative, Survival) on the plot (`/plot gamemode`). |
-| `PLOT_ESSENTIALS_FLY` | Moderation | Allows toggling flight mode on the plot (`/plot fly`). |
-| `PLOT_ESSENTIALS_SETSPAWN` | Moderation | Allows changing the plot spawn point (`/plot setspawn`). |
-| `PLOT_SPAWN_OTHERS` | Moderation | Allows sending other players on the plot back to the plot spawn point. |
-| `WHITELIST` | Access | Allows joining and remaining on the plot when the plot whitelist mode is active. |
+| Permission                 | Category           | Description                                                                                                                                                                               |
+|:---------------------------|:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `BUILD`                    | Building           | Allows placing, breaking, and interacting with blocks within the plot's build area.                                                                                                       |
+| `WORLD_EDIT`               | Building           | Allows using FastAsyncWorldEdit / WorldEdit commands, selections, and brushes on the plot.                                                                                                |
+| `SPECIAL_ITEMS`            | Building           | Allows opening and obtaining privileged items from the [Items catalog](../item.md). Items marked with `obtainable-without-privileges: true` can be accessed even without this permission. |
+| `PLOT_MAIN_MENU`           | Management         | Allows opening the main plot management GUI via [`/plot menu`](../../commands/plot/menu.md).                                                                                              |
+| `PLOT_SETTINGS`            | Management         | Allows accessing and modifying plot settings (e.g. time of day, weather, physics, flags) in the Settings menu.                                                                            |
+| `PLOT_USERS`               | Management         | Allows managing players on the plot (viewing visitor lists, assigning roles, promoting, or demoting members).                                                                             |
+| `PLOT_GROUPS`              | Management         | Allows creating, modifying, or deleting custom roles and editing their permissions on the plot.                                                                                           |
+| `PLOT_REGION`              | Management         | Allows accessing world and region boundary management for the plot.                                                                                                                       |
+| `PLOT_RESET`               | Management         | Allows resetting the plot back to its original template state.                                                                                                                            |
+| `PLOT_DELETE`              | Management         | Allows permanently deleting the plot.                                                                                                                                                     |
+| `PLOT_BYPASS_RESTRICTIONS` | Management         | Allows bypassing plot region restrictions and limits.                                                                                                                                     |
+| `PLOT_PACKAGES`            | Economy & Features | Allows opening the Packages menu and applying owned [Packages](../package.md) to the plot.                                                                                                |
+| `PLOT_BANK`                | Economy & Features | Allows accessing the plot bank balance, depositing funds, and withdrawing currency.                                                                                                       |
+| `PLOT_MARKET`              | Economy & Features | Allows accessing the Market menu to purchase or activate features on the plot.                                                                                                            |
+| `PLOT_PANEL`               | Economy & Features | Allows viewing and interacting with the plot control panel.                                                                                                                               |
+| `PLOT_MILESTONES`          | Economy & Features | Allows viewing, progressing, and claiming plot milestones.                                                                                                                                |
+| `PLOT_ESSENTIALS_BAN`      | Moderation         | Allows banning disruptive players from entering the plot (`/plot ban`).                                                                                                                   |
+| `PLOT_ESSENTIALS_KICK`     | Moderation         | Allows kicking visitors from the plot back to the server spawn (`/plot kick`).                                                                                                            |
+| `PLOT_ESSENTIALS_MUTE`     | Moderation         | Allows muting individual players within the plot's local chat (`/plot mute`).                                                                                                             |
+| `PLOT_ESSENTIALS_MUTECHAT` | Moderation         | Allows muting or unmuting the entire plot chat (`/plot mutechat`).                                                                                                                        |
+| `PLOT_IGNORE_MUTE`         | Moderation         | Allows players with this permission to speak in plot chat even when plot chat is muted or when they are muted.                                                                            |
+| `PLOT_ESSENTIALS_TP`       | Moderation         | Allows teleporting to players or teleporting players across the plot (`/plot tp`).                                                                                                        |
+| `PLOT_ESSENTIALS_CLEARINV` | Moderation         | Allows clearing a player's inventory on the plot (`/plot clearinv`).                                                                                                                      |
+| `PLOT_ESSENTIALS_GAMEMODE` | Moderation         | Allows changing gamemode (e.g. Creative, Survival) on the plot (`/plot gamemode`).                                                                                                        |
+| `PLOT_ESSENTIALS_FLY`      | Moderation         | Allows toggling flight mode on the plot (`/plot fly`).                                                                                                                                    |
+| `PLOT_ESSENTIALS_SETSPAWN` | Moderation         | Allows changing the plot spawn point (`/plot setspawn`).                                                                                                                                  |
+| `PLOT_SPAWN_OTHERS`        | Moderation         | Allows sending other players on the plot back to the plot spawn point.                                                                                                                    |
+| `WHITELIST`                | Access             | Allows joining and remaining on the plot when the plot whitelist mode is active.                                                                                                          |
 
 ## Managing Roles & Permissions In-Game
 
