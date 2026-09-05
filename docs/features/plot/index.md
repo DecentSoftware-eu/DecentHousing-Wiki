@@ -67,7 +67,10 @@ Plots are stored in the `housing-plots` bucket in your MinIO instance.
 
 ## Subsections
 
+- [Roles & Permissions](roles-and-permissions.md) - Role-based access control and per-plot permissions.
+- [Roles limit](roles-limit.md) - The maximum limit of custom roles per plot.
 - [Build area factor](build-area-factor.md) - The build area factor is an (optional) percentage of the template build area size that is allowed to be built on a plot. It can be extended up to 1.0 (100%).
+- [Player limit](player-limit.md) - Maximum player capacity on a plot.
 
 ## References
 

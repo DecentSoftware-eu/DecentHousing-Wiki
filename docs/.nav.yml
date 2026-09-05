@@ -15,9 +15,10 @@ nav:
     - features/index.md
     - Plot:
       - features/plot/index.md
+      - features/plot/roles-and-permissions.md
+      - features/plot/roles-limit.md
       - features/plot/build-area-factor.md
       - features/plot/player-limit.md
-      - features/plot/roles-limit.md
     - User:
       - features/user/index.md
       - features/user/plot-limit.md
@@ -88,6 +89,8 @@ nav:
     - Config conventions:
         - other/config-conventions/price.md
         - other/config-conventions/item-selector.md
+        - other/config-conventions/item.md
+        - other/config-conventions/action.md
 
   #- Modrinth: 'https://modrinth.com/plugin/decentholograms'
   #- Spigot: 'http://decentholograms.eu/'
