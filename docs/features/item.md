@@ -29,7 +29,7 @@ A typical flow for setting up and using custom items:
 1. You **define categories and items** in the `items.global.yml` configuration file.
 2. Players open their plot menu with [`/plot menu`](../commands/plot/menu.md) and click the **Items** button.
 3. Players **browse categories** and click an item to collect or purchase it.
-4. For locked items, players unlock them via admin commands (you run by console) or apply a [Package](package.md) that runs the admin command to their plot.
+4. For locked items, administrators unlock them using [`/plot admin item unlock`](../commands/plot/admin/item.md) or players apply a [Package](package.md) to their plot.
 
 ## Configuration
 
@@ -48,21 +48,21 @@ categories:
     description: "A collection of special vanilla items that can be used on your plot"
     icon: DIAMOND
     items:
-      # Item identifier
+      # Item identifier (follows the Item configuration convention)
       barrier:
         # Appearance in the menu when available/unlocked
-        item:
+        item: # (1)
           icon: BARRIER
           glow: true
           lore:
-            - "<red>Barrier" # (1)
+            - "<red>Barrier"
             - "<dark_gray>Item"
             - ""
             - "<gray>Unlockable for 75-votes milestone!</gray>"
             - ""
             - "<yellow><b>[!]</b> Click to obtain</yellow>"
         # Appearance in the menu when locked on the plot
-        item-locked:
+        item-locked: # (1)
           icon: GRAY_DYE
           lore:
             - "<red>Barrier"
@@ -85,7 +85,7 @@ categories:
         selector: # (3)
           material: BARRIER
         # Actions executed when a player obtains the item from the menu
-        on-obtain:
+        on-obtain: # (4)
           - type: command
             data:
               sender: console
@@ -95,7 +95,7 @@ categories:
               message:
                 - "<yellow><b>[!]</b> Obtained a Barrier!</yellow>"
         # Actions executed on the plot when this item is unlocked
-        on-unlock:
+        on-unlock: # (4)
           - type: message
             data:
               message:
@@ -108,7 +108,7 @@ categories:
     icon: PEONY
     items:
       oak_leaves:
-        item:
+        item: # (1)
           icon: OAK_LEAVES
           lore:
             - "<green>Oak Leaves"
@@ -121,7 +121,7 @@ categories:
         price:
           buyable: true
           amount: 0
-        on-obtain:
+        on-obtain: # (4)
           - type: command
             data:
               sender: console
@@ -132,9 +132,10 @@ categories:
                 - "<yellow><b>[!]</b> Obtained Oak Leaves!</yellow>"
 ```
 
-*1) The first line of the `lore` list is automatically used as the item's display name in menus.*  
+*1) Follows the standard [item configuration convention](../other/config-conventions/item.md) (the first line of the `lore` list is automatically used as the item's display name).*  
 *2) Follows the standard [price configuration convention](../other/config-conventions/price.md).*  
-*3) Follows the standard [item selector configuration convention](../other/config-conventions/item-selector.md).*
+*3) Follows the standard [item selector configuration convention](../other/config-conventions/item-selector.md).*  
+*4) Follows the standard [action configuration convention](../other/config-conventions/action.md).*
 
 ## Configuration Options
 
@@ -151,19 +152,21 @@ categories:
 
 | Option                          | Type    | Default  | Description                                                                                                                                                                      |
 |:--------------------------------|:--------|:---------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `item`                          | Section | Required | Visual appearance when the item is unlocked/available. Contains `icon`, `lore`, and optional `glow: true`. The first line of `lore` sets the display name.                       |
-| `item-locked`                   | Section | Optional | Visual appearance displayed when the item is currently locked on the plot. Useful for showing a grayed-out icon and unlock hints.                                                |
-| `locked`                        | Boolean | `false`  | When set to `true`, the item starts locked on all plots. Players must unlock it before they can obtain or use it.                                                                |
-| `tag`                           | String  | Item ID  | Grouping identifier. When you unlock a tag via command or package, all items sharing that tag are unlocked simultaneously.                                                       |
+| `item`                          | Section | Required | Visual appearance when the item is unlocked/available. Follows the [Item convention](../other/config-conventions/item.md).                                                        |
+| `item-locked`                   | Section | Optional | Visual appearance displayed when the item is currently locked on the plot. Follows the [Item convention](../other/config-conventions/item.md).                                   |
+| `locked`                        | Boolean | `false`  | When set to `true`, the item starts locked on all plots. It must be unlocked on the plot using the [`/plot admin item unlock`](../commands/plot/admin/item.md) command (or via a [Package](package.md)) before players can obtain or use it. |
+| `tag`                           | String  | Item ID  | Grouping identifier. When you unlock a tag via [`/plot admin item unlock`](../commands/plot/admin/item.md) (or a package), all items sharing that tag are unlocked simultaneously. |
 | `obtainable-without-privileges` | Boolean | `false`  | If `false`, only players with plot edit rights (and the `SPECIAL_ITEMS` plot role permission) can view and obtain the item. If `true`, regular plot visitors can also obtain it. |
-| `price`                         | Section | Optional | Controls whether the item is free or costs currency. Set `buyable: false` if it should only be granted upon unlocking.                                                           |
-| `selector`                      | Section | Optional | Links this item entry to physical Minecraft items. If the item is locked, matching physical items cannot be used or placed on the plot.                                          |
-| `on-obtain`                     | List    | Optional | A list of actions executed when a player obtains the item from the menu. Supports `%player%` placeholder.                                                                        |
-| `on-unlock`                     | List    | Optional | A list of actions executed on the plot when the item (or its tag) is unlocked.                                                                                                   |
+| `price`                         | Section | Optional | Controls whether the item is free or costs currency. Follows the [Price convention](../other/config-conventions/price.md).                                                       |
+| `selector`                      | Section | Optional | Links this item entry to physical Minecraft items. Follows the [Item Selector convention](../other/config-conventions/item-selector.md).                                         |
+| `on-obtain`                     | List    | Optional | A list of actions executed when a player obtains the item from the menu. Follows the [Action convention](../other/config-conventions/action.md). |
+| `on-unlock`                     | List    | Optional | A list of actions executed on the plot when the item (or its tag) is unlocked. Follows the [Action convention](../other/config-conventions/action.md). |
+
+For full details and additional options (such as custom model data and unbreakability), see the [Item Convention](../other/config-conventions/item.md).
 
 ## Unlocking Items on Plots
 
-Items configured with `locked: true` cannot be obtained from the menu until they are unlocked on the active plot.
+Items configured with `locked: true` cannot be obtained from the menu until they are unlocked on the active plot using the [`/plot admin item unlock`](../commands/plot/admin/item.md) command (or by applying a [Package](package.md)).
 
 ### Restricting Physical Items with Selectors
 
@@ -217,6 +220,8 @@ In addition to admin permissions, DecentHousing provides plot-level permissions 
 
 ## References
 
+- [Item Convention](../other/config-conventions/item.md) - Standardized custom item configuration convention.
+- [Action Convention](../other/config-conventions/action.md) - Standardized action execution convention.
 - [Locked Item](locked-item.md) - Standalone locked item configuration.
 - [Package](package.md) - Create unlockable item packages.
 - [Feature](feature.md) - Additional modules that provide custom items.

@@ -69,6 +69,7 @@ Determines whether the element can be purchased directly by players. When set to
 
 ## References
 
+- [Item Convention](item.md)
 - [Economy Feature](../../features/economy.md)
 - [Economy Admin Command](../../commands/housing/admin/economy.md)
 - [Feature Module](../../features/feature.md)

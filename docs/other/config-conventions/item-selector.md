@@ -109,6 +109,7 @@ If you specify multiple options (e.g. both `material` and `custom-model-data`), 
 
 ## References
 
+- [Item Convention](item.md)
 - [Locked Item](../../features/locked-item.md)
 - [Item Feature](../../features/item.md)
 - [How to create unlockable items](../../guides/unlockable-items.md)

@@ -105,4 +105,6 @@ Additionally, the plot role permission **`PLOT_PACKAGES`** allows players with t
 - [`/plot menu`](../commands/plot/menu.md) - Player plot menu command.
 - [Plot](plot/index.md) - The plot system where packages are applied.
 - [Feature](feature.md) - Features that can be activated via packages.
+- [Action Convention](../other/config-conventions/action.md) - Standardized action execution convention.
+- [Item Convention](../other/config-conventions/item.md) - Standardized package icon convention.
 - [Global Configuration](../installation/configuration.md#changing-global-files) - Guide to editing global configuration files.
