@@ -642,8 +642,27 @@ plots or if they don't have access to it.
 
 So, you can freely allow players WorldEdit permissions on plot servers, but **with the context**.
 
+
 After that, to allow players to bypass WorldEdit usage on plots that don't have WorldEdit enabled, set this permission
 to true: `housing.worldedit.bypass`.
+
+/// details | Example: WorldEdit permissions we set up on our network
+    open: False
+- worldedit.brush.*
+- worldedit.clipboard.*
+- worldedit.generation.*
+- worldedit.history.*
+- worldedit.region.*
+- worldedit.selection.*
+- fawe.decenthousing
+- worldedit.clipboard.load (false)
+- worldedit.clipboard.save (false)
+- worldedit.replacenear
+- worldedit.selection
+- worldedit.tool
+- worldedit.tool.none
+- worldedit.wand
+///
 
 ### Starting plot servers
 
