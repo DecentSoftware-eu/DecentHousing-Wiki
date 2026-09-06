@@ -31,7 +31,7 @@ Plot owners and managers can create **custom roles** (such as *Co-Owner*, *Moder
 
 ### Role Tags (Group Tags)
 
-Each role can be assigned an optional **tag** (also referred to as a **group tag** or **role tag**). A role tag is a customizable chat badge or prefix (e.g. `&c[&c&lOwner&r&c]` or `&a[&a&lBuilder&r&a]`) that identifies the player's rank on the plot.
+Each role can be assigned an optional **tag**. A role tag is a customizable chat badge or prefix (e.g. `&c[&c&lOwner&r&c]` or `&a[&a&lBuilder&r&a]`) that identifies the player's rank on the plot.
 
 - **Character limit:** Up to **24 characters**.
 - **Formatting:** Supports standard Minecraft color and formatting codes (`&a`, `&b`, `&c`, `&l`, etc.) as well as MiniMessage tags.
@@ -112,33 +112,6 @@ DecentHousing registers custom plot placeholders through [PlaceholderAPI](https:
 /// tip | Dynamic Plot Context
 Placeholders update automatically as players move between plots. If a player is a **Builder** on Plot A and visits Plot B as a **Guest**, `%plot_role%` and `%plot_role_tag%` will immediately reflect their status on Plot B.
 ///
-
-### Common Integrations
-
-#### Chat Formatting
-Display the player's plot role tag in chat by inserting `%plot_role_tag%` into your chat formatting plugin (such as EssentialsX Chat, LPC, or ChatControl):
-
-```yaml title="Example chat format"
-# In your chat plugin configuration:
-format: "%plot_role_tag% &f%player_name%: &7%message%"
-```
-
-#### Tablist & Nametags (TAB)
-Use `%plot_role_tag%` with tablist or nametag plugins (e.g. TAB) to display plot role badges above players' heads or on the player list:
-
-```yaml title="Example TAB configuration"
-# In TAB config:
-tabprefix: "%plot_role_tag% "
-tagprefix: "%plot_role_tag% "
-```
-
-#### Scoreboards & Holograms
-Display plot information and player roles on plot scoreboards or welcome holograms:
-
-```text
-Welcome to %plot_owner%'s plot!
-Your Role: %plot_role% (%plot_role_tag%)
-```
 
 ## Server Configuration
 

@@ -2,8 +2,8 @@
 title: Welcome
 subtitle: Welcome to the DecentHousing Wiki!
 
-icon: material/home
-hide_icon: true
+#icon: material/home
+#hide_icon: true
 ---
 
 ## What's DecentHousing?

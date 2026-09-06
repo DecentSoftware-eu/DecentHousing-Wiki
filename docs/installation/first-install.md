@@ -617,6 +617,34 @@ of all your lobby servers from where you want your players to connect to the Hou
 - Fill up the `config.yml` file of the plugin with the connection details to your infrastructure.
 - Restart your lobby servers again.
 
+### Setting up permissions
+
+Before you start up plot servers, we recommend you to set up permissions.
+
+In this guide, we will use **LuckPerms** as the permission plugin. If you are using any other permission plugin, please refer to its documentation.
+
+#### Configure LuckPerms server context on plot servers
+
+Before you assign permissions, you need to set up plot servers as a separate *Server Context* (more about LuckPerms contexts [here](https://luckperms.net/wiki/Context)).
+
+**Go to housing-server-template/plugins/LuckPerms/config.yml on your MinIO dashboard and set `server` setting to `housing-plot`.**
+
+Now, set up permissions that may apply only on plot servers like this:
+
+```
+/lp group <group> permission set <permission> server=housing-plot
+```
+
+#### (Optional) Allow WorldEdit commands on plot servers
+
+Housing has built-in integration with WorldEdit and automatically restricts your players from building outside of their
+plots or if they don't have access to it.
+
+So, you can freely allow players WorldEdit permissions on plot servers, but **with the context**.
+
+After that, to allow players to bypass WorldEdit usage on plots that don't have WorldEdit enabled, set this permission
+to true: `housing.worldedit.bypass`.
+
 ### Starting plot servers
 
 Last step is to start the plot servers. You can do that by running the following:
