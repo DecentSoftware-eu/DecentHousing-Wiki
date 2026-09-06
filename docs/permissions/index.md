@@ -5,8 +5,8 @@ description: Complete overview of system, administrative, theme, and command per
 
 DecentHousing separates permission management into two distinct layers:
 
-1. **Server-Wide Permissions (Permissions Plugin):** Configured via server-wide permission managers (such as LuckPerms or Vault). These control administrative privileges, feature bypasses, theme availability, and command execution rights network-wide.
-2. **Plot-Scoped Permissions (In-Game Plot Roles):** Configured dynamically on individual plots by plot owners. These control building rights, plot settings, and moderation commands within that specific plot.
+1. **Server-Wide Permissions:** Configured via server-wide permission managers (such as LuckPerms or Vault). These control administrative privileges, feature bypasses, theme availability, and command execution rights network-wide.
+2. **Plot-Scoped Permissions:** Configured dynamically on individual plots by plot owners. These control building rights, plot settings, and moderation commands within that specific plot.
 
 /// tip | Per-Plot Roles & Permissions
 For plot-level permissions (such as `BUILD`, `WORLD_EDIT`, `PLOT_SETTINGS`, `PLOT_ESSENTIALS_BAN`, etc.) assigned to custom roles on individual plots, see the [Roles & Permissions](../features/plot/roles-and-permissions.md) documentation.
@@ -16,16 +16,16 @@ For plot-level permissions (such as `BUILD`, `WORLD_EDIT`, `PLOT_SETTINGS`, `PLO
 
 These permissions are registered in Bukkit and managed via your server permission plugin (e.g. LuckPerms):
 
-| Permission Node | Default | Description                                                                                                                                                                                                                                           |
-|:---|:---|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `housing.admin` | `op` | Grants full owner/admin rights on every plot across the server by causing all plot-level role permission checks (`plotUser.hasPermission(...)`) to evaluate to `true`. Also unlocks administrative visibility filters in the plot browser.            |
-| `housing.admin.browser` | `op` | Unlocks the plot visibility filter toggle in the plot browser menu ([`/housing browse`](../commands/housing/browse.md)), allowing staff to filter and view private (`PRIVATE`) and role-restricted (`ROLES_ONLY`) plots.                              |
-| `housing.worldedit.bypass` | `op` | Allows using WorldEdit / FAWE tools on a plot even if the plot does not have WorldEdit unlocked via an active package or WorldEdit amplifier. *(Note: The player must still possess the `BUILD` and `WORLD_EDIT` plot role permissions on the plot).* |
-| `housing.beta.access` | `op` | Allows players to connect to the housing server when Beta Mode is active (`BETA_ENABLED`). Players without this permission are kicked upon login.                                                                                                     |
-| `housing.plot.access.bypass` | `op` | Allows entering plots regardless of plot visibility settings (`PRIVATE` or `ROLES_ONLY`). Does not bypass plot bans or player limits.                                                                                                                 |
-| `housing.theme.<themeId>` | `op` | Unlocks a specific plot template/theme (`<themeId>`) in the Theme Selector GUI when creating or resetting a plot.                                                                                                                                     |
-| `housing.theme.*` | `op` | Unlocks all available plot templates/themes in the Theme Selector GUI when creating or resetting a plot.                                                                                                                                              |
-| `housing.setup.command` | `op` | Grants access to execute `/housing-setup` administrative setup commands (specific to Housing-Setup plugin).                                                                                                                                           |
+| Permission Node | Default | Description                                                                                                                                                                                                                                             |
+|:---|:---|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `housing.admin` | `op` | Grants full owner/admin rights on every plot across the server by causing all [plot-level role permission](../features/plot/roles-and-permissions.md) checks to evaluate to `true`. Also unlocks administrative visibility filters in the plot browser. |
+| `housing.admin.browser` | `op` | Unlocks the plot visibility filter toggle in the plot browser menu ([`/housing browse`](../commands/housing/browse.md)), allowing staff to filter and view private (`PRIVATE`) and role-restricted (`ROLES_ONLY`) plots.                                |
+| `housing.worldedit.bypass` | `op` | Allows using WorldEdit / FAWE tools on a plot even if the plot does not have WorldEdit unlocked via an active package or WorldEdit amplifier. *(Note: The player must still possess the `BUILD` and `WORLD_EDIT` plot role permissions on the plot).*   |
+| `housing.beta.access` | `op` | Allows players to connect to the housing server when Beta Mode is active (`BETA_ENABLED`). Players without this permission are kicked upon login.                                                                                                       |
+| `housing.plot.access.bypass` | `op` | Allows entering plots regardless of plot visibility settings (`PRIVATE` or `ROLES_ONLY`). Does not bypass plot bans or player limits.                                                                                                                   |
+| `housing.theme.<themeId>` | `op` | Unlocks a specific plot template/theme (`<themeId>`) in the Theme Selector GUI when creating or resetting a plot.                                                                                                                                       |
+| `housing.theme.*` | `op` | Unlocks all available plot templates/themes in the Theme Selector GUI when creating or resetting a plot.                                                                                                                                                |
+| `housing.setup.command` | `op` | Grants access to execute `/housing-setup` administrative setup commands (specific to Housing-Setup plugin).                                                                                                                                             |
 
 ## Command Permissions
 
