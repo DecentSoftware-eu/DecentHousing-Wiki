@@ -78,6 +78,8 @@ nav:
               - commands/housing/admin/economy.md
               - commands/housing/admin/tags.md
               - commands/housing/admin/reload.md
+  - Permissions:
+    - permissions/index.md
   - Guides:
     - guides/index.md
     - guides/worldedit.md
