@@ -15,6 +15,7 @@ nav:
     - features/index.md
     - Plot:
       - features/plot/index.md
+      - features/plot/visibility.md
       - features/plot/roles-and-permissions.md
       - features/plot/roles-limit.md
       - features/plot/build-area-factor.md
