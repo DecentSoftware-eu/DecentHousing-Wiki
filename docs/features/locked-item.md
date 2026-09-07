@@ -3,7 +3,7 @@ title: Locked Item
 description: Restrict and lock physical items or blocks on plots until unlocked
 ---
 
-The **Locked Item module** allows server administrators to restrict the placement, interaction, and usage of specific
+The **Locked Item module** allows server administrators to restrict the placement and interaction of specific
 physical items or blocks on plots until they are explicitly unlocked for that plot.
 
 > Note: It's the same as how [Item](item.md) locked status works, but without the appearance of the item in the item catalog.
