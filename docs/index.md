@@ -21,6 +21,9 @@ Table of Contents
 *   [**Features**](features/index.md) – Overview of the available features and their configuration options.
 *   [**Commands**](commands/index.md) – Overview of the available commands and their usage.
 *   [**Permissions**](permissions/index.md) – Overview of system, administrative, and command permission nodes.
+*   [**Placeholders**](placeholders/index.md) – Overview of available PlaceholderAPI placeholders in DecentHousing.
+*   [**Guides**](guides/index.md) – Guides and tutorials for using DecentHousing features.
+*   [**Other**](other/index.md) – Additional documentation, general reference materials, and standardized configuration conventions.
 
 ---
 
