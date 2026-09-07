@@ -74,7 +74,7 @@ To inspect, award, list, or force-apply packages, use the [`/housing admin packa
 
 ## PlaceholderAPI Placeholders
 
-DecentHousing registers placeholders under the `%housing_...%` identifier to query package details:
+DecentHousing registers placeholders under the `%housing_...%` identifier to query package details (see complete list in [Placeholders](../placeholders/index.md)):
 
 | Placeholder                                                      | Description                                                    |
 |:-----------------------------------------------------------------|:---------------------------------------------------------------|

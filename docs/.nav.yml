@@ -80,6 +80,8 @@ nav:
               - commands/housing/admin/reload.md
   - Permissions:
     - permissions/index.md
+  - Placeholders:
+    - placeholders/index.md
   - Guides:
     - guides/index.md
     - guides/worldedit.md

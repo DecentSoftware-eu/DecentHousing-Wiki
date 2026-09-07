@@ -664,6 +664,16 @@ to true: `housing.worldedit.bypass`.
 - worldedit.wand
 ///
 
+### Setting up TAB and scoreboard on plot servers
+
+For full experience, we recommend setting up a TAB & scoreboard plugin on plot servers.
+
+You can do this in the `housing-server-template/plugins/` folder on your MinIO dashboard.
+
+**Recommended:** Set a **suffix in the TAB to placeholder `%plot_role_tag%`** so it shows player's current plot role tag
+
+[Click to show available plot placeholders](../placeholders/index.md#plot-placeholders-plot_)
+
 ### Starting plot servers
 
 Last step is to start the plot servers. You can do that by running the following:
@@ -679,6 +689,8 @@ should be appearing in your BungeeCord server list and your players should be ab
 ⚠️ If plots don't become available after a few minutes, or you can't connect to plots, please see a [Troubleshooting](troubleshooting.md) guide
 or view plot server logs ([Viewing logs from plot servers](troubleshooting.md#viewing-logs-from-plot-servers)) if there are any plugin
 errors.
+
+If everything is working, yippie! 🎉 You have successfully set up DecentHousing infrastructure and connected it to your Minecraft server.
 
 ---
 

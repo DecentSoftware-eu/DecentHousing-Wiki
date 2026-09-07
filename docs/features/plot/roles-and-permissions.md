@@ -101,7 +101,7 @@ Plot owners and players with the `PLOT_GROUPS` and `PLOT_USERS` permissions can 
 
 ## Placeholders
 
-DecentHousing registers custom plot placeholders through [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/). Server administrators can use the following placeholders under the `plot` expansion (`%plot_<key>%`) to dynamically access role and permission information:
+DecentHousing registers custom plot placeholders through [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/). Server administrators can use the following placeholders under the `plot` expansion (`%plot_<key>%`) to dynamically access role and permission information (see full list of placeholders in [Placeholders](../../placeholders/index.md)):
 
 | Placeholder | Description | Example Output |
 |:---|:---|:---|
