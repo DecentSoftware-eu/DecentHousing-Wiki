@@ -7,26 +7,19 @@ The **Item module** provides an interactive in-game catalog (the **Items** menu)
 
 ![Item in a menu](/assets/images/features/item/menu.png)
 
-In addition to free and purchasable items, the module allows server administrators to define **unlockable items**—items that start locked on plots by default and can be unlocked through gameplay milestones, voting rewards, or custom store [Packages](package.md).
+The module allows server administrators (you) to define your own items, that can be **free/paid**, **locked/unlocked**.
 
-Installed [Features](feature.md) (such as furniture or shop modules) also integrate seamlessly into this catalog, automatically registering their own categories and items alongside your custom items.
+If unlocked, you can allow players to unlock them through gameplay milestones, voting rewards, or custom [Packages](package.md)
+that run the [`/plot admin item unlock`](../commands/plot/admin/item.md) command.
 
-## How It Works
-
-Players access the catalog through the [`/plot menu`](../commands/plot/menu.md) command by clicking the **Items** button.
-
-The menu features:
-
-- **Category Switcher:** The top row lets players browse different item categories (e.g. Special vanilla items, Plants, Furniture).
-- **Search Bar:** An interactive search button (represented by a sign) lets players filter items by typing a search keyword in chat, or right-click to clear the filter.
-- **Item Grid:** Displays all items available in the selected category with clean multi-page navigation.
-- **One-Click Acquisition:** Clicking an unlocked item executes configured actions (such as giving the item to the player's inventory) and handles payment if a price is configured.
+Installed [Features](feature.md) also integrate seamlessly into this catalog, automatically registering their own
+categories and items alongside your custom items.
 
 ## Usage
 
 A typical flow for setting up and using custom items:
 
-1. You **define categories and items** in the `items.global.yml` configuration file.
+1. You **define categories and items** in the `items.global.yml` configuration file or players **activate a [Feature](feature.md)** on the plot.
 2. Players open their plot menu with [`/plot menu`](../commands/plot/menu.md) and click the **Items** button.
 3. Players **browse categories** and click an item to collect or purchase it.
 4. For locked items, administrators unlock them using [`/plot admin item unlock`](../commands/plot/admin/item.md) or players apply a [Package](package.md) to their plot.
@@ -181,7 +174,7 @@ For more details on selector rules (materials, custom model data, and tags), see
 
 ### Unlocking via Commands
 
-Administrators can manually unlock an item or an entire tag on a plot using:
+Administrators, menus or [Features](feature.md) can manually unlock an item or an entire tag on a plot using:
 
 ```
 /plot admin item unlock <target>
