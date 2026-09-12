@@ -1,13 +1,8 @@
 ---
 title: Guides
-description: Guides on how to use DecentHolograms.
-
-template: index_list.html
+description: Guides on how to use DecentHousing.
 ---
 
-/// warning | This Section is Work in Progress!
+/// warning | In construction
+This section is currently under construction.
 ///
-
-This section contains pages with various guides on how you can use DecentHolograms' feature set to their fullest potential.
-
-## Guides
