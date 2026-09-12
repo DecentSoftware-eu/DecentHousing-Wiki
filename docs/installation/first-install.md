@@ -29,6 +29,30 @@ how to scale to multiple nodes, please refer to the [Scaling Guide](scaling/inde
 Also, the suitable performance that may fit your needs may vary depending on the intensity of plot loads,
 number of players creating plots at the moment, etc.
 
+### Supported MC versions
+
+DecentHousing currently supports ONLY Paper-based forks or Paper itself with these versions:
+
+/// details | Supported Minecraft versions
+    open: False
+- 1.20.4
+- 1.20.6
+- 1.21.1
+- 1.21.4
+- 1.21.7
+- 1.21.8
+- 1.21.9
+- 1.21.10
+- 1.21.11
+- 26.1
+- 26.1.1
+- 26.1.2
+- 26.2
+///
+
+> DH is designed to work on as many versions as possible, but only 1.20.4 and 1.21.10 was our native development
+> versions, so in case of any issues, please report them on our official communication channels.
+
 ### Docker Installation
 
 For installing docker, we recommend the [official Docker installation guide](https://docs.docker.com/engine/install/).
@@ -407,14 +431,13 @@ docker registry. For example, if you downloaded `Housing-0.0.1.zip`, you will in
 
 **Step 34:** `Minecraft version to use for plots`
 
-Your choice: `<compatible-minecraft-version>` (a compatible version for your plots, example: 1.20.4)
+Your choice: `<compatible-minecraft-version>` (a [compatible version](#supported-mc-versions) for your plots, example: 1.20.4)
 
-*Now you pick a Minecraft version that will be used for generating plot servers. Pick only one that is supported.
+*Now you pick a Minecraft version that will be used for generating plot servers. Pick only one that is [supported](#supported-mc-versions).
 If you choose unsupported version, the plot servers won't start.*
 
-**Known supported versions:**
-
-- 1.20.4
+You will need to download correct plugins that support this Minecraft version in the next steps since
+plot servers will start with this Minecraft version.
 
 **Step 35:** `Number of free plots to keep`
 
@@ -578,7 +601,7 @@ in the `housing-server-template`.
 - **DecentHolograms**
 
 > Note: There is a known issue with newer versions of FastAsyncWorldEdit and/or some other required plugins versions
-> that they show errors on start (plots use AdvancedSlimePaper). More about this at the end of this guide.
+> on 1.20.4 that they show errors on start (plots use AdvancedSlimePaper). More about this at the end of this guide.
 
 ### Changing global configuration
 
@@ -596,12 +619,12 @@ Well, it's simple.
 
 **Connecting your proxy server**
 
-Currently, **the only supported proxy server software is BungeeCord**. If you are using any other proxy server software, you will
-need to switch to any BungeeCord fork or wait for future support. (which is planned)
+Currently, **the only supported proxy server software is BungeeCord and Velocity**. If you are using any other proxy server software, you will
+need to switch to any BungeeCord/Velocity fork or wait for future support.
 
 Steps to connect your proxy server:
 
-1. Copy the `Housing-Proxy-<version>.jar` plugin from the `plugin/` folder of the archive you received to the `plugins/` folder
+1. Copy the `Housing-Proxy-<sw>-<version>.jar` plugin from the `plugin/` folder of the archive you received to the `plugins/` folder
 of your proxy server.
 2. Restart your proxy server.
 3. Fill up the `config.yml` file of the plugin with the connection details to your infrastructure.
