@@ -134,7 +134,6 @@ hooks:
 
 not_in_nav: |
   general/index.md
-  guides/custom-packages.md
   guides/milestones.md
   guides/unlockable-items.md
   guides/worldedit.md
