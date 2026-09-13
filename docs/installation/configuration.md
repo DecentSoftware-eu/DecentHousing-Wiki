@@ -25,7 +25,7 @@ cd chart/
 ./manage.sh restart-plots
 ```
 
-Also restart all your (lobby) servers where you have housing plugin installed, to apply the changes there as well.
+Also **restart all your (lobby) servers where you have housing plugin installed**, to apply the changes there as well.
 
 ## Changing housing-server-template files
 
