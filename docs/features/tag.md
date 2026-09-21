@@ -16,6 +16,20 @@ DecentHousing supports two types of tags:
 - **Normal Tags (`sticky: false`):** Standard tags available for plot owners to select. Plot owners can freely assign or remove normal tags on their plot directly from the in-game Plot Panel menu up to a maximum limit (e.g. up to 3 tags).
 - **Sticky Tags (`sticky: true`):** Special administrative tags managed exclusively by server administrators (such as *Official*, *Verified*, or *Milestone Award*). Sticky tags remain permanently on the plot and cannot be added or removed by plot owners through the plot menu.
 
+### Rewarding Sticky Tags via Packages
+
+Because sticky tags cannot be modified by plot owners directly, server administrators can use them as plot rewards or badges granted through [Packages](package.md) (e.g., store rewards, crates, or milestone unlocks).
+
+When a player applies a package to their plot, an action configured in `packages.global.yml` can run the console command:
+
+```
+/housing admin tags assign %plot% <tagId>
+```
+
+This automatically grants and attaches the sticky tag to the plot.
+
+More about this in the [/housing admin tags](../commands/housing/admin/tags.md) command reference.
+
 ## Managing Tags In-Game (Plot Panel Menu)
 
 Plot owners and members with plot management permissions can select normal tags for their plot using the in-game menu:
@@ -29,6 +43,17 @@ Plot owners and members with plot management permissions can select normal tags 
 /// note | Sticky Tags Notice
 Sticky tags assigned by server admins are displayed alongside normal tags in the Plot Panel overview, but cannot be removed by plot owners in the tag selector.
 ///
+
+## Filtering Plots by Tags (Plot Browser)
+
+Players browsing for plots using [`/housing browse`](../commands/housing/browse.md) can filter the server-wide plot list by specific tags in the **Filters** menu:
+
+1. Open the plot browser using [`/housing browse`](../commands/housing/browse.md).
+2. Click the **Filters** button to open the browser search filter settings.
+3. Click the **Tags** button (represented by a **Name Tag** icon).
+4. Select one or more tags in the tag picker menu (e.g. *Parkour*, *PVP*, *RPG*, or *Official*).
+5. The plot browser automatically updates to display only plots that have at least one of the selected tags assigned.
+
 
 ## Admin Tag Commands (`/housing admin tags`)
 
@@ -78,4 +103,5 @@ Administrators require the following permission nodes to run tag management comm
 - [`/plot menu`](../commands/plot/menu.md) - Opening the in-game plot management interface.
 - [`/housing browse`](../commands/housing/browse.md) - Browsing and filtering plots by tags.
 - [Plot](plot/index.md) - Overview of plot settings and management.
+- [Package](package.md) - Granting sticky tag rewards via packages.
 - [Features Overview](index.md) - Overview of all DecentHousing features.
