@@ -697,6 +697,18 @@ You can do this in the `housing-server-template/plugins/` folder on your MinIO d
 
 [Click to show available plot placeholders](../placeholders/index.md#plot-placeholders-plot_)
 
+### Adjusting default economy
+
+Before you release Housing to your players, you may need to adjust some settings for the default Housing economy
+that has been created automatically for you during installation.
+
+For example, change **how much money players get per minute by playing Housing** using:
+```
+/housing admin economy update default --timeRewardRange 5-15
+```
+
+For more, refer to the [/housing admin economy](../commands/housing/admin/economy.md) command reference.
+
 ### Starting plot servers
 
 Last step is to start the plot servers. You can do that by running the following:
