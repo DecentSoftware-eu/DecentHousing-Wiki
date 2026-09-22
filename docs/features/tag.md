@@ -5,6 +5,8 @@ description: Plot tags and tag administration
 
 The **Tag module** allows plot owners and server administrators to assign descriptive tags (labels) to plots. Tags help players categorize, discover, and filter plots in the plot browser.
 
+![Browser Menu Tags](/assets/images/features/tag/browser-menu.png)
+
 ## Overview
 
 Tags make it easy for players to identify the content or theme of a plot (such as *Parkour*, *PVP*, *RPG*, or *Event*). When players browse available plots using [`/housing browse`](../commands/housing/browse.md), they can filter plots by specific tags to find what they are looking for.
