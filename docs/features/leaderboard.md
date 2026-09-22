@@ -1,6 +1,6 @@
 ---
 title: Leaderboard
-description: Leaderboard module and top rankings overview
+description: Leaderboards and top rankings overview
 ---
 
 The **Leaderboard module** provides server-wide rankings for player statistics, economy balances, and plot metrics.

@@ -1,6 +1,6 @@
 ---
 title: Package
-description: Package module
+description: Premium packages that run commands and can be applicable on plots
 ---
 
 Represents a premium package that a user can obtain (from your store, crates, vote rewards, etc.) and apply to any

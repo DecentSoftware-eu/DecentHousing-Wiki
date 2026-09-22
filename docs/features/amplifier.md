@@ -1,6 +1,6 @@
 ---
 title: Amplifier
-description: Amplifier module
+description: Timed boosts for plots
 ---
 
 ## Amplifier

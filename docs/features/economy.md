@@ -1,6 +1,6 @@
 ---
 title: Economy
-description: Economy module
+description: Housing economy shared across plots
 ---
 
 ## Economy

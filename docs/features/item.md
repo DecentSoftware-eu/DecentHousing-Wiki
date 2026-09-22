@@ -1,6 +1,6 @@
 ---
 title: Item
-description: Custom items and in-game items catalog
+description: Custom items in the in-game items catalog
 ---
 
 The **Item module** provides an interactive in-game catalog (the **Items** menu) where players and builders can browse, obtain, and purchase specialized items, decorations, and tools on their plots.

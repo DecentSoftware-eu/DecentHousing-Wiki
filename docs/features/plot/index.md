@@ -1,6 +1,6 @@
 ---
 title: Plot
-description: Plot module
+description: Housing plots
 ---
 
 A plot represents one land that belongs to one player. Player can have as many plots as his

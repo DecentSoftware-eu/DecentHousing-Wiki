@@ -1,6 +1,6 @@
 ---
 title: User
-description: User module
+description: Registered players on Housing
 ---
 
 A user is a player who is playing a Housing. Profile of a User is created once he enters any server that has the

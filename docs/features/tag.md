@@ -1,6 +1,6 @@
 ---
 title: Tag
-description: Plot tags and tag administration
+description: Tags that can be assigned to plots for categorization
 ---
 
 The **Tag module** allows plot owners and server administrators to assign descriptive tags (labels) to plots. Tags help players categorize, discover, and filter plots in the plot browser.

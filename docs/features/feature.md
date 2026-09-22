@@ -1,6 +1,6 @@
 ---
 title: Feature
-description: Feature module
+description: Expansion modules for Housing
 ---
 
 A Feature is an additional module (jar file) that you buy/download from our store to extend the Housing's functionality on a plot.
