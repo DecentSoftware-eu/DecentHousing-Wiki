@@ -11,7 +11,14 @@ subtitle: Welcome to the DecentHousing Wiki!
 DecentHousing is a highly advanced creative game mode which allows players to create their own plots on floating islands and
 publish them to the public.
 
-[:octicons-play-24: Watch trailer](https://www.youtube.com/watch?v=tRI1AmIXqqQ){ .md-button .md-button--primary .glightbox }
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/tRI1AmIXqqQ"
+  title="YouTube video"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
 
 ---
 
