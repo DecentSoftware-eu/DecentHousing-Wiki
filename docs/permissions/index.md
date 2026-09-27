@@ -3,11 +3,6 @@ title: Permissions
 description: Complete overview of system, administrative, theme, and command permission nodes for DecentHousing
 ---
 
-DecentHousing separates permission management into two distinct layers:
-
-1. **Server-Wide Permissions:** Configured via server-wide permission managers (such as LuckPerms or Vault). These control administrative privileges, feature bypasses, theme availability, and command execution rights network-wide.
-2. **Plot-Scoped Permissions:** Configured dynamically on individual plots by plot owners. These control building rights, plot settings, and moderation commands within that specific plot.
-
 /// tip | Per-Plot Roles & Permissions
 For plot-level permissions (such as `BUILD`, `WORLD_EDIT`, `PLOT_SETTINGS`, `PLOT_ESSENTIALS_BAN`, etc.) assigned to custom roles on individual plots, see the [Roles & Permissions](../features/plot/roles-and-permissions.md) documentation.
 ///
