@@ -87,7 +87,136 @@ source ~/.bashrc
 
 ---
 
-## Installation
+## Installation (Quick)
+
+We've created a full command line tool `housingctl` that you can utilize to easily install and manage your DecentHousing
+infrastructure.
+
+> Note: By using `housingctl` for installation, you follow the most common installation scenario that installs
+> all the necessary databases and services for you. Although, if you want to use your own database, you need to
+> follow the [Advanced Installation](#installation-advanced) guide which allows you to customize every step of
+> the installation.
+
+You can find the `housingctl` executable at the root folder of the archive you have received.
+
+**Extract the archive where you wanna your Housing files to be** and **run the `housingctl` command** to see the help menu:
+```bash
+./housingctl
+```
+
+First, please verify that the housingctl home folder points to the folder of the archive you have extracted:
+```bash
+./housingctl config
+```
+Should be the same as the folder you are currently in:
+```
+root@ds1 /srv/services/housing-showcase-4 # ./housingctl config
+
+============================================================
+▶ housingctl Configuration
+============================================================
+  Home Directory: /srv/services/housing-showcase-4
+  Config File Path: Not created yet
+  Valid Housing Layout: Yes
+```
+
+Then if you are ready, begin the installation:
+```bash
+./housingctl install
+```
+
+```
+root@ds1 /srv/services/housing-showcase-4 # ./housingctl install
+
+============================================================
+▶ DecentHousing Common Installation Wizard
+============================================================
+This wizard configures DecentHousing using the recommended common setup
+from docs/installation/first-install.md.
+
+
+--- Step 1/2: Target Deployment & Domain Configuration ---
+Enter Kubernetes namespace where to deploy [housing]: housing
+Enter Helm release name [housing-4]: housing
+Enter base domain name (e.g. your-domain.com): example.com
+Docker Registry subdomain [registry.example.com]: registry.example.com
+MinIO Console subdomain [housing-minio.example.com]: housing-minio.example.com
+Housing API subdomain [housing-api.example.com]: housing-api.example.com
+Docker Registry username [housing]:
+Docker Registry password [2a5jrdI2xzEHKPtx]:
+Docker Registry port [5050]:
+```
+
+```
+=================================================
+▶ Housing Setup Wizard
+=================================================
+
+=================================================
+▶ Image pulling configuration
+=================================================
+
+=================================================
+▶ Redis configuration
+=================================================
+? NodePort to expose Redis on (default: 30379): 30379
+
+=================================================
+▶ RabbitMQ configuration
+=================================================
+? NodePort to expose RabbitMQ AMQP on (default: 30672): 30672
+? NodePort to expose RabbitMQ Management on (default: 31672): 31672
+
+=================================================
+▶ MinIO configuration
+=================================================
+? NodePort to expose MinIO API on (default: 30900): 30900
+? NodePort to expose MinIO Console on (default: 30901): 30901
+
+=================================================
+▶ MariaDB configuration
+=================================================
+? NodePort to expose MariaDB on (default: 30306): 30306
+
+=================================================
+▶ API configuration
+=================================================
+? NodePort to expose API on (default: 30080): 30080
+
+=================================================
+▶ Core version configuration
+=================================================
+
+=================================================
+▶ Plot configuration
+=================================================
+? Minecraft version to use for plots (default: 1.20.4): 1.21.10
+
+=================================================
+▶ Monitoring configuration
+=================================================
+? Number of free plots to keep (default: 2):
+? Maximum number of plot servers to run (default: 10):
+
+=================================================
+▶ Node access configuration
+=================================================
+Since this is a bare-metal environment, we need to know how to access each node to be able to connect to plot servers running on them.
+We will now ask you repeatedly to provide us with mappings of node names to their external IP addresses or hostnames until you indicate that you are done.
+? Enter node name (as shown in 'kubectl get nodes') or leave empty to finish: ds1
+? Enter IP address or hostname to access this node: 172.17.0.1
+? Enter node name (as shown in 'kubectl get nodes') or leave empty to finish:
+```
+
+To see all exposed ports and credentials you will need, run the following command:
+```bash
+./housingctl describe --sensitive
+```
+
+After installation, **follow the post-install guide that shows up in your terminal** to finish the installation
+and **continue to the [After Installation](#after-installation) guide**.
+
+## Installation (Advanced)
 
 When you buy DecentHousing, or download a version, you receive a `.zip` archive containing all the necessary files
 associated with that version, along with all configuration files needed to deploy the platform.
@@ -563,6 +692,8 @@ TEST SUITE: None
 
 All services are running now based on your configuration. You are now ready to move to the next step.
 
+## After Installation
+
 ### Setting up the plot servers
 
 After you have set up the infrastructure and successfully exposed all required ports, you need to set up the plot
@@ -627,7 +758,7 @@ Steps to connect your proxy server:
 1. Copy the `Housing-Proxy-<sw>-<version>.jar` plugin from the `plugin/` folder of the archive you received to the `plugins/` folder
 of your proxy server.
 2. Restart your proxy server.
-3. Fill up the `config.yml` file of the plugin with the connection details to your infrastructure.
+3. Fill up the `config.yml` file of the plugin with the connection details to your infrastructure (from `./housingctl describe --sensitive` or `./manage.sh describe --sensitive`).
 4. Restart your proxy server again.
 
 **Connecting your Lobby servers**
@@ -637,7 +768,7 @@ Steps to connect your lobby servers:
 - Copy the `Housing-Lobby-<version>.jar` plugin from the `plugin/` folder of the archive you received to the `plugins/` folder
 of all your lobby servers from where you want your players to connect to the Housing.
 - Restart your lobby servers.
-- Fill up the `config.yml` file of the plugin with the connection details to your infrastructure.
+- Fill up the `config.yml` file of the plugin with the connection details to your infrastructure (from `./housingctl describe --sensitive` or `./manage.sh describe --sensitive`).
 - Restart your lobby servers again.
 
 ### Setting up permissions
@@ -712,6 +843,12 @@ For more, refer to the [/housing admin economy](../commands/housing/admin/econom
 ### Starting plot servers
 
 Last step is to start the plot servers. You can do that by running the following:
+
+```bash
+./housingctl plots start
+```
+
+Alternatively, you can also use the `manage.sh` script:
 
 ```bash
 cd chart/
