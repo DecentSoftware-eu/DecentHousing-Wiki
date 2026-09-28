@@ -1,28 +1,32 @@
 ---
 title: Item
-description: Custom items in the in-game items catalog
+description: Custom items per plot in the in-game items catalog
 ---
 
-The **Item module** provides an interactive in-game catalog (the **Items** menu) where players and builders can browse, obtain, and purchase specialized items, decorations, and tools on their plots.
+The **Item module** provides an interactive in-game catalog (the **Items** menu) where players and builders can browse,
+obtain, unlock and purchase specialized items, decorations, and tools on their plots.
 
 ![Item in a menu](/assets/images/features/item/menu.png)
 
-The module allows server administrators (you) to define your own items, that can be **free/paid**, **locked/unlocked**.
+The module allows server admins (you) to define your own items, that can be **free/paid**, **locked/unlocked** to
+provide a sense of progression and rewards for your players.
 
-If unlocked, you can allow players to unlock them through gameplay milestones, voting rewards, or custom [Packages](package.md)
+If locked, you can allow players to unlock them through gameplay milestones, voting rewards, or custom [Packages](package.md)
 that run the [`/plot admin item unlock`](../commands/plot/admin/item.md) command.
 
 Installed [Features](feature.md) also integrate seamlessly into this catalog, automatically registering their own
-categories and items alongside your custom items.
+categories and items alongside your custom items. For example, the Shops Simple expansion module, which you can
+download on our store, registers a **Shops** category that contains Shop Creator to allow placing of a custom shops.
 
 ## Usage
 
 A typical flow for setting up and using custom items:
 
 1. You **define categories and items** in the `items.global.yml` configuration file or players **activate a [Feature](feature.md)** on the plot.
-2. Players open their plot menu with [`/plot menu`](../commands/plot/menu.md) and click the **Items** button.
-3. Players **browse categories** and click an item to collect or purchase it.
-4. For locked items, administrators unlock them using [`/plot admin item unlock`](../commands/plot/admin/item.md) or players apply a [Package](package.md) to their plot.
+2. Players browse the items menu and click an item to collect or purchase it.
+
+> Info: For locked items, administrators unlock them using [`/plot admin item unlock`](../commands/plot/admin/item.md) or
+> players apply a [Package](package.md) to their plot that runs the command until they can obtain and use the item.
 
 ## Configuration
 
@@ -130,8 +134,6 @@ categories:
 *3) Follows the standard [item selector configuration convention](../other/config-conventions/item-selector.md).*  
 *4) Follows the standard [action configuration convention](../other/config-conventions/action.md).*
 
-## Configuration Options
-
 ### Category Options
 
 | Option        | Type    | Description                                                                 |
@@ -143,17 +145,17 @@ categories:
 
 ### Item Options
 
-| Option                          | Type    | Default  | Description                                                                                                                                                                      |
-|:--------------------------------|:--------|:---------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `item`                          | Section | Required | Visual appearance when the item is unlocked/available. Follows the [Item convention](../other/config-conventions/item.md).                                                        |
-| `item-locked`                   | Section | Optional | Visual appearance displayed when the item is currently locked on the plot. Follows the [Item convention](../other/config-conventions/item.md).                                   |
+| Option                          | Type    | Default  | Description                                                                                                                                                                                                                                  |
+|:--------------------------------|:--------|:---------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `item`                          | Section | Required | Visual appearance when the item is unlocked/available. Follows the [Item convention](../other/config-conventions/item.md).                                                                                                                   |
+| `item-locked`                   | Section | Optional | Visual appearance displayed when the item is currently locked on the plot. Follows the [Item convention](../other/config-conventions/item.md).                                                                                               |
 | `locked`                        | Boolean | `false`  | When set to `true`, the item starts locked on all plots. It must be unlocked on the plot using the [`/plot admin item unlock`](../commands/plot/admin/item.md) command (or via a [Package](package.md)) before players can obtain or use it. |
-| `tag`                           | String  | Item ID  | Grouping identifier. When you unlock a tag via [`/plot admin item unlock`](../commands/plot/admin/item.md) (or a package), all items sharing that tag are unlocked simultaneously. |
-| `obtainable-without-privileges` | Boolean | `false`  | If `false`, only players with plot edit rights (and the `SPECIAL_ITEMS` plot role permission) can view and obtain the item. If `true`, regular plot visitors can also obtain it. |
-| `price`                         | Section | Optional | Controls whether the item is free or costs currency. Follows the [Price convention](../other/config-conventions/price.md).                                                       |
-| `selector`                      | Section | Optional | Links this item entry to physical Minecraft items. Follows the [Item Selector convention](../other/config-conventions/item-selector.md).                                         |
-| `on-obtain`                     | List    | Optional | A list of actions executed when a player obtains the item from the menu. Follows the [Action convention](../other/config-conventions/action.md). |
-| `on-unlock`                     | List    | Optional | A list of actions executed on the plot when the item (or its tag) is unlocked. Follows the [Action convention](../other/config-conventions/action.md). |
+| `tag`                           | String  | Item ID  | Grouping identifier. When you unlock a tag via [`/plot admin item unlock`](../commands/plot/admin/item.md) (or a package), all items sharing that tag are unlocked simultaneously.                                                           |
+| `obtainable-without-privileges` | Boolean | `false`  | If `false`, only players with plot edit rights (and the `SPECIAL_ITEMS` plot role permission) can view and obtain the item. If `true`, regular plot visitors can also obtain it.                                                             |
+| `price`                         | Section | Optional | Controls whether the item is free or costs currency. Follows the [Price convention](../other/config-conventions/price.md).                                                                                                                   |
+| `selector`                      | Section | Optional | Links this item entry to physical Minecraft items. Follows the [Item Selector convention](../other/config-conventions/item-selector.md).                                                                                                     |
+| `on-obtain`                     | List    | Optional | A list of actions executed when a player obtains the item from the menu. Follows the [Action convention](../other/config-conventions/action.md).                                                                                             |
+| `on-unlock`                     | List    | Optional | A list of actions executed on the plot when the item (or its tag) is unlocked. Follows the [Action convention](../other/config-conventions/action.md).                                                                                       |
 
 For full details and additional options (such as custom model data and unbreakability), see the [Item Convention](../other/config-conventions/item.md).
 
@@ -170,7 +172,10 @@ For example, if you configure a custom barrier or TNT item with `locked: true` a
 - Players cannot obtain it from the Items menu.
 - Players cannot place or use any matching physical item on the plot until the item (or its tag) is unlocked on that specific plot.
 
-For more details on selector rules (materials, custom model data, and tags), see the [Item Selector convention](../other/config-conventions/item-selector.md).
+**For more details on selector rules, see the [Item Selector convention](../other/config-conventions/item-selector.md)**.
+
+**For more about locking items, see the [Locked Item](locked-item.md) module**, which provides a standalone configuration for
+restricting physical items without displaying them in the Items menu.
 
 ### Unlocking via Commands
 
@@ -196,13 +201,9 @@ You can connect locked items with the [Package](package.md) system to sell item 
 
 ### Admin Permissions
 
-| Permission | Description |
-|:---|:---|
-| `housing.command.plot.admin.item.unlock` | Allows unlocking locked items and tags on a plot via `/plot admin item unlock`. |
+- [housing.command.plot.admin.item.unlock](../commands/plot/admin/item.md#permissions) - Allows unlocking locked items on a plot via [`/plot admin item unlock`](../commands/plot/admin/item.md).
 
-### Plot Role Permissions
-
-In addition to admin permissions, DecentHousing provides plot-level permissions configured per role:
+### Plot Permissions
 
 - **`SPECIAL_ITEMS`**: Grants members with this role on a plot permission to access the Items menu and obtain privileged items. Items with `obtainable-without-privileges: true` can be accessed by visitors even without this permission.
 
