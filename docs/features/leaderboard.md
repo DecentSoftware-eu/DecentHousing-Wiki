@@ -1,23 +1,23 @@
 ---
 title: Leaderboard
-description: Leaderboards and top rankings overview
+description: Leaderboards and top rankings
 ---
 
-The **Leaderboard module** provides server-wide rankings for player statistics, economy balances, and plot metrics.
+This module provides overview of rankings for your players playing Housing and plots.
 
 ## In-Game Access
 
 Players can open the leaderboards menu or view top rankings in chat using the [`/housing top`](../commands/housing/top.md) command.
 
+![Leaderboard Menu](/assets/images/features/leaderboard/menu.png)
+
 ## Placeholders
 
-Leaderboard entries can be displayed across holograms, scoreboards, TAB, or custom menus using PlaceholderAPI placeholders (e.g., `%housing_leaderboard_record_<key>_<position>_name%`).
+Leaderboard entries can be displayed across holograms, scoreboards, TAB, or custom menus using PlaceholderAPI placeholders.
 
-/// note | Available Leaderboard Keys
-Currently, only the `votes` leaderboard and the `economy` leaderboard (which requires the `economyId` parameter, e.g. `%housing_leaderboard_record_economy_economyId=coins_1_name%`) are available for placeholders.
-///
+![Leaderboard Holo](/assets/images/features/leaderboard/holo.png)
 
-For a detailed list of all leaderboard placeholders and usage examples, see [Placeholders &rarr; Leaderboards & Rankings](../placeholders/index.md#leaderboards--rankings).
+See [Placeholders &rarr; Leaderboards & Rankings](../placeholders/index.md#leaderboards--rankings) for a detailed list of all leaderboard placeholders and usage examples.
 
 ## References
 
