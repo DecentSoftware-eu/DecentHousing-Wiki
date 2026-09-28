@@ -12,9 +12,9 @@ The module allows server admins (you) to define your own items, that can be **fr
 provide a sense of progression and rewards for your players.
 
 If locked, you can allow players to unlock them through gameplay milestones, voting rewards, or custom [Packages](package.md)
-that run the [`/plot admin item unlock`](../commands/plot/admin/item.md) command.
+that run the [`/plot admin item unlock`](../commands/plot/admin/item.md) admin command.
 
-Installed [Features](feature.md) also integrate seamlessly into this catalog, automatically registering their own
+> Info: Installed [Features](feature.md) also integrate seamlessly into this catalog, automatically registering their own
 categories and items alongside your custom items. For example, the Shops Simple expansion module, which you can
 download on our store, registers a **Shops** category that contains Shop Creator to allow placing of a custom shops.
 
