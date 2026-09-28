@@ -1,26 +1,29 @@
 ---
 title: Locked Item
-description: Restrict and lock physical items or blocks on plots until unlocked
+description: Prevent from using items or blocks on plot until unlocked
 ---
 
-The **Locked Item module** allows server administrators to restrict the placement and interaction of specific
+This module allows server admins (you) to restrict the placement and interaction of specific
 physical items or blocks on plots until they are explicitly unlocked for that plot.
 
 > Note: It's the same as how [Item](item.md) locked status works, but without the appearance of the item in the item catalog.
 
-Standalone locked items **lock any physical in-game items that match the [Item Selector](../other/config-conventions/item-selector.md)**, so players **cannot interact/place them
-until they are unlocked using the [`/plot admin item unlock`](../commands/plot/admin/item.md) command** or by applying a
-[Package](package.md) that runs the unlock command.
+Locked items **use [Item Selector](../other/config-conventions/item-selector.md) to match in-game items by material, custom model data, etc.**
+
+When a player attempts to interact or place any item that matches that selector and the item is not unlocked, the action is automatically cancelled and
+an in-game message informs them that the item is locked.
+
+![Error Message chat](/assets/images/features/locked-item/error-chat.png)
 
 ## Usage
 
-A typical setup for restricting items on plots:
+A typical flow of restricting and unlocking items on plots:
 
 1. You **define locked item entries** under the `locked:` section in your `items.global.yml` configuration file.
 2. Each locked item uses an **Item Selector** to define which physical items or blocks are restricted (e.g. by material, custom model data, or display name).
-3. (Optional) You group related items together under a **tag** (e.g., `explosives`).
+3. *(Optional) You group related items together under a **tag** (e.g., `explosives`).*
 4. When a player attempts to place or interact with a restricted item on a plot where it is still locked, the action is automatically cancelled and an in-game message informs them that the item is locked.
-5. Administrators, automated reward flows, or players applying a [Package](package.md) can unlock the item or tag on the plot using [`/plot admin item unlock`](../commands/plot/admin/item.md).
+5. **Console or an admin runs [`/plot admin item unlock`](../commands/plot/admin/item.md) command**, or apply a **[Package](package.md) that runs that command** to unlock the item or tag on the plot.
 
 ## Configuration
 
@@ -53,10 +56,10 @@ locked:
 
 Each entry under `locked:` supports the following options:
 
-| Option     | Type    | Default        | Description                                                                                                                                                                          |
-|:-----------|:--------|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Option     | Type    | Default           | Description                                                                                                                                                                                                    |
+|:-----------|:--------|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `tag`      | String  | `__unspecified__` | Optional grouping identifier. When you unlock a tag via [`/plot admin item unlock`](../commands/plot/admin/item.md) (or a package), all locked items sharing that tag are unlocked simultaneously on the plot. |
-| `selector` | Section | Required       | Conditions matching physical in-game items (e.g. material, custom model data). Follows the [Item Selector convention](../other/config-conventions/item-selector.md).               |
+| `selector` | Section | Required          | Conditions matching physical in-game items (e.g. material, custom model data). Follows the [Item Selector convention](../other/config-conventions/item-selector.md).                                           |
 
 ## Unlocking Items on Plots
 
@@ -85,9 +88,7 @@ You can sell item access or offer item unlocks as rewards using the [Package](pa
 
 ### Admin Permissions
 
-| Permission | Description |
-|:---|:---|
-| `housing.command.plot.admin.item.unlock` | Allows unlocking locked items and tags on a plot via `/plot admin item unlock`. |
+- [housing.command.plot.admin.item.unlock](../permissions/index.md#plot-admin-commands) - Allows [`/plot admin item unlock`](../commands/plot/admin/item.md) command to unlock locked items and tags on a plot.
 
 ## Commands
 
