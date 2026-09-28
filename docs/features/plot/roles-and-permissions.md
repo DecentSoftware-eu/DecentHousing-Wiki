@@ -1,6 +1,6 @@
 ---
 title: Roles & Permissions
-description: Plot roles, permissions, and access control
+description: Per-plot roles and permissions
 ---
 
 
