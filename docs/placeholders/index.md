@@ -84,6 +84,8 @@ Global and player-scoped placeholders query player stats, economies, leaderboard
 | `%housing_leaderboard_record_<key>_<params>_<position>_value%` | Returns the formatted value at the specified position for a parameterized leaderboard view.                   | `$50,000`      |
 
 /// example | Leaderboard Placeholder Usage
+Currently, only the `votes` leaderboard and the `economy` leaderboard (which requires the `economyId` parameter, e.g. `%housing_leaderboard_record_economy_economyId=coins_1_name%`) are available for placeholders.
+
 - `%housing_leaderboard_record_votes_1_name%` &rarr; `ZorTik`
 - `%housing_leaderboard_record_votes_1_value%` &rarr; `500`
 - `%housing_leaderboard_record_balance_economyId=coins_1_name%` &rarr; `Steve`
