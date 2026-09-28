@@ -3,8 +3,8 @@ title: Package
 description: Premium packages that run commands and can be applicable on plots
 ---
 
-Represents a premium package that a user can obtain (from your store, crates, vote rewards, etc.) and apply to any
-plot of their choice to unlock something.
+Represents a **package of action that a user can obtain** (from your store, crates, vote rewards, etc.) and **apply to any
+plot of their choice** to unlock something.
 
 ![Package in a menu](/assets/images/features/package/menu.png)
 
@@ -15,14 +15,21 @@ If there is an error applying, the package remains in the player's profile.
 
 ## Usage
 
-After the package is configured, you can give it to a player on any server that runs Housing plugin.
+After the package is configured, you can **give it to a player on any server that runs Housing plugin** (hub, or any plot server)
+using [/housing admin package give](../commands/housing/admin/package.md) command.
 
-The typical flow may be like this:
-
+/// details | Typical flow of giving and applying a package
+    open: False
 1. You **set up the package** in the `packages.global.yml` file.
 2. You **reward the player with the package** using the [`/housing admin package give`](../commands/housing/admin/package.md) command.
 3. The player **applies the package to a plot** of their choice using the [`/plot menu`](../commands/plot/menu.md) command.
 4. (Optional) You can use the [PlaceholderAPI Placeholders](#placeholderapi-placeholders) to dynamically display package details in crate menus, etc.
+///
+
+For **displaying always-up-to-date package information in crates/menus**, you can use
+the [Features & Packages placeholders](../placeholders/index.md#features--packages).
+
+The plot role permission **`PLOT_PACKAGES`** allows players with that role on the plot to access the Packages menu from the Market GUI.
 
 ## Configuration
 
@@ -72,30 +79,13 @@ packages:
 
 To inspect, award, list, or force-apply packages, use the [`/housing admin package`](../commands/housing/admin/package.md) command.
 
-## PlaceholderAPI Placeholders
+## Placeholders
 
-DecentHousing registers placeholders under the `%housing_...%` identifier to query package details (see complete list in [Placeholders](../placeholders/index.md)):
-
-| Placeholder                                                      | Description                                                    |
-|:-----------------------------------------------------------------|:---------------------------------------------------------------|
-| `%housing_package_name_<packageId>%`                             | Returns the display name of the specified package.             |
-| `%housing_package_name_<packageId>_<opt1>=<val1>_<opt2>=<val2>%` | Returns the display name with dynamic options substituted.     |
-| `%housing_package_description_<packageId>%`                      | Returns the description/lore of the specified package.         |
-| `%housing_package_description_<packageId>_<opt1>=<val1>%`        | Returns the description/lore with dynamic options substituted. |
-
-/// example | Placeholder Usage
-- `%housing_package_name_custom-player-limit-increment_increment=5%` &rarr; `<yellow><b>SLOT INCREASE</b></yellow> <gray>(+5)</gray>`
-- `%housing_package_name_activate-feature_featureKey=shops%` &rarr; Formatted title for activating the shops feature.
-///
+See [Features & Packages placeholders](../placeholders/index.md#features--packages) for reference.
 
 ## Permissions
 
-| Permission                            | Description                                                 |
-|:--------------------------------------|:------------------------------------------------------------|
-| `housing.command.admin.package.list`  | Allows listing all registered packages.                     |
-| `housing.command.admin.package.info`  | Allows inspecting package details and options.              |
-| `housing.command.admin.package.give`  | Allows awarding packages to players.                        |
-| `housing.command.admin.package.apply` | Allows force-applying packages directly to the active plot. |
+See [Housing Admin Commands](../permissions/index.md#housing-admin-commands) for reference.
 
 Additionally, the plot role permission **`PLOT_PACKAGES`** allows players with that role on the plot to access the Packages menu from the Market GUI.
 

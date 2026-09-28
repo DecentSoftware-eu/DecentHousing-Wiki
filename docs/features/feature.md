@@ -3,34 +3,40 @@ title: Feature
 description: Expansion modules for Housing
 ---
 
-A Feature is an additional module (jar file) that you buy/download from our store to extend the Housing's functionality on a plot.
+A Feature is an additional module (jar file) that you buy/download from our store to extend the functionality on a plot.
 
 ![Market menu](/assets/images/features/feature/menu.png)
 
-Optionally, a feature module can have [price](../other/config-conventions/price.md) so players can buy it from the market menu in the
+Optionally, **a feature module can have [price](../other/config-conventions/price.md)** so players can buy it from the market menu in the
 [/plot menu](../../commands/plot/menu.md) command.
 
-Even if its free, you can set up if the feature is auto-activated on every plot or if the player has to activate it first in
+Even if its free, **you can set up if the feature is auto-activated on every plot** or if the player has to activate it first in
 the market menu.
 
-A feature can add many functionalities to a plot, like:
+A feature can add many functionalities to a plot.
 
+/// details | Example functionalities that the feature can add to a plot
+    open: False
 - New items in the 'Items' menu
 - New per-plot permissions for plot's custom groups
 - New commands
 - New menus in the 'Other' menu
 - New plot settings in the 'Settings' menu
 - New region flags
+///
 
-To **force-activate a feature** on a plot, use the [/plot admin feature](../commands/plot/admin/feature.md) activate command.
+**If the feature is marked as non-buyable** (as specified in [Price Convention](../other/config-conventions/price.md), it is
+auto-locked on a plot. To **force-activate the feature** on a plot, use the [/plot admin feature activate](../commands/plot/admin/feature.md) command.
 
-> Hint: You can set a feature `buyable` setting to false and then create a [Package](package.md) that runs the
+> Hint: You can set a feature `price.buyable` setting to false and then create a [Package](package.md) that runs the
 > activate command. That way, you can **make a feature activation a reward from crates or sell it on your store**.
 
 ## Installation
 
 To install a feature, simply download the feature jar file and place it in the `housing-features` bucket in your MinIO dashboard.
 After that, the feature is auto-loaded on all servers in 1 minute.
+
+If the feature does not auto-load, inspect the server logs for any errors. ([How to check server logs](../installation/troubleshooting.md#viewing-logs-from-plot-servers))
 
 ## Configuration
 

@@ -23,6 +23,7 @@ nav:
     - User:
       - features/user/index.md
       - features/user/plot-limit.md
+    - features/theme.md
     - features/feature.md
     - features/package.md
     - features/item.md

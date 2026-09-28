@@ -9,6 +9,8 @@ Housing core plugin installed.
 A user can be searched using the [/housing search](../../commands/housing/search.md) command or view plots of a user
 using the [/housing visit](../../commands/housing/visit.md) command.
 
+To view a user's profile, players can use the [/housing profile](../../commands/housing/profile.md) command.
+
 ## Configuration
 
 A user can be managed using the [/housing admin user](../../commands/housing/admin/user.md) command(s).
