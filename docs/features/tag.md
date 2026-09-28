@@ -3,34 +3,38 @@ title: Tag
 description: Tags that can be assigned to plots for categorization
 ---
 
-The **Tag module** allows plot owners and server administrators to assign descriptive tags (labels) to plots. Tags help players categorize, discover, and filter plots in the plot browser.
+This feature allows plot owners and server admins (you) to assign tags to plots.
+
+Tags help players categorize, discover, and filter plots in the plot browser and also can serve as a reward or badge
+for your players that you can assign by commands or through [Packages](package.md).
+
+When players browse available plots using [`/housing browse`](../commands/housing/browse.md), they can filter plots by specific tags to find what they are looking for.
 
 ![Browser Menu Tags](/assets/images/features/tag/browser-menu.png)
 
-## Overview
+## Types of Tags
 
-Tags make it easy for players to identify the content or theme of a plot (such as *Parkour*, *PVP*, *RPG*, or *Event*). When players browse available plots using [`/housing browse`](../commands/housing/browse.md), they can filter plots by specific tags to find what they are looking for.
+- **Normal Tags (`sticky: false`):** Standard tags **available for plot owners to select**. Plot owners can freely assign or remove normal tags on their plot directly from the in-game Plot Panel menu up to a maximum limit (e.g. up to 3 tags).
+- **Sticky Tags (`sticky: true`):** Special tags **assigned exclusively by server administrators** (such as *Featured*, *Popular*, or *Winner of Winter Event*). Sticky tags **remain permanently on the plot** and cannot be added or removed by plot owners through the plot menu.
 
-### Types of Tags
+## Rewarding Sticky Tags
 
-DecentHousing supports two types of tags:
+Because sticky tags cannot be modified by plot owners directly, server administrators can use them as plot rewards or badges
+granted through a command.
 
-- **Normal Tags (`sticky: false`):** Standard tags available for plot owners to select. Plot owners can freely assign or remove normal tags on their plot directly from the in-game Plot Panel menu up to a maximum limit (e.g. up to 3 tags).
-- **Sticky Tags (`sticky: true`):** Special administrative tags managed exclusively by server administrators (such as *Official*, *Verified*, or *Milestone Award*). Sticky tags remain permanently on the plot and cannot be added or removed by plot owners through the plot menu.
-
-### Rewarding Sticky Tags via Packages
-
-Because sticky tags cannot be modified by plot owners directly, server administrators can use them as plot rewards or badges granted through [Packages](package.md) (e.g., store rewards, crates, or milestone unlocks).
-
-When a player applies a package to their plot, an action configured in `packages.global.yml` can run the console command:
+After creating a sticky tag using the [`/housing admin tags create`](../commands/housing/admin/tags.md) command, you can
+assign it to a plot using the following command:
 
 ```
-/housing admin tags assign %plot% <tagId>
+/housing admin tags assign <plotId> <tagId>
 ```
 
 This automatically grants and attaches the sticky tag to the plot.
 
 More about this in the [/housing admin tags](../commands/housing/admin/tags.md) command reference.
+
+> Info: You can create a [Packages](package.md) that run the command (e.g., store rewards, crates, or milestone unlocks)
+> /housing admin tags assign %plot% <tagId>.
 
 ## Managing Tags In-Game (Plot Panel Menu)
 
@@ -56,30 +60,9 @@ Players browsing for plots using [`/housing browse`](../commands/housing/browse.
 4. Select one or more tags in the tag picker menu (e.g. *Parkour*, *PVP*, *RPG*, or *Official*).
 5. The plot browser automatically updates to display only plots that have at least one of the selected tags assigned.
 
+## Commands
 
-## Admin Tag Commands (`/housing admin tags`)
-
-Server administrators can manage the global tag registry and assign or unassign tags to any plot using the `/housing admin tags` command group.
-
-### Syntax
-
-```
-/housing admin tags create <id> <sticky> [name]
-/housing admin tags delete <id>
-/housing admin tags list
-/housing admin tags assign <plotId> <tagId>
-/housing admin tags unassign <plotId> <tagId>
-```
-
-### Available Commands
-
-| Command | Description |
-|:---|:---|
-| `/housing admin tags create <id> <sticky> [name]` | Creates a new tag with a unique identifier, sets sticky status (`true` or `false`), and optional display name. |
-| `/housing admin tags delete <id>` | Deletes an existing tag from the system. |
-| `/housing admin tags list` | Displays a list of all registered tags, categorized into Sticky and Normal tags. |
-| `/housing admin tags assign <plotId> <tagId>` | Assigns a tag directly to a specific plot by plot ID. |
-| `/housing admin tags unassign <plotId> <tagId>` | Removes a tag from a specific plot by plot ID. |
+See [`/housing admin tags`](../commands/housing/admin/tags.md) for the full command reference.
 
 ## Permissions
 
@@ -87,15 +70,15 @@ Server administrators can manage the global tag registry and assign or unassign 
 
 Administrators require the following permission nodes to run tag management commands:
 
-| Permission | Description |
-|:---|:---|
-| `housing.command.admin.tags.create` | Allows creating new tags via `/housing admin tags create`. |
-| `housing.command.admin.tags.delete` | Allows deleting tags via `/housing admin tags delete`. |
-| `housing.command.admin.tags.list` | Allows listing registered tags via `/housing admin tags list`. |
-| `housing.command.admin.tags.assign` | Allows assigning tags to plots via `/housing admin tags assign`. |
+| Permission                            | Description                                                            |
+|:--------------------------------------|:-----------------------------------------------------------------------|
+| `housing.command.admin.tags.create`   | Allows creating new tags via `/housing admin tags create`.             |
+| `housing.command.admin.tags.delete`   | Allows deleting tags via `/housing admin tags delete`.                 |
+| `housing.command.admin.tags.list`     | Allows listing registered tags via `/housing admin tags list`.         |
+| `housing.command.admin.tags.assign`   | Allows assigning tags to plots via `/housing admin tags assign`.       |
 | `housing.command.admin.tags.unassign` | Allows unassigning tags from plots via `/housing admin tags unassign`. |
 
-### Plot Role Permissions
+### Plot Permissions
 
 - **`PLOT_PANEL`**: Grants members on a plot access to the Plot Panel menu to view and change active normal plot tags.
 
