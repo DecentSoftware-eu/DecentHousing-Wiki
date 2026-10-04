@@ -17,4 +17,7 @@ Standardized configuration structures shared across different features and confi
   Standardized configuration syntax for custom items, their visual appearance, price, locking rules, selectors, and interactive actions.
 - **[Action](config-conventions/action.md)**  
   Standardized configuration syntax for automated commands, chat messages, and operations triggered by player interactions and plot events.
-
+- **[Paywall](config-conventions/paywall.md)**  
+  Standardized configuration syntax for controlling feature limits, free quotas, paid limit extensions, etc.
+
+

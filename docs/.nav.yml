@@ -97,6 +97,7 @@ nav:
         - other/config-conventions/item-selector.md
         - other/config-conventions/item.md
         - other/config-conventions/action.md
+        - other/config-conventions/paywall.md
 
   #- Modrinth: 'https://modrinth.com/plugin/decentholograms'
   #- Spigot: 'http://decentholograms.eu/'
