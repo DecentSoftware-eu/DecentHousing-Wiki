@@ -18,7 +18,7 @@ DecentHousing is a highly advanced creative game mode for Minecraft servers whic
 
 ---
 
-## Documentation Overview
+## Table of Contents
 
 Explore the documentation sections below to get started:
 

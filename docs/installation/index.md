@@ -1,21 +1,46 @@
 ---
-title: Getting Started
-description: Installation & deployment walkthrough
+title: Installation & Deployment
+description: Guides for installing and managing DecentHousing
 ---
 
-Welcome to the DecentHousing installation and deployment guide. Please choose a step from the list below to begin.
+Welcome to the DecentHousing Installation & Deployment guide. Follow the structured walkthrough below in order to get your infrastructure up and ready.
 
-### [First Installation](first-install.md)
-Follow the step-by-step deployment instructions to install Housing for the first time.
+---
 
-### [Configuration](configuration.md)
-Understand how to work with configuration files.
+## Deployment Steps
 
-### [Security](securing.md)
-Learn how to secure the DecentHousing infrastructure.
+Explore the installation topics below in recommended order:
 
-### [Updating](updating.md)
-Learn how to update DecentHousing to a newer version.
+/// html | div.grid.cards
 
-### [Troubleshooting & Common Mistakes](troubleshooting.md)
-Find solutions for common installation and connection issues (such as resolving incorrect node IP address mappings).
+- :material-rocket-launch: [**1. First Installation**](first-install.md)
+
+    ---
+
+    Step-by-step walkthrough for your first DecentHousing installation.
+
+- :material-cog: [**2. Configuration**](configuration.md)
+
+    ---
+
+    Learn how to properly configure DecentHousing on your network.
+
+- :material-shield-check: [**3. Security Guide**](securing.md)
+
+    ---
+
+    Reference for securing your housing infrastructure.
+
+- :material-update: [**4. Updating Guide**](updating.md)
+
+    ---
+
+    Learn how to update your current DecentHousing installation to a newer versions.
+
+- :material-wrench-clock: [**Troubleshooting**](troubleshooting.md)
+
+    ---
+
+    Guides for fixing common issues and monitoring your housing infrastructure.
+
+///
