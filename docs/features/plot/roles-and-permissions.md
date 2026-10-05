@@ -3,33 +3,30 @@ title: Roles & Permissions
 description: Per-plot roles and permissions
 ---
 
-
 DecentHousing features a per-plot roles and permissions system that allows plot admins to control exactly which players
 can do and access on the plot.
 
 Groups have its **set of enabled permissions** and have a **display tag** that you can use to show in the tab list or in chat.
 
+
+/// note | Global perms vs Plot perms
 Unlike server-wide permission systems (such as LuckPerms), plot roles and permissions are **strictly scoped to individual plots**. A player granted builder permissions on one plot has no building access on other plots across the server.
+///
 
-## Roles System
-
-Each plot manages its own roster of roles:
-
-### Predefined Roles
+## Pre-defined Roles
 
 - **Owner (`owner`):** The creator and owner of the plot. Automatically possesses all plot permissions and commands. This role cannot be modified, assigned to other players, or deleted.
-- **Default (`default`):** Automatically assigned to all visiting players and guests who enter the plot. By default, it grants view-only access without building or administrative rights.
-- **Additional Predefined Roles:** Ready-to-use roles configured server-wide in `config.global.yml` (such as `builder` for trusted helpers, or `whitelist` for allowed guests).
+- **Default (`default`):** Automatically assigned to all visiting players and guests who enter the plot. **Plot admins can modify the permissions of this role.**
+- **Additional Predefined Roles:** Ready-to-use roles configured server-wide in [`config.global.yml`](index.md#configuration).
 
-### Custom Roles
+## Custom Roles
 
-Plot owners and managers can create **custom roles** (such as *Co-Owner*, *Moderator*, *Architect*, or *VIP Guest*) directly in-game:
+Players with `PLOT_GROUPS` plot permission can create **custom roles** on the plot:
 
-- Each custom role can have its own **display name** and **chat tag/prefix** (e.g. `&a[&a&lBuilder&r&a]`).
-- Each role can be customized with an exact combination of permissions.
+- Each custom role can have its own **tag/prefix** (e.g. `&a[&a&lBuilder&r&a]`).
 - The maximum number of custom roles per plot is controlled by the [Roles limit](roles-limit.md) setting.
 
-### Role Tags (Group Tags)
+## Role Tags (Group Tags)
 
 Each role can be assigned an optional **tag**. A role tag is a customizable chat badge or prefix (e.g. `&c[&c&lOwner&r&c]` or `&a[&a&lBuilder&r&a]`) that identifies the player's rank on the plot.
 
@@ -37,13 +34,9 @@ Each role can be assigned an optional **tag**. A role tag is a customizable chat
 - **Formatting:** Supports standard Minecraft color and formatting codes (`&a`, `&b`, `&c`, `&l`, etc.) as well as MiniMessage tags.
 - **Plot-scoped:** Unlike server-wide prefix plugins, plot role tags only apply and display while the player is on that specific plot.
 
-### Default Game Mode
-
-Each role can also specify a **default game mode** (such as *Survival*, *Creative*, *Adventure*, or *Spectator*). When assigned to a role, players automatically switch to that game mode upon entering the plot (if permitted).
+> Tip: [Display it in TAB & chat](../../installation/first-install.md#setting-up-tab-and-scoreboard-on-plot-servers)
 
 ## Permissions Overview
-
-Permissions are assigned to roles to grant or revoke specific abilities on the plot. Below is the complete list of all available per-plot permissions:
 
 | Permission                 | Category           | Description                                                                                                                                                                               |
 |:---------------------------|:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -76,38 +69,15 @@ Permissions are assigned to roles to grant or revoke specific abilities on the p
 | `PLOT_SPAWN_OTHERS`        | Moderation         | Allows sending other players on the plot back to the plot spawn point.                                                                                                                    |
 | `WHITELIST`                | Access             | Allows joining and remaining on the plot when the plot whitelist mode is active.                                                                                                          |
 
-## Managing Roles & Permissions In-Game
-
-Plot owners and players with the `PLOT_GROUPS` and `PLOT_USERS` permissions can manage roles and permissions entirely through the in-game GUI:
-
-### Assigning Roles to Players
-
-1. Open the plot interface using [`/plot menu`](../../commands/plot/menu.md).
-2. Click **Players** (or **Users**).
-3. Select an online or offline player from the list.
-4. Choose the role you wish to assign to that player.
-
-### Editing Roles & Permissions
-
-1. Open the plot interface using [`/plot menu`](../../commands/plot/menu.md).
-2. Click **Roles** (or **Groups**).
-3. To create a new role, click **Create Role** and enter the role name in chat.
-4. Select any role to open its configuration options:
-   - **Role Information (Brush):** Displays an overview of the role including its name, tag, default game mode, and current number of assigned players.
-   - **Change Tag (Birch Sign):** Opens an anvil interface to edit the role's chat prefix/tag (up to 24 characters, supports `&` color codes).
-   - **Change Game Mode (Trident):** Opens a game mode picker to set the default game mode for members of this role.
-   - **Edit Permissions (Permission Grid):** Opens an interactive permission grid. Click any permission node to toggle it between **Allowed** (<green>Allowed</green>) and **Disallowed** (<red>Disallowed</red>).
-   - **Delete Role (TNT):** Removes the custom role (members are automatically reverted to the default role).
-
 ## Placeholders
 
 DecentHousing registers custom plot placeholders through [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/). Server administrators can use the following placeholders under the `plot` expansion (`%plot_<key>%`) to dynamically access role and permission information (see full list of placeholders in [Placeholders](../../placeholders/index.md)):
 
-| Placeholder | Description | Example Output |
-|:---|:---|:---|
-| `%plot_role%` | Displays the display name of the player's active role on the current plot. | `Owner`, `Builder`, `Player` |
+| Placeholder       | Description                                                                       | Example Output                             |
+|:------------------|:----------------------------------------------------------------------------------|:-------------------------------------------|
+| `%plot_role%`     | Displays the display name of the player's active role on the current plot.        | `Owner`, `Builder`, `Player`               |
 | `%plot_role_tag%` | Displays the formatted chat tag / prefix of the player's active role on the plot. | `&c[&c&lOwner&r&c]` / `<red>[Owner]</red>` |
-| `%plot_owner%` | Displays the username of the owner of the current plot. | `Notch` |
+| `%plot_owner%`    | Displays the username of the owner of the current plot.                           | `Notch`                                    |
 
 /// tip | Dynamic Plot Context
 Placeholders update automatically as players move between plots. If a player is a **Builder** on Plot A and visits Plot B as a **Guest**, `%plot_role%` and `%plot_role_tag%` will immediately reflect their status on Plot B.
