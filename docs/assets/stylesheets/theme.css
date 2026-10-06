@@ -1,7 +1,7 @@
 /* ==========================================================================
    Pure Neutral Zinc Theme with Softened Text Contrast
-   - Background: Pure neutral dark gray (Zinc / Charcoal #121212, #18181b)
-   - Typography: Slightly softened off-white (#ececec / #e2e8f0 / #d4d4d8)
+   - Background: Softened neutral dark gray (Zinc #1b1b20, #222228)
+   - Typography: Off-white (#f4f4f5 / #f1f5f9 / #e4e4e7)
    - Highlights: Green active indicators (#22c55e)
    - Links: Soft, refined muted blue (#60a5fa)
    ========================================================================== */
@@ -17,38 +17,38 @@
 
     --md-accent-fg-color: #22c55e;
     --md-typeset-a-color: #60a5fa;
-    --md-typeset-subtitle-color: #94a3b8;
+    --md-typeset-subtitle-color: #cbd5e1;
 
-    /* Pure Neutral Charcoal / Zinc Surfaces */
-    --theme-bg-base: #121212;
-    --theme-bg-surface: #18181b;
-    --theme-bg-card: #27272a;
-    --theme-border: #3f3f46;
+    /* Pure Neutral Charcoal / Zinc Surfaces (Softened & Slightly Lightened) */
+    --theme-bg-base: #1b1b20;
+    --theme-bg-surface: #222228;
+    --theme-bg-card: #31313a;
+    --theme-border: #494a56;
     --theme-radius: 4px;
 }
 
 [data-md-color-scheme="slate"] {
-    --mx-topbar-bg: #18181b;
-    --md-default-bg-color: #121212;
-    --md-default-fg-color: #d4d4d8;
-    --md-default-fg-color--light: #94a3b8;
-    --md-default-fg-color--lighter: #71717a;
-    --md-code-bg-color: #18181b;
-    --md-code-fg-color: #e4e4e7;
+    --mx-topbar-bg: #222228;
+    --md-default-bg-color: #1b1b20;
+    --md-default-fg-color: #e4e4e7;
+    --md-default-fg-color--light: #cbd5e1;
+    --md-default-fg-color--lighter: #94a3b8;
+    --md-code-bg-color: #222228;
+    --md-code-fg-color: #f4f4f5;
 }
 
 /* --------------------------------------------------------------------------
    Header & Navigation
    -------------------------------------------------------------------------- */
 .md-header {
-    background-color: #18181b !important;
-    border-bottom: 1px solid #27272a;
+    background-color: #222228 !important;
+    border-bottom: 1px solid #31313a;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .md-header__title {
     font-weight: 600;
-    color: #e4e4e7;
+    color: #f4f4f5;
 }
 
 .md-logo img,
@@ -59,20 +59,20 @@
 }
 
 .md-tabs {
-    background-color: #18181b !important;
-    border-bottom: 1px solid #27272a;
+    background-color: #222228 !important;
+    border-bottom: 1px solid #31313a;
 }
 
 .md-tabs__link {
     font-weight: 500;
-    color: #94a3b8;
+    color: #cbd5e1;
     transition: color 0.15s ease;
     border-radius: 0;
 }
 
 .md-tabs__link--active,
 .md-tabs__link:hover {
-    color: #e4e4e7 !important;
+    color: #f4f4f5 !important;
 }
 
 .md-tabs__link--active {
@@ -90,16 +90,16 @@
 }
 
 .md-nav--primary .md-nav__link:hover {
-    background: #27272a;
-    color: #e4e4e7;
+    background: #31313a;
+    color: #f4f4f5;
 }
 
 .md-nav__item .md-nav__link--active,
 .md-nav__item .md-nav__link--active code,
 .md-nav--primary .md-nav__item .md-nav__link--active {
-    color: #e4e4e7 !important;
+    color: #f4f4f5 !important;
     font-weight: 600;
-    background: #27272a;
+    background: #31313a;
     border-left: 3px solid #22c55e !important;
     border-radius: 0 !important;
     padding-left: 0.7rem;
@@ -110,7 +110,7 @@
 }
 
 .md-nav--secondary li.md-nav__item > .md-nav__link {
-    color: #94a3b8;
+    color: #cbd5e1;
     border-radius: 0 !important;
 }
 
@@ -119,7 +119,7 @@
 }
 
 .md-nav--secondary li.md-nav__item > .md-nav__link--active {
-    color: #e4e4e7 !important;
+    color: #f4f4f5 !important;
     font-weight: 600;
     border-left: 2px solid #22c55e !important;
     padding-left: 0.5rem;
@@ -130,26 +130,26 @@
    -------------------------------------------------------------------------- */
 .md-typeset h1 {
     font-weight: 700;
-    color: #ececec;
+    color: #f4f4f5;
     margin-bottom: 0.3em;
     letter-spacing: -0.015em;
 }
 
 .md-typeset h2 {
     font-weight: 600;
-    color: #e2e8f0;
-    border-bottom: 1px solid #27272a;
+    color: #f1f5f9;
+    border-bottom: 1px solid #31313a;
     padding-bottom: 0.3em;
     margin-top: 1.5em;
 }
 
 .md-typeset h3,
 .md-typeset h4 {
-    color: #e2e8f0;
+    color: #f1f5f9;
 }
 
 .md-typeset h2.subtitle {
-    color: #94a3b8;
+    color: #cbd5e1;
     margin-top: 0;
     font-size: 1.1em;
     font-weight: 400;
@@ -173,9 +173,9 @@
 }
 
 .md-typeset blockquote {
-    color: #d4d4d8;
+    color: #e4e4e7;
     border-left: 3px solid #22c55e;
-    background: #18181b;
+    background: #222228;
     border-radius: 0;
     padding: 0.75rem 1rem;
 }
@@ -183,16 +183,16 @@
 .md-typeset img {
     max-width: 80%;
     border-radius: 0;
-    border: 1px solid #27272a;
+    border: 1px solid #31313a;
 }
 
 /* --------------------------------------------------------------------------
    Search Bar
    -------------------------------------------------------------------------- */
 .md-search__form {
-    background-color: #27272a !important;
+    background-color: #31313a !important;
     border-radius: 0 !important;
-    border: 1px solid #3f3f46;
+    border: 1px solid #494a56;
 }
 
 .md-search__form:focus-within {
@@ -201,9 +201,9 @@
 }
 
 .md-search__output {
-    background-color: #18181b;
+    background-color: #222228;
     border-radius: 0;
-    border: 1px solid #27272a;
+    border: 1px solid #31313a;
 }
 
 /* --------------------------------------------------------------------------
@@ -211,8 +211,8 @@
    -------------------------------------------------------------------------- */
 .md-typeset pre > code {
     border-radius: 0;
-    border: 1px solid #27272a;
-    background-color: #18181b;
+    border: 1px solid #31313a;
+    background-color: #222228;
 }
 
 .md-clipboard {
@@ -220,8 +220,8 @@
 }
 
 .md-clipboard:hover {
-    color: #e4e4e7 !important;
-    background: #3f3f46 !important;
+    color: #f4f4f5 !important;
+    background: #494a56 !important;
 }
 
 .md-button {
@@ -248,14 +248,14 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: #121212;
+    background: #1b1b20;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #27272a;
+    background: #31313a;
     border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #3f3f46;
+    background: #494a56;
 }
