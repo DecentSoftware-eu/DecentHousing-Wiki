@@ -1,6 +1,6 @@
 ---
 title: Package
-description: Premium packages that run commands and can be applicable on plots
+description: Premium packages that run commands and can be applied on plots
 ---
 
 Represents a **package of action that a user can obtain** (from your store, crates, vote rewards, etc.) and **apply to any

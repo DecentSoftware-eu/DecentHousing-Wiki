@@ -4,7 +4,7 @@ description: Bukkit permissions reference
 ---
 
 /// tip | Per-Plot Permissions
-For plot-level permissions (such as `BUILD`, etc.) assigned to custom roles on individual plots, see the [Roles & Permissions](../features/plot/roles-and-permissions.md) documentation.
+For plot-level permissions (such as `BUILD`, etc.), see the [Roles & Permissions](../features/plot/roles-and-permissions.md) page.
 ///
 
 ## Administrative Permissions
