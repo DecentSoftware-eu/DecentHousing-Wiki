@@ -3,10 +3,10 @@
 {% block site_meta %}
   {{ super() }}
 
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ page.base_url | url}}/assets/images/logo.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ page.base_url | url}}/assets/images/logo.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ page.base_url | url}}/assets/images/logo.png">
-  <link rel="manifest" href="{{ page.base_url | url}}/assets/site.manifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ page.base_url | url }}/assets/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ page.base_url | url }}/assets/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ page.base_url | url }}/assets/images/favicons/favicon-16x16.png">
+  <link rel="manifest" href="{{ page.base_url | url }}/assets/site.webmanifest">
 
   {% set site_title = config.site_name %}
   {% if page and page.meta and page.meta.title %}

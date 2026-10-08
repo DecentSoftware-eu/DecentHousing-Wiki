@@ -11,7 +11,7 @@ docs_dir: 'docs/'
 theme:
   name: 'materialx'
   custom_dir: 'theme'
-  favicon: 'assets/images/logo.png'
+  favicon: 'assets/images/favicons/favicon.ico'
   logo: 'assets/images/logo.png'
   icon:
     repo: 'octicons/mark-github-16'
