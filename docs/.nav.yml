@@ -24,6 +24,7 @@ nav:
     - User:
       - features/user/index.md
       - features/user/plot-limit.md
+    - features/browser.md
     - features/theme.md
     - features/feature.md
     - features/package.md
