@@ -11,8 +11,8 @@ docs_dir: 'docs/'
 theme:
   name: 'materialx'
   custom_dir: 'theme'
-  favicon: 'assets/images/favicons/android-chrome-512x512.png'
-  # logo: 'assets/images/favicons/android-chrome-512x512.png'
+  favicon: 'assets/images/logo.png'
+  logo: 'assets/images/logo.png'
   icon:
     repo: 'octicons/mark-github-16'
     admonition:
