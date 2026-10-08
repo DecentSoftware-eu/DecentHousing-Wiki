@@ -92,6 +92,7 @@ nav:
     - guides/custom-packages.md
     - guides/milestones.md
     - guides/custom-themes.md
+    - guides/localization.md
   - Other:
     - other/index.md
     - Config conventions:

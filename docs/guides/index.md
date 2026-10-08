@@ -11,6 +11,8 @@ Learn how to utilize Packages to give your players rewards they can apply on the
 ### [How to register custom themes](custom-themes.md)
 Learn how to register your own Theme in Housing.
 
+### [How to redesign Housing & customize menus](localization.md)
+Learn how to localize everything and add your own items to menus.
 
 ---
 
