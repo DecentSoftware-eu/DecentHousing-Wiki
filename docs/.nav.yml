@@ -91,6 +91,7 @@ nav:
     - guides/unlockable-items.md
     - guides/custom-packages.md
     - guides/milestones.md
+    - guides/custom-themes.md
   - Other:
     - other/index.md
     - Config conventions:
