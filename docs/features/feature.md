@@ -1,5 +1,5 @@
 ---
-title: Feature
+title: Feature (Addon)
 description: Expansion modules for Housing
 ---
 
