@@ -86,6 +86,9 @@ nav:
     - permissions/index.md
   - Placeholders:
     - placeholders/index.md
+  - Addons:
+    - addons/index.md
+    - addons/shops-simple/index.md
   - Guides:
     - guides/index.md
     - guides/worldedit.md
