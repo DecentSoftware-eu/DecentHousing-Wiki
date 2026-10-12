@@ -5,47 +5,29 @@ description: Interactive menu for browsing, discovering, and visiting plots
 
 The **Plot Browser** allows players to explore, search, and jump to active plots across the entire server network.
 
-![Plot Browser](/assets/images/features/tag/browser-menu.png)
-
 Players can open the browser at any time using the [`/housing browse`](../commands/housing/browse.md) command.
 
 ## Browser Layouts
 
-DecentHousing provides two distinct menu layouts configured via the `browser-menu.type` setting:
-
 ### Container Layout (`container`)
 
-The **Container** layout is the default catalog-style grid view. It presents plots in a paginated inventory grid accompanied by navigational shortcuts and personal filter controls.
+![Container Browser](/assets/images/features/browser/container-browser.png)
 
-- **Plot Grid & Pagination**: Plots matching the player's active filter are displayed in a clean grid. Left and right navigation arrows allow browsing across multiple pages.
-- **Navigation Shortcuts**:
-    - **My Plots**: Quick shortcut to view and manage the player's own plots.
-    - **Search**: Opens the search interface to search plots by name or owner.
-    - **Random Plot**: Instantly connects the player to a random public plot.
-    - **Filters (Comparator)**: Opens the filter selection menu.
-- **Filter Presets & Custom Filters**:
-    - **Built-in Presets**: One-click filters for **Online Plots** (Nether Star), **Recent Plots** (Clock), and **Popular Plots** (Emerald).
-    - **Custom Filter Packages**: Players can create and save custom filter configurations (or use server defaults defined under `default-custom-filters`). In the filter editor, players can configure:
-        - **Name & Icon**: Custom title and item material or player head texture.
-        - **Online Only**: Toggle between showing all plots or only plots with players currently online.
-        - **Tag Filter**: Restrict results to plots matching one or more specific [Tags](tag.md).
-        - **Sort Algorithm**: Cycle between sorting modes (`trending`, `most_votes`, `newest`) defined by `filter-order`.
-        - **Visibility Filter** *(Staff)*: Administrators with `housing.admin.browser` can toggle visibility to view private and role-restricted plots.
+The **Container** layout is the default catalog-style grid view.
+
+It presents plots in a paginated inventory grid and utilizes a filter system to allow players to filter and sort plots based on their preferences.
+
+> **Tip:** To use the container layout, set `browser-menu.type` to `container` in the global configuration file (`config.global.yml`).
 
 ---
 
 ### Channel Layout (`channel`)
 
+![Channel Browser](/assets/images/features/browser/channel-browser.png)
+
 The **Channel** layout is a modern, media-style feed where plots are organized into stacked horizontal rows (channels).
 
-- **Horizontal Channels (Lanes)**: Each row in the GUI represents a separate category (e.g. *Online*, *Trending*, *Most Voted*, *Newest*, or plots tagged with a specific [Tag](tag.md)).
-- **Independent Row Scrolling**: Each channel row has its own horizontal left and right arrow buttons, allowing players to scroll through plots within that specific category independently.
-- **Personalized Channel Selection**:
-    - Clicking the **Channel Icon** at the start of any row opens the **Channel Change Menu**.
-    - Players can replace any row with another channel of their choice (e.g. swapping *Newest* for a favorite tag like *Parkour* or *RPG*).
-    - A **Reset (TNT)** button allows players to immediately restore the default channel layout configured on the server.
-    - Channel selections are persistent and saved to each player's profile.
-- **Visit Shortcut**: Includes a dedicated shortcut button to quickly open the visit and search menu.
+> **Tip:** To use the channel layout, set `browser-menu.type` to `channel` in the global configuration file (`config.global.yml`).
 
 ---
 
