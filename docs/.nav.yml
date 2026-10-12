@@ -75,6 +75,7 @@ nav:
           - commands/housing/hub.md
           - commands/housing/balance.md
           - commands/housing/pay.md
+          - commands/housing/version.md
           - Housing Admin:
               - commands/housing/admin/user.md
               - commands/housing/admin/package.md

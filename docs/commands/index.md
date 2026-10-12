@@ -52,6 +52,7 @@ These are the main housing commands used to browse plots, manage player profiles
 - [`/housing hub`](housing/hub.md) - Sends you to the hub server.
 - [`/housing balance`](housing/balance.md) - Displays player balance.
 - [`/housing pay`](housing/pay.md) - Sends funds to a player.
+- [`/housing version`](housing/version.md) - Shows core and implementing API version info.
 
 #### Housing Admin Commands
 - [`/housing admin user`](housing/admin/user.md) - User administration commands.
@@ -59,3 +60,4 @@ These are the main housing commands used to browse plots, manage player profiles
 - [`/housing admin plot`](housing/admin/plot.md) - Plot administration.
 - [`/housing admin economy`](housing/admin/economy.md) - Economy administration.
 - [`/housing admin tags`](housing/admin/tags.md) - Tag administration.
+- [`/housing admin version`](housing/version.md) - Alias for the `/housing version` command.

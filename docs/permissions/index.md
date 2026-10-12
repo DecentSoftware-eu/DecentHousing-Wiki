@@ -41,35 +41,36 @@ For plot-level permissions (such as `BUILD`, etc.), see the [Roles & Permissions
 
 #### User Commands
 
-| Subcommand                 | Permission Node               | Description & Documentation                                                             |
-|:---------------------------|:------------------------------|:----------------------------------------------------------------------------------------|
-| `/housing browse`          | `housing.command.browse`      | Opens the plot browser ([View docs](../commands/housing/browse.md)).                    |
-| `/housing search`          | `housing.command.search`      | Searches plots and players ([View docs](../commands/housing/search.md)).                |
-| `/housing profile`         | `housing.command.profile`     | Opens a player profile or own plots menu ([View docs](../commands/housing/profile.md)). |
-| `/housing visit`           | `housing.command.visit`       | Visits another player's plot ([View docs](../commands/housing/visit.md)).               |
-| `/housing jumpto`          | `housing.command.jumpto`      | Teleports directly to a player's plot ([View docs](../commands/housing/jumpto.md)).     |
-| `/housing myplots`         | `housing.command.myplots`     | Opens your own plots list ([View docs](../commands/housing/myplots.md)).                |
-| `/housing plot create`     | `housing.command.plot.create` | Creates a new plot.                                                                     |
-| `/housing plot join`       | `housing.command.plot.join`   | Joins a specific plot by ID ([View docs](../commands/housing/plot-join.md)).            |
-| `/housing plot copy-id`    | `housing.command.plot.copyid` | Copies the current plot ID ([View docs](../commands/housing/plot-copy-id.md)).          |
-| `/housing callback`        | None (Internal)               | Internal UI callback executor ([View docs](../commands/housing/callback.md)).           |
-| `/housing changelog`       | `housing.command.changelog`   | Opens the server changelog menu ([View docs](../commands/housing/changelog.md)).        |
-| `/housing dynamic execute` | Dynamic                       | Executes dynamic housing commands ([View docs](../commands/housing/dynamic.md)).        |
-| `/housing top`             | `housing.command.top`         | Opens global leaderboards ([View docs](../commands/housing/top.md)).                    |
-| `/housing hub`             | `housing.command.lobby`       | Sends the player back to the hub server ([View docs](../commands/housing/hub.md)).      |
-| `/housing balance`         | `housing.command.balance`     | Displays player currency balance ([View docs](../commands/housing/balance.md)).         |
-| `/housing pay`             | `housing.command.pay`         | Sends funds to another player ([View docs](../commands/housing/pay.md)).                |
+| Subcommand                 | Permission Node                 | Description & Documentation                                                             |
+|:---------------------------|:--------------------------------|:----------------------------------------------------------------------------------------|
+| `/housing browse`          | `housing.command.browse`        | Opens the plot browser ([View docs](../commands/housing/browse.md)).                    |
+| `/housing search`          | `housing.command.search`        | Searches plots and players ([View docs](../commands/housing/search.md)).                |
+| `/housing profile`         | `housing.command.profile`       | Opens a player profile or own plots menu ([View docs](../commands/housing/profile.md)). |
+| `/housing visit`           | `housing.command.visit`         | Visits another player's plot ([View docs](../commands/housing/visit.md)).               |
+| `/housing jumpto`          | `housing.command.jumpto`        | Teleports directly to a player's plot ([View docs](../commands/housing/jumpto.md)).     |
+| `/housing myplots`         | `housing.command.myplots`       | Opens your own plots list ([View docs](../commands/housing/myplots.md)).                |
+| `/housing plot create`     | `housing.command.plot.create`   | Creates a new plot.                                                                     |
+| `/housing plot join`       | `housing.command.plot.join`     | Joins a specific plot by ID ([View docs](../commands/housing/plot-join.md)).            |
+| `/housing plot copy-id`    | `housing.command.plot.copyid`   | Copies the current plot ID ([View docs](../commands/housing/plot-copy-id.md)).          |
+| `/housing callback`        | None (Internal)                 | Internal UI callback executor ([View docs](../commands/housing/callback.md)).           |
+| `/housing changelog`       | `housing.command.changelog`     | Opens the server changelog menu ([View docs](../commands/housing/changelog.md)).        |
+| `/housing dynamic execute` | Dynamic                         | Executes dynamic housing commands ([View docs](../commands/housing/dynamic.md)).        |
+| `/housing top`             | `housing.command.top`           | Opens global leaderboards ([View docs](../commands/housing/top.md)).                    |
+| `/housing hub`             | `housing.command.lobby`         | Sends the player back to the hub server ([View docs](../commands/housing/hub.md)).      |
+| `/housing balance`         | `housing.command.balance`       | Displays player currency balance ([View docs](../commands/housing/balance.md)).         |
+| `/housing pay`             | `housing.command.pay`           | Sends funds to another player ([View docs](../commands/housing/pay.md)).                |
+| `/housing version`         | `housing.command.admin.version` | Shows version info ([View docs](../commands/housing/version.md)).                       |
 
 #### Admin Commands
 
-| Subcommand                     | Permission Node                                                                                                                                                                                                                                  | Description & Documentation                                                                                              |
-|:-------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------|
-| `/housing admin user`          | `housing.command.admin.user.info`<br>`housing.command.admin.user.plot.limit.increment`                                                                                                                                                           | Inspects user stats and modifies user plot limits ([View docs](../commands/housing/admin/user.md)).                      |
-| `/housing admin package`       | `housing.command.admin.package.info`<br>`housing.command.admin.package.give`<br>`housing.command.admin.package.list`<br>`housing.command.admin.package.apply`                                                                                    | Manages premium packages and grants packages to players ([View docs](../commands/housing/admin/package.md)).             |
-| `/housing admin plot`          | `housing.command.admin.plot.create`<br>`housing.command.admin.plot.open`<br>`housing.command.admin.plot.close`<br>`housing.command.admin.plot.delete`                                                                                            | Admin creation, opening, closing, and deletion of plots ([View docs](../commands/housing/admin/plot.md)).                |
-| `/housing admin economy`       | `housing.command.admin.economy.info`<br>`housing.command.admin.economy.create`<br>`housing.command.admin.economy.update`<br>`housing.command.admin.economy.give`<br>`housing.command.admin.economy.take`<br>`housing.command.admin.economy.list` | Economy administration, currency creation, and balance modification ([View docs](../commands/housing/admin/economy.md)). |
-| `/housing admin tags`          | `housing.command.admin.tags.assign`<br>`housing.command.admin.tags.unassign`<br>`housing.command.admin.tags.create`<br>`housing.command.admin.tags.delete`<br>`housing.command.admin.tags.list`                                                  | Tag administration, creating, and assigning player tags ([View docs](../commands/housing/admin/tags.md)).                |
-| `/housing admin reload config` | `housing.command.admin.reload.config`                                                                                                                                                                                                            | Reloads plugin configuration files ([View docs](../commands/housing/admin/reload.md)).                                   |
+| Subcommand               | Permission Node                                                                                                                                                                                                                                  | Description & Documentation                                                                                              |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------|
+| `/housing admin user`    | `housing.command.admin.user.info`<br>`housing.command.admin.user.plot.limit.increment`                                                                                                                                                           | Inspects user stats and modifies user plot limits ([View docs](../commands/housing/admin/user.md)).                      |
+| `/housing admin package` | `housing.command.admin.package.info`<br>`housing.command.admin.package.give`<br>`housing.command.admin.package.list`<br>`housing.command.admin.package.apply`                                                                                    | Manages premium packages and grants packages to players ([View docs](../commands/housing/admin/package.md)).             |
+| `/housing admin plot`    | `housing.command.admin.plot.create`<br>`housing.command.admin.plot.open`<br>`housing.command.admin.plot.close`<br>`housing.command.admin.plot.delete`                                                                                            | Admin creation, opening, closing, and deletion of plots ([View docs](../commands/housing/admin/plot.md)).                |
+| `/housing admin economy` | `housing.command.admin.economy.info`<br>`housing.command.admin.economy.create`<br>`housing.command.admin.economy.update`<br>`housing.command.admin.economy.give`<br>`housing.command.admin.economy.take`<br>`housing.command.admin.economy.list` | Economy administration, currency creation, and balance modification ([View docs](../commands/housing/admin/economy.md)). |
+| `/housing admin tags`    | `housing.command.admin.tags.assign`<br>`housing.command.admin.tags.unassign`<br>`housing.command.admin.tags.create`<br>`housing.command.admin.tags.delete`<br>`housing.command.admin.tags.list`                                                  | Tag administration, creating, and assigning player tags ([View docs](../commands/housing/admin/tags.md)).                |
+| `/housing admin version` | `housing.command.admin.version`                                                                                                                                                                                                                  | Shows version info ([View docs](../commands/housing/version.md)).                                                        |
 
 ---
 
