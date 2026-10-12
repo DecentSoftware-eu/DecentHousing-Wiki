@@ -101,6 +101,7 @@ browser-menu:
 
 - [`/housing browse`](../commands/housing/browse.md) - Opens the plot browser (supports optional `--listingIndex <index>` / `-l <index>`).
 - [`/housing search`](../commands/housing/search.md) - Searches plots directly by name or owner.
+- [`/housing visit`](../commands/housing/visit.md) - Browses plots of a specific player.
 
 ## Permissions
 
@@ -113,6 +114,7 @@ browser-menu:
 
 - [`/housing browse`](../commands/housing/browse.md) - Command reference for opening the plot browser.
 - [`/housing search`](../commands/housing/search.md) - Command reference for searching plots directly.
+- [`/housing visit`](../commands/housing/visit.md) - Command reference for browsing plots of a specific player.
 - [Tag](tag.md) - Categorizing plots for browser filtering and channels.
 - [Plot](plot/index.md) - Overview of plots and plot management.
 - [Global Configuration](../installation/configuration.md#changing-global-files) - Guide to editing global configuration files.
