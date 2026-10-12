@@ -23,6 +23,12 @@ Learn how to edit configuration files and apply feature changes in the [Configur
 
     Core plot mechanics, island creation, player permissions, and visitor controls.
 
+- :material-compass-outline: [**Plot Browser**](browser.md)
+
+    ---
+
+    Interactive menu to explore, search, and jump to plots across the network.
+
 - :material-account-cog: [**User Limits**](user/plot-limit.md)
 
     ---
