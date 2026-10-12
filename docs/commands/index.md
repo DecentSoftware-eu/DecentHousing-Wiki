@@ -59,4 +59,3 @@ These are the main housing commands used to browse plots, manage player profiles
 - [`/housing admin plot`](housing/admin/plot.md) - Plot administration.
 - [`/housing admin economy`](housing/admin/economy.md) - Economy administration.
 - [`/housing admin tags`](housing/admin/tags.md) - Tag administration.
-- [`/housing admin reload config`](housing/admin/reload.md) - Reloads the configuration.
