@@ -25,13 +25,13 @@ Explore the installation topics below in recommended order:
 
     Learn how to properly configure DecentHousing on your network.
 
-- :material-shield-check: [**3. Security Guide**](securing.md)
+- :material-shield-check: [**Security**](securing.md)
 
     ---
 
     Reference for securing your housing infrastructure.
 
-- :material-update: [**4. Updating Guide**](updating.md)
+- :material-update: [**Updating**](updating.md)
 
     ---
 

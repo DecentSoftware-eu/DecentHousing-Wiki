@@ -120,32 +120,63 @@ root@ds1 /srv/services/housing-showcase-4 # ./housingctl config
   Valid Housing Layout: Yes
 ```
 
-Then if you are ready, begin the installation:
+Then if you are ready, **begin the installation**:
 ```bash
 ./housingctl install
 ```
+After you run this, a setup begins. Each step is explained here, so follow this guide.
+
+---
 
 ```
-root@ds1 /srv/services/housing-showcase-4 # ./housingctl install
-
-============================================================
-▶ DecentHousing Common Installation Wizard
-============================================================
-This wizard configures DecentHousing using the recommended common setup
-from docs/installation/first-install.md.
-
-
---- Step 1/2: Target Deployment & Domain Configuration ---
 Enter Kubernetes namespace where to deploy [housing]: housing
+```
+This is a name of this concrete installation. Feel free to set `housing`.
+
+```
 Enter Helm release name [housing-4]: housing
+```
+Set this same as what you set for the namespace above.
+
+```
 Enter base domain name (e.g. your-domain.com): example.com
+```
+You need a domain under which the Housing applications will be exposed. Set this to your **domain name
+in the format `example.com`** (without `www` or any subdomain).
+
+```
 Docker Registry subdomain [registry.example.com]: registry.example.com
-MinIO Console subdomain [housing-minio.example.com]: housing-minio.example.com
+```
+Here you need to set a **subdomain for Docker Registry application that will be started on your server**. This subdomain will
+be used by Housing to download the application components.
+
+```
+MinIO Console subdomain [housing-minio.example.com]: s3.example.com
+```
+Here you need to set a **subdomain for MinIO Console application that will be started on your server**. After installing,
+you will find the **Housing global files, plot files and other resources on this URL** and you will be able
+to configure Housing globally from there.
+
+```
 Housing API subdomain [housing-api.example.com]: housing-api.example.com
+```
+This subdomain will be used by Housing to manage some crucial operations like plot creation, plot loading, etc.
+
+```
 Docker Registry username [housing]:
+```
+Set username for the Docker Registry. You can freely **keep the default one**.
+
+```
 Docker Registry password [2a5jrdI2xzEHKPtx]:
+```
+Here you can just use the **default generated password**.
+
+```
 Docker Registry port [5050]:
 ```
+Here set a port for the Docker Registry. This needs to be a **port that is not already used on the machine you
+are currently running this setup on**.
 
 ```
 =================================================
@@ -863,6 +894,8 @@ or view plot server logs ([Viewing logs from plot servers](troubleshooting.md#vi
 errors.
 
 If everything is working, yippie! 🎉 You have successfully set up DecentHousing infrastructure and connected it to your Minecraft server.
+
+-> You can **move to the [Configuration](configuration.md) section**.
 
 ---
 
