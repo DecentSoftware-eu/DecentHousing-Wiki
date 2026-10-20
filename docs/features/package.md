@@ -89,6 +89,10 @@ See [Housing Admin Commands](../permissions/index.md#housing-admin-commands) for
 
 Additionally, the plot role permission **`PLOT_PACKAGES`** allows players with that role on the plot to access the Packages menu from the Market GUI.
 
+## Guides
+
+- [How to give players rewards using Packages](../guides/custom-packages.md)
+
 ## References
 
 - [`/housing admin package`](../commands/housing/admin/package.md) - Admin command reference for managing packages.

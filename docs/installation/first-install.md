@@ -134,7 +134,7 @@ Enter Kubernetes namespace where to deploy [housing]: housing
 This is a name of this concrete installation. Feel free to set `housing`.
 
 ```
-Enter Helm release name [housing-4]: housing
+Enter Helm release name [housing]: housing
 ```
 Set this same as what you set for the namespace above.
 
