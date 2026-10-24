@@ -1,13 +1,11 @@
 ---
-title: Installation & Deployment
+title: Installation
 description: Guides for installing and managing DecentHousing
 ---
 
-Welcome to the DecentHousing Installation & Deployment guide. Follow the structured walkthrough below in order to get your infrastructure up and ready.
+Welcome to the DecentHousing Installation guide. Follow the structured walkthrough below in order to get your infrastructure up and ready.
 
----
-
-## Deployment Steps
+## Steps
 
 Explore the installation topics below in recommended order:
 
@@ -19,7 +17,7 @@ Explore the installation topics below in recommended order:
 
     Step-by-step walkthrough for your quick DecentHousing installation using housingctl.
 
-- :material-tune: [**Advanced Installation**](advanced-install.md)
+- :material-tune: [**(Optional) Advanced Installation**](advanced-install.md)
 
     ---
 

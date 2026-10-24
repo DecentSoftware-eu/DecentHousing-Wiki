@@ -3,7 +3,7 @@ title: Placeholders
 description: Overview of available PlaceholderAPI placeholders in DecentHousing
 ---
 
-## Plot Placeholders (`%plot_...%`)
+## Plot Placeholders
 
 Plot placeholders evaluate dynamically based on the plot the player is currently visiting.
 
@@ -51,7 +51,7 @@ As players move between plots, contextual `%plot_...%` placeholders such as `%pl
 
 ---
 
-## Global & Player Placeholders (`%housing_...%`)
+## Global Placeholders
 
 Global and player-scoped placeholders query player stats, economies, leaderboards, global metrics, features, and packages.
 

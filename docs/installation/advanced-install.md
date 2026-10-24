@@ -1,5 +1,5 @@
 ---
-title: Advanced Installation
+title: (Optional) Advanced Installation
 description: Manual deployment and advanced installation guide for DecentHousing
 ---
 
