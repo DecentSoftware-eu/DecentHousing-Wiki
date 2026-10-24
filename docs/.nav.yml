@@ -1,8 +1,8 @@
 nav:
   - Home:
     - index.md
-    - First Install: installation/first-install.md
-  - Installation & Deployment:
+    - Installation: installation/first-install.md
+  - Installation:
     - installation/index.md
     - installation/first-install.md
     - installation/configuration.md

@@ -1,5 +1,5 @@
 ---
-title: First Installation
+title: Installation
 description: First steps in installing and deploying DecentHousing
 ---
 
