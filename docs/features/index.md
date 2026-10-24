@@ -5,8 +5,6 @@ description: Overview of core features
 
 Welcome to the DecentHousing Features guide.
 
-Browse key core features below and use sidebar for full navigation.
-
 /// note | How to Apply Changes
 Learn how to edit configuration files and apply feature changes in the [Configuration Guide](../installation/configuration.md).
 ///

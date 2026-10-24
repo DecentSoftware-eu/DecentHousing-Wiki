@@ -1,10 +1,10 @@
 nav:
   - Home:
     - index.md
-    - Installation: installation/first-install.md
   - Installation:
     - installation/index.md
     - installation/first-install.md
+    - installation/advanced-install.md
     - installation/configuration.md
     - installation/securing.md
     - installation/updating.md

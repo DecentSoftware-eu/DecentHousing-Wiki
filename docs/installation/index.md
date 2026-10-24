@@ -13,11 +13,17 @@ Explore the installation topics below in recommended order:
 
 /// html | div.grid.cards
 
-- :material-rocket-launch: [**1. First Installation**](first-install.md)
+- :material-rocket-launch: [**1. Installation**](first-install.md)
 
     ---
 
-    Step-by-step walkthrough for your first DecentHousing installation.
+    Step-by-step walkthrough for your quick DecentHousing installation using housingctl.
+
+- :material-tune: [**Advanced Installation**](advanced-install.md)
+
+    ---
+
+    Manual deployment walkthrough with custom databases, components, and reverse proxy setup.
 
 - :material-cog: [**2. Configuration**](configuration.md)
 

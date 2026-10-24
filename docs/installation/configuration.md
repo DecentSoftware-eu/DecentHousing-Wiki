@@ -3,9 +3,7 @@ title: Configuration
 description: How to configure the DecentHousing infrastructure
 ---
 
-Now after you have installed Housing, you may want to configure it to fit your needs.
-
-> Please **go to [Features](../features/index.md)** to see the available features and their configuration options and use this page
+Please **go to [Features](../features/index.md)** to see the available features and their configuration options and use this page
 to understand how to apply different changes.
 
 ## Using in-game commands
