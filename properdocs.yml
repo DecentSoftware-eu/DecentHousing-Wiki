@@ -32,8 +32,6 @@ theme:
     scheme: 'slate'
     primary: 'custom'
   features:
-    - 'navigation.tabs'
-    - 'navigation.tabs.sticky'
     - 'navigation.footer'
     - 'navigation.indexes'
     - 'content.code.annotate'

@@ -80,7 +80,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Sidebar Navigation
+   Sidebar Navigation (Left-side Categories & Dropdowns)
    -------------------------------------------------------------------------- */
 .md-nav--primary .md-nav__link {
     border-radius: 0 !important;
@@ -89,20 +89,69 @@
     padding-bottom: 0.35rem;
 }
 
+/* Hover for normal items */
 .md-nav--primary .md-nav__link:hover {
     background: #31313a;
     color: #f4f4f5;
 }
 
-.md-nav__item .md-nav__link--active,
-.md-nav__item .md-nav__link--active code,
-.md-nav--primary .md-nav__item .md-nav__link--active {
+/* Container for section links with dropdown toggles */
+.md-nav--primary .md-nav__container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    display: flex;
+    align-items: stretch;
+}
+
+.md-nav--primary .md-nav__container:hover {
+    background: #31313a;
+}
+
+.md-nav--primary .md-nav__container:hover .md-nav__link {
+    background: transparent;
+    color: #f4f4f5;
+}
+
+/* Toggle chevron label */
+.md-nav--primary label.md-nav__link {
+    border-left: none !important;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+}
+
+.md-nav--primary label.md-nav__link:hover .md-nav__icon {
+    color: #22c55e;
+}
+
+.md-nav--primary label.md-nav__link--active {
+    border-left: none !important;
+    background: transparent !important;
+}
+
+/* Smooth dropdown arrow transition */
+.md-nav__icon:after {
+    transition: transform 0.2s ease !important;
+}
+
+/* Active navigation item indicator */
+.md-nav__item .md-nav__link--active:not(label),
+.md-nav__item .md-nav__link--active:not(label) code,
+.md-nav--primary .md-nav__item .md-nav__link--active:not(label) {
     color: #f4f4f5 !important;
     font-weight: 600;
     background: #31313a;
     border-left: 3px solid #22c55e !important;
     border-radius: 0 !important;
     padding-left: 0.7rem;
+}
+
+/* Active container row styling */
+.md-nav--primary .md-nav__container:has(> a.md-nav__link--active) {
+    background: #31313a;
 }
 
 .md-nav--secondary .md-nav__link {
