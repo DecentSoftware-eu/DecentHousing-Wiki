@@ -1,0 +1,76 @@
+{#-
+  DecentSoftware Marketplace Style Navigation Sidebar
+-#}
+{% import "partials/nav-item.html" as item with context %}
+{% set class = "md-nav md-nav--primary" %}
+{% if "navigation.tabs" in features %}
+  {% set class = class ~ " md-nav--lifted" %}
+{% endif %}
+{% if "toc.integrate" in features %}
+  {% set class = class ~ " md-nav--integrated" %}
+{% endif %}
+<nav class="{{ class }}" aria-label="{{ lang.t('nav') }}" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" title="{{ config.site_name | e }}" class="md-nav__button md-logo" aria-label="{{ config.site_name }}" data-md-component="logo">
+      {% include "partials/logo.html" %}
+    </a>
+    {{ config.site_name }}
+  </label>
+  {% if config.repo_url %}
+    <div class="md-nav__source">
+      {% include "partials/source.html" %}
+    </div>
+  {% endif %}
+
+  <!-- Product Switcher Box (Marketplace Style) -->
+  <div class="sidebar-product-card">
+    <div class="sidebar-product-card__icon">
+      <img src="{{ page.base_url | url }}/assets/images/favicons/android-chrome-192x192.png" alt="DecentHousing Logo">
+    </div>
+    <div class="sidebar-product-card__info">
+      <div class="sidebar-product-card__title-row">
+        <span class="sidebar-product-card__title">DecentHousing</span>
+        <span class="sidebar-product-card__badge">v1.2.0</span>
+      </div>
+      <span class="sidebar-product-card__sub">Plugin Documentation</span>
+    </div>
+    <div class="sidebar-product-card__dropdown">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+  </div>
+
+  <!-- Marketplace Search Box -->
+  <label class="sidebar-search-trigger" for="__search" tabindex="0">
+    <span class="sidebar-search-trigger__text">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <span>Search docs...</span>
+    </span>
+    <span class="sidebar-search-trigger__key">Ctrl K</span>
+  </label>
+
+  <ul class="md-nav__list">
+    {% for nav_item in nav.items %}
+      {% set title = (nav_item.title or "") | lower %}
+      {% if loop.first %}
+        <li class="sidebar-section-header">Getting Started</li>
+      {% elif "feature" in title %}
+        <li class="sidebar-section-header">Documentation</li>
+      {% elif "addon" in title %}
+        <li class="sidebar-section-header">Ecosystem &amp; Guides</li>
+      {% elif "discord" in title %}
+        <li class="sidebar-section-header">Community</li>
+      {% endif %}
+      {% set path = "__nav_" ~ loop.index %}
+      {{ item.render(nav_item, path, 1) }}
+    {% endfor %}
+  </ul>
+
+  <!-- Sidebar Footer Community Status -->
+  <div class="sidebar-footer">
+    <a href="https://discord.decentsoftware.eu" target="_blank" rel="noopener" class="sidebar-footer__link">
+      <span class="sidebar-footer__dot"></span>
+      <span class="sidebar-footer__text">Discord Community</span>
+      <svg class="sidebar-footer__arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+  </div>
+</nav>

@@ -2,6 +2,8 @@
   {% include "partials/tags.html" %}
 {% endif %}
 {% include "partials/actions.html" %}
+
+{% if not (page.meta and page.meta.hide_title) %}
 <h1>
   {% if page.meta and page.meta.icon %}
     <span class="twemoji">{% include ".icons/" ~ page.meta.icon ~ ".svg" %}</span>
@@ -11,7 +13,10 @@
 {% if page.meta and page.meta.description %}
   <h2 class="subtitle">{{ page.meta.description }}</h2>
 {% endif %}
+{% endif %}
+
 {{ page.content }}
+
 {% if page.meta and (
   page.meta.git_revision_date_localized or
   page.meta.revision_date

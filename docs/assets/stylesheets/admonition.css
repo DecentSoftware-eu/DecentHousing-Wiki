@@ -1,38 +1,43 @@
-/* Muted & Subtle Admonitions Styling */
+/* DecentSoftware Marketplace Theme - Admonitions Styling */
 
 .md-typeset .admonition,
 .md-typeset details {
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: var(--wiki-radius-md, 8px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    background-color: #0d1118 !important;
+    border: 1px solid #161e2c;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
     overflow: hidden;
+    margin: 1.5em 0;
 }
 
 .md-typeset .admonition-title,
 .md-typeset summary {
     font-weight: 600;
     letter-spacing: 0.01em;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid #141a26;
+    padding: 0.65rem 1rem !important;
 }
 
 /* Note */
 .md-typeset .admonition.note,
 .md-typeset details.note {
-    border-color: rgba(56, 189, 248, 0.3);
+    border-color: rgba(56, 189, 248, 0.35);
 }
 .md-typeset .note .admonition-title,
 .md-typeset .note summary {
     background-color: rgba(56, 189, 248, 0.08);
+    color: #38bdf8;
 }
 
 /* Info */
 .md-typeset .admonition.info,
 .md-typeset details.info {
-    border-color: rgba(6, 182, 212, 0.3);
+    border-color: rgba(37, 99, 235, 0.35);
 }
 .md-typeset .info .admonition-title,
 .md-typeset .info summary {
-    background-color: rgba(6, 182, 212, 0.08);
+    background-color: rgba(37, 99, 235, 0.08);
+    color: #60a5fa;
 }
 
 /* Tip & Success */
@@ -40,67 +45,79 @@
 .md-typeset details.tip,
 .md-typeset .admonition.success,
 .md-typeset details.success {
-    border-color: rgba(16, 185, 129, 0.3);
+    border-color: rgba(34, 197, 94, 0.35);
 }
 .md-typeset .tip .admonition-title,
 .md-typeset .tip summary,
 .md-typeset .success .admonition-title,
 .md-typeset .success summary {
-    background-color: rgba(16, 185, 129, 0.08);
+    background-color: rgba(34, 197, 94, 0.08);
+    color: #4ade80;
 }
 
-/* Warning & Abstract */
+/* Warning & Abstract (Amber / Gold Accent) */
 .md-typeset .admonition.warning,
 .md-typeset details.warning,
 .md-typeset .admonition.abstract,
 .md-typeset details.abstract {
-    border-color: rgba(245, 158, 11, 0.3);
+    border-color: rgba(245, 158, 11, 0.35);
 }
 .md-typeset .warning .admonition-title,
 .md-typeset .warning summary,
 .md-typeset .abstract .admonition-title,
 .md-typeset .abstract summary {
     background-color: rgba(245, 158, 11, 0.08);
+    color: #fbbf24;
 }
 
-/* Danger, Failure, Bug */
+/* Danger & Failure (Red Accent) */
 .md-typeset .admonition.danger,
 .md-typeset details.danger,
 .md-typeset .admonition.failure,
-.md-typeset details.failure,
-.md-typeset .admonition.bug,
-.md-typeset details.bug {
-    border-color: rgba(239, 68, 68, 0.3);
+.md-typeset details.failure {
+    border-color: rgba(239, 68, 68, 0.35);
 }
 .md-typeset .danger .admonition-title,
 .md-typeset .danger summary,
 .md-typeset .failure .admonition-title,
-.md-typeset .failure summary,
-.md-typeset .bug .admonition-title,
-.md-typeset .bug summary {
+.md-typeset .failure summary {
     background-color: rgba(239, 68, 68, 0.08);
+    color: #f87171;
 }
 
-/* Example & Question */
-.md-typeset .admonition.example,
-.md-typeset details.example,
+/* Question & Quote (Purple Accent) */
 .md-typeset .admonition.question,
-.md-typeset details.question {
-    border-color: rgba(168, 85, 247, 0.3);
-}
-.md-typeset .example .admonition-title,
-.md-typeset .example summary,
-.md-typeset .question .admonition-title,
-.md-typeset .question summary {
-    background-color: rgba(168, 85, 247, 0.08);
-}
-
-/* Quote */
+.md-typeset details.question,
 .md-typeset .admonition.quote,
 .md-typeset details.quote {
-    border-color: rgba(148, 163, 184, 0.2);
+    border-color: rgba(168, 85, 247, 0.35);
 }
+.md-typeset .question .admonition-title,
+.md-typeset .question summary,
 .md-typeset .quote .admonition-title,
 .md-typeset .quote summary {
-    background-color: rgba(148, 163, 184, 0.06);
+    background-color: rgba(168, 85, 247, 0.08);
+    color: #c084fc;
+}
+
+/* Bug */
+.md-typeset .admonition.bug,
+.md-typeset details.bug {
+    border-color: rgba(244, 63, 94, 0.35);
+}
+.md-typeset .bug .admonition-title,
+.md-typeset .bug summary {
+    background-color: rgba(244, 63, 94, 0.08);
+    color: #fb7185;
+}
+
+/* Example (Sky Blue) */
+.md-typeset .admonition.example,
+.md-typeset details.example {
+    border-color: rgba(14, 165, 233, 0.35);
+}
+.md-typeset .example .admonition-title,
+.md-typeset .example summary {
+    background-color: rgba(14, 165, 233, 0.08);
+    color: #38bdf8;
 }
