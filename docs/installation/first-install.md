@@ -180,7 +180,7 @@ Housing API subdomain [housing-api.example.com]: housing-api.example.com
 - **Usage:** Coordinates crucial operations such as plot allocation, player routing, and lifecycle events.
 ///
 
-/// details | Step 7: Docker Registry credentials & port
+/// details | Step 7: Docker Registry
 ```
 Docker Registry username [housing]: housing
 Docker Registry password [2a5jrdI2xzEHKPtx]: 2a5jrdI2xzEHKPtx
@@ -192,7 +192,7 @@ Docker Registry port [5050]: 5050
 - **Port:** Local port for the Docker Registry on the host machine. Must not be already in use by another service (default: `5050`).
 ///
 
-/// details | Step 8: Services & NodePorts configuration
+/// details | Step 8: Ports configuration
 ```
 =================================================
 ▶ Housing Setup Wizard
@@ -238,8 +238,8 @@ During quick installation, Housing automatically configures and deploys these in
 ```
 
 - **Minecraft version:** Choose the Paper version for plot servers (e.g. `1.20.4` or `1.21.10`).
-- **Free plots to keep:** Number of pre-created empty plot servers kept warm and waiting for incoming players (default: `2`).
-- **Maximum plot servers:** Hard limit on the total number of plot containers running simultaneously to protect host resources (default: `10`).
+- **Free plots to keep:** Number of plot servers to try to keep empty for players to always have somewhere to load new plots on (default: `2`).
+- **Maximum plot servers:** Hard limit on the total number of plot servers running at a time (default: `10`).
 ///
 
 /// details | Step 10: Node access configuration (bare-metal)
