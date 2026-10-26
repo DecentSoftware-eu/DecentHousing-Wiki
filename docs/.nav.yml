@@ -82,6 +82,7 @@ nav:
               - commands/housing/admin/plot.md
               - commands/housing/admin/economy.md
               - commands/housing/admin/tags.md
+              - commands/housing/admin/amplifier.md
   - Permissions:
     - permissions/index.md
   - Placeholders:
