@@ -1,5 +1,6 @@
 nav:
-  - Home: index.md
+  - Home:
+    - index.md
   - Installation:
     - installation/index.md
     - installation/first-install.md
@@ -81,8 +82,11 @@ nav:
               - commands/housing/admin/plot.md
               - commands/housing/admin/economy.md
               - commands/housing/admin/tags.md
-  - Permissions: permissions/index.md
-  - Placeholders: placeholders/index.md
+              - commands/housing/admin/amplifier.md
+  - Permissions:
+    - permissions/index.md
+  - Placeholders:
+    - placeholders/index.md
   - Addons:
     - addons/index.md
     - addons/shops-simple/index.md
