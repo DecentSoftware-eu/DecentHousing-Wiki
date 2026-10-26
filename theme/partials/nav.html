@@ -22,6 +22,59 @@
     </div>
   {% endif %}
 
+  <!-- Wiki Switcher Dropdown (Marketplace Style) -->
+  <details class="sidebar-product-dropdown">
+    <summary class="sidebar-product-card" title="Select Wiki">
+      <div class="sidebar-product-card__icon">
+        <img src="{{ page.base_url | url }}/assets/images/favicons/android-chrome-192x192.png" alt="DecentHousing Logo">
+      </div>
+      <div class="sidebar-product-card__info">
+        <span class="sidebar-product-card__title">DecentHousing</span>
+      </div>
+      <div class="sidebar-product-card__dropdown">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </div>
+    </summary>
+
+    <div class="sidebar-product-menu" role="menu">
+      <div class="sidebar-product-menu__header">Select Wiki</div>
+
+      <!-- Current: DecentHousing -->
+      <a href="{{ page.base_url | url }}/" class="sidebar-product-item sidebar-product-item--active" role="menuitem">
+        <div class="sidebar-product-item__icon">
+          <img src="{{ page.base_url | url }}/assets/images/favicons/android-chrome-192x192.png" alt="DecentHousing Logo">
+        </div>
+        <div class="sidebar-product-item__content">
+          <span class="sidebar-product-item__title">DecentHousing</span>
+        </div>
+        <div class="sidebar-product-item__check">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </a>
+
+      <!-- DecentHolograms -->
+      <a href="https://wiki.decentholograms.eu" class="sidebar-product-item" role="menuitem">
+        <div class="sidebar-product-item__icon sidebar-product-item__icon--holo">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+            <polyline points="2 17 12 22 22 17"/>
+            <polyline points="2 12 12 17 22 12"/>
+          </svg>
+        </div>
+        <div class="sidebar-product-item__content">
+          <span class="sidebar-product-item__title">DecentHolograms</span>
+        </div>
+        <div class="sidebar-product-item__arrow">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </div>
+      </a>
+    </div>
+  </details>
+
   <ul class="md-nav__list">
     {% for nav_item in nav.items %}
       {% set title = (nav_item.title or "") | lower %}

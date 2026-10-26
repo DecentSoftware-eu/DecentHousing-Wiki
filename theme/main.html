@@ -48,3 +48,25 @@
   <link rel="stylesheet" href="{{ '''assets/stylesheets/theme.css''' | url }}?v=2.3.1">
   <link rel="stylesheet" href="{{ '''assets/stylesheets/admonition.css''' | url }}?v=2.3.1">
 {% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script>
+    // Product switcher dropdown handlers (click-outside & escape)
+    document.addEventListener('click', function(e) {
+      var dropdown = document.querySelector('.sidebar-product-dropdown');
+      if (!dropdown || !dropdown.hasAttribute('open')) return;
+      if (!dropdown.contains(e.target) || e.target.closest('.sidebar-product-item')) {
+        dropdown.removeAttribute('open');
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        var dropdown = document.querySelector('.sidebar-product-dropdown');
+        if (dropdown && dropdown.hasAttribute('open')) {
+          dropdown.removeAttribute('open');
+        }
+      }
+    });
+  </script>
+{% endblock %}
