@@ -265,7 +265,7 @@ After installation, **follow the post-install guide that shows up in your termin
 and **continue to the [After Installation](#after-installation) guide**.
 
 
-> 💡 **Tip:** If you need to manually configure reverse proxies or SSL certificates for your subdomains, refer to the [Exposing services at a domain](advanced-install.md#exposing-services-at-a-domain) guide.
+> **Tip:** If you need to manually configure reverse proxies or SSL certificates for your subdomains, refer to the [Exposing services at a domain](advanced-install.md#exposing-services-at-a-domain) guide.
 
 ---
 
