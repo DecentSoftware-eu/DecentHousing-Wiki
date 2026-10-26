@@ -18,6 +18,48 @@
     padding: 0.65rem 1rem !important;
 }
 
+/* Collapsible details specific styling (e.g. installation steps) */
+.md-typeset details summary {
+    font-size: 1.05rem !important;
+    font-weight: 600 !important;
+    padding: 0.75rem 2rem 0.75rem 2.35rem !important;
+    cursor: pointer;
+    position: relative;
+}
+
+.md-typeset details summary:before {
+    left: 0.75rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+
+.md-typeset details summary:after {
+    right: 0.85rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+
+.md-typeset details[open] summary:after {
+    transform: translateY(-50%) rotate(90deg) !important;
+}
+
+.md-typeset details p,
+.md-typeset details li {
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+.md-typeset details ul {
+    margin: 0.6em 0 !important;
+    padding-left: 1.5rem !important;
+    list-style-type: disc !important;
+}
+
+.md-typeset details li {
+    display: list-item !important;
+    margin: 0.35em 0 !important;
+}
+
 /* Note */
 .md-typeset .admonition.note,
 .md-typeset details.note {

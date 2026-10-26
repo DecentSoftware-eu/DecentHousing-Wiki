@@ -124,120 +124,137 @@ Then if you are ready, **begin the installation**:
 ```bash
 ./housingctl install
 ```
-After you run this, a setup begins. Each step is explained here, so follow this guide.
+After you run this, the setup wizard begins. Expand any step below to see the prompt and detailed explanation:
 
----
-
+/// details | Step 1: Kubernetes namespace where to deploy
 ```
 Enter Kubernetes namespace where to deploy [housing]: housing
 ```
-This is a name of this concrete installation. Feel free to set `housing`.
 
+- **Namespace:** Name of the Kubernetes namespace where DecentHousing and plot servers will be deployed.
+- **Recommended value:** Keep the default `housing` to isolate Housing from other applications on your cluster.
+///
+
+/// details | Step 2: Helm release name
 ```
 Enter Helm release name [housing]: housing
 ```
-Set this same as what you set for the namespace above.
 
+- **Release Name:** The name of the Helm release for this deployment.
+- **Recommended value:** Keep this identical to the namespace above (`housing`).
+///
+
+/// details | Step 3: Base domain name
 ```
 Enter base domain name (e.g. your-domain.com): example.com
 ```
-You need a domain under which the Housing applications will be exposed. Set this to your **domain name
-in the format `example.com`** (without `www` or any subdomain).
 
+- **Domain:** The root domain under which Housing applications will be exposed.
+- **Format:** Set this to your domain name in the format `example.com` (without `www` or any subdomain).
+///
+
+/// details | Step 4: Docker Registry subdomain
 ```
 Docker Registry subdomain [registry.example.com]: registry.example.com
 ```
-Here you need to set a **subdomain for Docker Registry application that will be started on your server**. This subdomain will
-be used by Housing to download the application components.
 
+- **Subdomain:** Subdomain for the Docker Registry application started on your server.
+- **Usage:** Used by the cluster to store and pull application component images.
+///
+
+/// details | Step 5: MinIO Console subdomain
 ```
 MinIO Console subdomain [housing-minio.example.com]: s3.example.com
 ```
-Here you need to set a **subdomain for MinIO Console application that will be started on your server**. After installing,
-you will find the **Housing global files, plot files and other resources on this URL** and you will be able
-to configure Housing globally from there.
 
+- **Subdomain:** Subdomain for the MinIO Console web interface.
+- **Usage:** Used to access Housing global configuration files, plot template files, localizations and other assets.
+///
+
+/// details | Step 6: Housing API subdomain
 ```
 Housing API subdomain [housing-api.example.com]: housing-api.example.com
 ```
-This subdomain will be used by Housing to manage some crucial operations like plot creation, plot loading, etc.
 
-```
-Docker Registry username [housing]:
-```
-Set username for the Docker Registry. You can freely **keep the default one**.
+- **Subdomain:** Subdomain used by Housing API service.
+- **Usage:** Coordinates crucial operations such as plot allocation, player routing, and lifecycle events.
+///
 
+/// details | Step 7: Docker Registry credentials & port
 ```
-Docker Registry password [2a5jrdI2xzEHKPtx]:
+Docker Registry username [housing]: housing
+Docker Registry password [2a5jrdI2xzEHKPtx]: 2a5jrdI2xzEHKPtx
+Docker Registry port [5050]: 5050
 ```
-Here you can just use the **default generated password**.
 
-```
-Docker Registry port [5050]:
-```
-Here set a port for the Docker Registry. This needs to be a **port that is not already used on the machine you
-are currently running this setup on**.
+- **Username:** Set username for the Docker Registry. You can safely keep the default `housing`.
+- **Password:** You can use the automatically generated secure password.
+- **Port:** Local port for the Docker Registry on the host machine. Must not be already in use by another service (default: `5050`).
+///
 
+/// details | Step 8: Services & NodePorts configuration
 ```
 =================================================
 ▶ Housing Setup Wizard
 =================================================
 
-=================================================
-▶ Image pulling configuration
-=================================================
-
-=================================================
 ▶ Redis configuration
-=================================================
 ? NodePort to expose Redis on (default: 30379): 30379
 
-=================================================
 ▶ RabbitMQ configuration
-=================================================
 ? NodePort to expose RabbitMQ AMQP on (default: 30672): 30672
 ? NodePort to expose RabbitMQ Management on (default: 31672): 31672
 
-=================================================
 ▶ MinIO configuration
-=================================================
 ? NodePort to expose MinIO API on (default: 30900): 30900
 ? NodePort to expose MinIO Console on (default: 30901): 30901
 
-=================================================
 ▶ MariaDB configuration
-=================================================
 ? NodePort to expose MariaDB on (default: 30306): 30306
 
-=================================================
 ▶ API configuration
-=================================================
 ? NodePort to expose API on (default: 30080): 30080
+```
 
-=================================================
-▶ Core version configuration
-=================================================
+During quick installation, Housing automatically configures and deploys these internal services:
 
-=================================================
+- **Redis NodePort:** Cache & messaging coordination between proxies and core (default: `30379`).
+- **RabbitMQ NodePorts:** AMQP message broker (default: `30672`) and Management UI (default: `31672`).
+- **MinIO NodePorts:** S3 storage API (default: `30900`) and Console Web UI (default: `30901`).
+- **MariaDB NodePort:** Relational database for player and plot data (default: `30306`).
+- **Housing API NodePort:** Core API service (default: `30080`).
+
+> 💡 **Tip:** Press `Enter` to keep all default NodePorts unless you have specific port collisions on your machine.
+///
+
+/// details | Step 9: Plot configuration & Monitoring
+```
 ▶ Plot configuration
-=================================================
 ? Minecraft version to use for plots (default: 1.20.4): 1.21.10
 
-=================================================
 ▶ Monitoring configuration
-=================================================
-? Number of free plots to keep (default: 2):
-? Maximum number of plot servers to run (default: 10):
+? Number of free plots to keep (default: 2): 2
+? Maximum number of plot servers to run (default: 10): 10
+```
 
-=================================================
+- **Minecraft version:** Choose the Paper version for plot servers (e.g. `1.20.4` or `1.21.10`).
+- **Free plots to keep:** Number of pre-created empty plot servers kept warm and waiting for incoming players (default: `2`).
+- **Maximum plot servers:** Hard limit on the total number of plot containers running simultaneously to protect host resources (default: `10`).
+///
+
+/// details | Step 10: Node access configuration (bare-metal)
+```
 ▶ Node access configuration
-=================================================
-Since this is a bare-metal environment, we need to know how to access each node to be able to connect to plot servers running on them.
-We will now ask you repeatedly to provide us with mappings of node names to their external IP addresses or hostnames until you indicate that you are done.
+# Since this is a bare-metal environment, map node names to external IPs:
 ? Enter node name (as shown in 'kubectl get nodes') or leave empty to finish: ds1
 ? Enter IP address or hostname to access this node: 172.17.0.1
 ? Enter node name (as shown in 'kubectl get nodes') or leave empty to finish:
 ```
+
+- **Node name:** Enter the node name as displayed in `kubectl get nodes` (e.g. `ds1`).
+- **IP address / Hostname:** Reachable external IP address or hostname where player proxies can connect to plot ports on this node.
+- **Finish mapping:** Leave empty and press `Enter` once all cluster nodes have been configured.
+///
 
 To see all exposed ports and credentials you will need, run the following command:
 ```bash
