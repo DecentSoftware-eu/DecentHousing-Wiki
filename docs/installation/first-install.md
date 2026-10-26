@@ -251,9 +251,9 @@ During quick installation, Housing automatically configures and deploys these in
 ? Enter node name (as shown in 'kubectl get nodes') or leave empty to finish:
 ```
 
-- **Node name:** Enter the node name as displayed in `kubectl get nodes` (e.g. `ds1`).
-- **IP address / Hostname:** Reachable external IP address or hostname where player proxies can connect to plot ports on this node.
-- **Finish mapping:** Leave empty and press `Enter` once all cluster nodes have been configured.
+- **Node name:** Enter your machine name as displayed in `kubectl get nodes` (e.g. `ds1`).
+- **IP address / Hostname:** IP address of this/currently configuring machine relative to your BungeeCord/Velocity server (IP that your Bungee/Velocity server can use to register the servers).
+- **Finish mapping:** Leave empty and press `Enter` once all your machines have been configured.
 ///
 
 To see all exposed ports and credentials you will need, run the following command:
