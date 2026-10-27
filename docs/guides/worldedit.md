@@ -1,6 +1,6 @@
 ---
-title: How to work with WorldEdit and allow WorldEdit to players on plots
+title: How to integrate WorldEdit
 description: Use Case - WorldEdit
 ---
 
-## How to work with WorldEdit and allow WorldEdit to players on plots
+In construction.
