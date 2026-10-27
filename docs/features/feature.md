@@ -34,9 +34,15 @@ auto-locked on a plot. To **force-activate the feature** on a plot, use the [/pl
 ## Installation
 
 To install a feature, simply download the feature jar file and place it in the `housing-features` bucket in your MinIO dashboard.
-After that, the feature is auto-loaded on all servers in 1 minute.
 
-If the feature does not auto-load, inspect the server logs for any errors. ([How to check server logs](../installation/troubleshooting.md#viewing-logs-from-plot-servers))
+After that, you need to **restart plot servers**:
+
+```
+./housingctl plots restart
+```
+Also restart your lobby servers where you have Housing core plugin installed
+
+If the feature does not load after restart, inspect the server logs for any errors. ([How to check server logs](../installation/troubleshooting.md#viewing-logs-from-plot-servers))
 
 ## Configuration
 
