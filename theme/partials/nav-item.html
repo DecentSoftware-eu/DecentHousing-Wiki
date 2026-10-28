@@ -57,10 +57,6 @@
   {{ render_icon(nav_item, ref, level, has_children) }}
   <span class="md-ellipsis">
     {{ render_title(ref) }}
-    {% if nav_item.meta and nav_item.meta.subtitle %}
-      <br>
-      <small class="sidebar-item-subtitle">{{ nav_item.meta.subtitle }}</small>
-    {% endif %}
   </span>
   {% if nav_item.meta and nav_item.encrypted %}
     {{ render_status(nav_item, "encrypted") }}

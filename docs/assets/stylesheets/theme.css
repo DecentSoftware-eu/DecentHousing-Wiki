@@ -1259,8 +1259,10 @@ html, body {
    -------------------------------------------------------------------------- */
 .md-typeset .grid.cards > ul {
     display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)) !important;
     grid-gap: 1.15rem !important;
     margin: 1.5rem 0 !important;
+    padding: 0 !important;
 }
 
 .md-typeset .grid.cards > ul > li {
@@ -1282,9 +1284,23 @@ html, body {
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45) !important;
 }
 
+.md-typeset .grid.cards > ul > li > :first-child,
+.md-typeset .grid.cards h1,
+.md-typeset .grid.cards h2,
+.md-typeset .grid.cards h3,
+.md-typeset .grid.cards h4 {
+    margin-top: 0 !important;
+    margin-bottom: 0.25rem !important;
+}
+
+.md-typeset .grid.cards > ul > li > :last-child {
+    margin-bottom: 0 !important;
+}
+
 .md-typeset .grid.cards hr {
+    border: none !important;
     border-top: 1px solid #161e2c !important;
-    margin: 0.75rem 0 !important;
+    margin: 0.65rem 0 !important;
 }
 
 .md-typeset .grid.cards .twemoji {
