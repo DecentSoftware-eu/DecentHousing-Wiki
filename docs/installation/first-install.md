@@ -349,34 +349,9 @@ Now, set up permissions that may apply only on plot servers like this:
 /lp group <group> permission set <permission> server=housing-plot
 ```
 
-#### (Optional) Allow WorldEdit commands on plot servers
+### (Optional) Allow WorldEdit commands on plot servers
 
-Housing has built-in integration with WorldEdit and automatically restricts your players from building outside of their
-plots or if they don't have access to it.
-
-So, you can freely allow players WorldEdit permissions on plot servers, but **with the context**.
-
-
-After that, to allow players to bypass WorldEdit usage on plots that don't have WorldEdit enabled, set this permission
-to true: `housing.worldedit.bypass`.
-
-/// details | Example: WorldEdit permissions we set up on our network
-    open: False
-- worldedit.brush.*
-- worldedit.clipboard.*
-- worldedit.generation.*
-- worldedit.history.*
-- worldedit.region.*
-- worldedit.selection.*
-- fawe.decenthousing
-- worldedit.clipboard.load (false)
-- worldedit.clipboard.save (false)
-- worldedit.replacenear
-- worldedit.selection
-- worldedit.tool
-- worldedit.tool.none
-- worldedit.wand
-///
+For guide how to allow WorldEdit, refer to [How to integrate WorldEdit](../guides/worldedit.md) guide.
 
 ### Setting up TAB and scoreboard on plot servers
 
