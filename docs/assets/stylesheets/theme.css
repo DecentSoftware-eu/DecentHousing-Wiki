@@ -4,6 +4,7 @@
    ========================================================================== */
 
 :root {
+    --md-header-height: 65px;
     /* Modern Clean Fonts */
     --md-text-font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --md-code-font: 'JetBrains Mono', monospace;
@@ -89,13 +90,13 @@ html, body {
 }
 
 /* --------------------------------------------------------------------------
-   Top Header Bar (56px Marketplace Navbar)
+   Top Header Bar (65px Marketplace Navbar)
    -------------------------------------------------------------------------- */
 .md-header {
     background-color: #06080f !important;
     border-bottom: 1px solid #141a26;
     box-shadow: none !important;
-    height: 56px !important;
+    height: 65px !important;
     position: sticky;
     top: 0;
     z-index: 4;
@@ -114,7 +115,7 @@ html, body {
 .header-left-group {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2rem; /* Tailwind gap-8 (2rem / 32px) */
 }
 
 .md-header .md-logo {
@@ -130,6 +131,18 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.header-logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .header-brand-name {
@@ -144,7 +157,7 @@ html, body {
 .header-nav-links {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 4px; /* Tailwind gap-1 (0.25rem / 4px) */
     margin: 0;
 }
 
@@ -153,14 +166,16 @@ html, body {
     font-size: 0.88rem !important;
     font-weight: 600 !important;
     text-decoration: none !important;
-    padding: 8px 16px !important;
+    height: 36px !important;
+    padding: 0 16px !important;
     border-radius: 8px !important;
     transition: all 0.15s ease;
     white-space: nowrap;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    line-height: 1.25;
+    line-height: 1;
+    box-sizing: border-box;
 }
 
 .header-nav-link:hover {
@@ -253,11 +268,15 @@ html, body {
     .md-sidebar--primary {
         display: block !important;
         position: sticky !important;
-        top: 3.75rem !important;
+        top: 65px !important;
         width: 17rem !important; /* ~272px */
         flex-shrink: 0 !important;
-        height: calc(100vh - 3.75rem) !important;
+        height: calc(100vh - 65px) !important;
         z-index: 10;
+    }
+    .md-sidebar--secondary {
+        top: 65px !important;
+        height: calc(100vh - 65px) !important;
     }
     .md-sidebar--primary:not([hidden]) ~ .md-content > .md-content__inner {
         margin-left: 2rem !important;
