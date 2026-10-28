@@ -80,8 +80,6 @@
         <li class="sidebar-section-header">Documentation</li>
       {% elif "addon" in title %}
         <li class="sidebar-section-header">Ecosystem &amp; Guides</li>
-      {% elif "discord" in title %}
-        <li class="sidebar-section-header">Community</li>
       {% endif %}
       {% set path = "__nav_" ~ loop.index %}
       {{ item.render(nav_item, path, 1) }}
