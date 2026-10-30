@@ -95,8 +95,7 @@ browser-menu:
     # for the first time.
     browser-filters:
       # The default active filter on first load.
-      # References any filter key declared in the "filters" section above,
-      # or built-in filter keys: online, recent, popular.
+      # References any filter key declared in the "filters" section above.
       default-active: online
 
       # The default custom filters automatically added to the user's custom filter list
@@ -124,7 +123,7 @@ browser-menu:
 | `type` | String | `container` | Menu layout type. Supported: `container`, `channel`. |
 | `container.filters` | Map | - | Named filter declarations defining presets and criteria. Admin can declare any number of custom filters. |
 | `container.filter-order` | List | `[online, trending, newest]` | Cycling order of filters available in the browser menu switcher. References declared filter keys. If `default-active` is unset, the first filter in this list is active on open. |
-| `container.browser-filters.default-active` | String | `online` | Key of the default active filter on first load. References any filter key from `filters`, or built-ins (`online`, `recent`, `popular`). |
+| `container.browser-filters.default-active` | String | `online` | Key of the default active filter on first load. References any filter key from `filters`. |
 | `container.browser-filters.default-custom-filters` | List | `[fun]` | List of filter keys from `filters` automatically populated into players' custom filter lists on first open. |
 | `channel.channel-placements` | List | - | Ordered list of channels displayed in channel mode (`online`, `trending`, `most_votes`, `newest`, or `tag:<tag_id>`). |
 
