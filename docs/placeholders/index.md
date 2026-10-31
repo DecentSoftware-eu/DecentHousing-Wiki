@@ -14,7 +14,6 @@ Plot placeholders evaluate dynamically based on the plot the player is currently
 | `%plot_id%`                                            | Unique ID of the currently loaded plot.              | `9b1deb4d-3b2a-44c1-8419-8a8b1b111111` |
 | `%plot_owner%`                                         | Username of the owner of the current plot.           | `Notch`                                |
 | `%plot_name%`                                          | Custom title/name of the current plot.               | `Awesome Survival`                     |
-| `%plot_description%`                                   | Description of the current plot.                     | `Welcome to my plot!`                  |
 | `%plot_player_limit%` <br> *(or `%plot_max_players%`)* | Maximum player capacity allowed on the current plot. | `20`                                   |
 | `%plot_online_players%`                                | Number of players currently online on this plot.     | `5`                                    |
 | `%plot_visibility%`                                    | Formatted display state of plot visibility.          | `Public`, `Unlisted`, `Private`        |
@@ -26,8 +25,9 @@ Plot placeholders evaluate dynamically based on the plot the player is currently
 |:--------------------|:-----------------------------------------------------------------------|:-------------------------------|
 | `%plot_role%`       | Display name of the active player's role on the current plot.          | `Owner`, `Co-Owner`, `Visitor` |
 | `%plot_role_tag%`   | Prefix / MiniMessage chat tag of the active player's role on the plot. | `<red>[Owner]</red>`           |
-| `%plot_votes%`      | Total number of votes received by the current plot.                    | `85`                           |
-| `%plot_votes_self%` | Number of votes the current player has awarded to this plot.           | `1`                            |
+| `%plot_votes%`                                          | Total number of votes received by the current plot.                                             | `85`                           |
+| `%plot_votes_self%`                                     | Number of votes the current player has awarded to this plot.                                    | `1`                            |
+| `%plot_trending_rank%` <br> *(or `%plot_weekly_rank%`)* | Position of the current plot on the weekly trending leaderboard (`-` if unranked).              | `1`                            |
 
 /// note | Dynamic Context Updating
 As players move between plots, contextual `%plot_...%` placeholders such as `%plot_role%` and `%plot_role_tag%` automatically update to reflect their rank on the active plot.
