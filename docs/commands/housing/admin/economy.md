@@ -21,11 +21,28 @@ The `admin economy` subcommand group allows administrators to manage and inspect
 ### `<economy>` (Required)
 The economy ID/key.
 
+### `<name>` (Required in create, Optional in update)
+The display name of the currency.
+
 ### `<user>` (Required in give/take)
 The target player name.
 
 ### `<amount>` (Required in give/take)
 The positive number representing the amount to give or take.
+
+### `[--format <format>]` (Optional in create/update)
+The display format of the currency balance.
+
+Supported placeholders:
+
+- `{{value}}` - The numerical amount / value of the balance.
+- `{{name}}` - The display name of the currency.
+
+Examples:
+
+- `{{value}} {{name}}` (e.g. `100 Coins`)
+- `{{value}}$` (e.g. `100$`)
+- `${{value}}` (e.g. `$100`)
 
 ## Permissions
 

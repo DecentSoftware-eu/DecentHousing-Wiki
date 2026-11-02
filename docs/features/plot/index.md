@@ -20,7 +20,6 @@ Defaults are set in the `config.global.yml` file:
 # Some of them can be extended by plot owners by purchasing packages.
 defaults-config:
   plot-name: "Unnamed Plot"
-  plot-description: "An awesome Housing plot!"
   # The default icon for plots in the plot browser menu.
   # Use base64: prefix for player head base64 texture, or use a material name for a block/item icon.
   plot-icon: "base64:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODA4YWM1ZTI4ZGJkZmEyMjUwYzYwMjg3Njg2ZGIxNGNjYmViNzc2YzNmMDg2N2M5NTU1YjdlNDk1NmVmYmE3NyJ9fX0="

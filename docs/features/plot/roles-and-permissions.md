@@ -3,14 +3,11 @@ title: Roles & Permissions
 description: Per-plot roles and permissions
 ---
 
-DecentHousing features a per-plot roles and permissions system that allows plot admins to control exactly which players
-can do and access on the plot.
-
-Groups have its **set of enabled permissions** and have a **display tag** that you can use to show in the tab list or in chat.
-
+Per-plot roles and permissions allow plot admins to control exactly which visitors can do on the plot.
 
 /// note | Global perms vs Plot perms
-Unlike server-wide permission systems (such as LuckPerms), plot roles and permissions are **strictly scoped to individual plots**. A player granted builder permissions on one plot has no building access on other plots across the server.
+Plot roles and permissions are **strictly scoped to individual plots**.
+A player granted builder permissions on one plot has no building access on other plots across the server.
 ///
 
 ## Pre-defined Roles
@@ -23,7 +20,7 @@ Unlike server-wide permission systems (such as LuckPerms), plot roles and permis
 
 Players with `PLOT_GROUPS` plot permission can create **custom roles** on the plot:
 
-- Each custom role can have its own **tag/prefix** (e.g. `&a[&a&lBuilder&r&a]`).
+- Each custom role can have its own **tag/prefix**.
 - The maximum number of custom roles per plot is controlled by the [Roles limit](roles-limit.md) setting.
 
 ## Role Tags (Group Tags)
@@ -31,8 +28,7 @@ Players with `PLOT_GROUPS` plot permission can create **custom roles** on the pl
 Each role can be assigned an optional **tag**. A role tag is a customizable chat badge or prefix (e.g. `&c[&c&lOwner&r&c]` or `&a[&a&lBuilder&r&a]`) that identifies the player's rank on the plot.
 
 - **Character limit:** Up to **24 characters**.
-- **Formatting:** Supports standard Minecraft color and formatting codes (`&a`, `&b`, `&c`, `&l`, etc.) as well as MiniMessage tags.
-- **Plot-scoped:** Unlike server-wide prefix plugins, plot role tags only apply and display while the player is on that specific plot.
+- **Formatting:** Supports standard Minecraft color and formatting codes (`&a`, `&b`, `&c`, `&l`, etc.) as well as MiniMessage.
 
 > Tip: [Display it in TAB & chat](../../installation/first-install.md#setting-up-tab-and-scoreboard-on-plot-servers)
 
@@ -69,7 +65,8 @@ Each role can be assigned an optional **tag**. A role tag is a customizable chat
 
 ## Placeholders
 
-DecentHousing registers custom plot placeholders through [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/). Server administrators can use the following placeholders under the `plot` expansion (`%plot_<key>%`) to dynamically access role and permission information (see full list of placeholders in [Placeholders](../../placeholders/index.md)):
+These placeholders are associated with roles. They only on plot servers and update dynamically based on currently loaded
+plot (see full list of placeholders in [Placeholders](../../placeholders/index.md)):
 
 | Placeholder       | Description                                                                       | Example Output                             |
 |:------------------|:----------------------------------------------------------------------------------|:-------------------------------------------|
@@ -77,13 +74,9 @@ DecentHousing registers custom plot placeholders through [PlaceholderAPI](https:
 | `%plot_role_tag%` | Displays the formatted chat tag / prefix of the player's active role on the plot. | `&c[&c&lOwner&r&c]` / `<red>[Owner]</red>` |
 | `%plot_owner%`    | Displays the username of the owner of the current plot.                           | `Notch`                                    |
 
-/// tip | Dynamic Plot Context
-Placeholders update automatically as players move between plots. If a player is a **Builder** on Plot A and visits Plot B as a **Guest**, `%plot_role%` and `%plot_role_tag%` will immediately reflect their status on Plot B.
-///
-
 ## Server Configuration
 
-Server administrators can customize the default roles, initial tags, and starting permissions created for every new plot in `config.global.yml`.
+Customize the default roles created for every new plot in `config.global.yml`.
 
 Like other `.global` files, `config.global.yml` is stored in the `housing-resources` bucket in your MinIO dashboard ([How to configure global files](../../installation/configuration.md#changing-global-files)).
 

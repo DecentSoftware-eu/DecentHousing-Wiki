@@ -19,6 +19,8 @@ Leaderboard entries can be displayed across holograms, scoreboards, TAB, or cust
 
 See [Placeholders &rarr; Leaderboards & Rankings](../placeholders/index.md#leaderboards--rankings) for a detailed list of all leaderboard placeholders and usage examples.
 
+To display the current plot's standing on the weekly trending plots leaderboard, use the [`%plot_trending_rank%`](../placeholders/index.md#roles-permissions--voting) (or `%plot_weekly_rank%`) placeholder.
+
 ## References
 
 - [`/housing top`](../commands/housing/top.md) - Open leaderboards or list top players.
