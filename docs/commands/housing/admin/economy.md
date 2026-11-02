@@ -34,10 +34,12 @@ The positive number representing the amount to give or take.
 The display format of the currency balance.
 
 Supported placeholders:
+
 - `{{value}}` - The numerical amount / value of the balance.
 - `{{name}}` - The display name of the currency.
 
 Examples:
+
 - `{{value}} {{name}}` (e.g. `100 Coins`)
 - `{{value}}$` (e.g. `100$`)
 - `${{value}}` (e.g. `$100`)
