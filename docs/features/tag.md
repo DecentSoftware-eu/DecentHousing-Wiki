@@ -5,17 +5,17 @@ description: Tags that can be assigned to plots for categorization
 
 This feature allows plot owners and server admins (you) to assign tags to plots.
 
-Tags help players categorize, discover, and filter plots in the plot browser and also can serve as a reward or badge
-for your players that you can assign by commands or through [Packages](package.md).
+Tags help **categorize**, **filter** plots in the plot browser and also can serve as a **reward** or badge
+for your players that you can assign by [commands](../commands/housing/admin/tags.md) or through [Packages](package.md).
 
-When players browse available plots using [`/housing browse`](../commands/housing/browse.md), they can filter plots by specific tags to find what they are looking for.
+Browser(s) ([`/housing browse`](../commands/housing/browse.md)) include filtering by tags.
 
 ![Browser Menu Tags](/assets/images/features/tag/browser-menu.png)
 
 ## Types of Tags
 
-- **Normal Tags (`sticky: false`):** Standard tags **available for plot owners to select**. Plot owners can freely assign or remove normal tags on their plot directly from the in-game Plot Panel menu up to a maximum limit (e.g. up to 3 tags).
-- **Sticky Tags (`sticky: true`):** Special tags **assigned exclusively by server administrators** (such as *Featured*, *Popular*, or *Winner of Winter Event*). Sticky tags **remain permanently on the plot** and cannot be added or removed by plot owners through the plot menu.
+- **Normal Tags (`sticky: false`):** Plot admins can assign/unassign these to their plots freely through [/plot menu](../commands/plot/menu.md) (usually for categorization).
+- **Sticky Tags (`sticky: true`):** Special tags **assigned exclusively by server administrators (you)** (such as *Featured*, *Popular*, or *Winner of Winter Event*). Sticky tags **remain permanently on the plot** and cannot be added or removed by plot owners through the plot menu.
 
 ## Rewarding Sticky Tags
 
@@ -29,9 +29,7 @@ assign it to a plot using the following command:
 /housing admin tags assign <plotId> <tagId>
 ```
 
-This automatically grants and attaches the sticky tag to the plot.
-
-More about this in the [/housing admin tags](../commands/housing/admin/tags.md) command reference.
+This automatically attaches the sticky tag to the plot.
 
 > Info: You can create a [Packages](package.md) that run the command (e.g., store rewards, crates, or milestone unlocks)
 > /housing admin tags assign %plot% <tagId>.
