@@ -40,26 +40,27 @@ You can activate and extend amplifiers on plots in two ways: using administrativ
 Administrators can check status or extend an amplifier's duration on the current plot using the [`/housing admin amplifier`](../commands/housing/admin/amplifier.md) command:
 
 ```
-/housing admin amplifier extend <type> <span_ms>
+/housing admin amplifier extend <type> <span>
 /housing admin amplifier info <type>
 ```
 
-The `<span_ms>` argument specifies the duration to add in **milliseconds**. If the boost is already active, the new duration is added to the remaining time.
+The `<span>` argument specifies the duration to add. It supports human-readable time span strings (such as `1d`, `12h`, `30min`) as well as raw milliseconds (e.g. `86400000`). If the boost is already active, the new duration is added to the remaining time.
 
 Common duration values:
 
-| Duration | Milliseconds (`<span_ms>`) |
-|:---------|:---------------------------|
-| 1 Hour   | `3600000`                  |
-| 6 Hours  | `21600000`                 |
-| 12 Hours | `43200000`                 |
-| 24 Hours (1 Day) | `86400000`         |
-| 7 Days   | `604800000`                |
+| Duration | Time Span (`<span>`) | Milliseconds |
+|:---------|:---------------------|:-------------|
+| 30 Minutes | `30min`            | `1800000`    |
+| 1 Hour   | `1h`                 | `3600000`    |
+| 6 Hours  | `6h`                 | `21600000`   |
+| 12 Hours | `12h`                | `43200000`   |
+| 24 Hours (1 Day) | `1d`         | `86400000`   |
+| 7 Days (1 Week)  | `7d` (or `1w`) | `604800000`|
 
 Example: To grant 24 hours of WorldEdit to the plot you are currently on:
 
 ```
-/housing admin amplifier extend WORLD_EDIT 86400000
+/housing admin amplifier extend WORLD_EDIT 1d
 ```
 
 ### Via Packages (Store & Crates)
@@ -88,7 +89,7 @@ packages:
       - type: command
         data:
           sender: console
-          command: "housing admin amplifier extend WORLD_EDIT 86400000"
+          command: "housing admin amplifier extend WORLD_EDIT 1d"
 ```
 
 Once defined, you can give the package to players via crates, store commands, or with:
