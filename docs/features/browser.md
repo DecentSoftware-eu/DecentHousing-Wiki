@@ -15,7 +15,7 @@ Players can open the browser at any time using the [`/housing browse`](../comman
 
 The **Container** layout is the default catalog-style grid view.
 
-It presents plots in a paginated inventory grid and utilizes a powerful, customizable filter system:
+Includes a filtering system:
 
 - **Quick Filter Switcher (`F`)**: Players can left-click the filter button to cycle forward through filters (or Shift + Left-click to cycle backward). The switcher includes the server's configured filters (defined in `filter-order`) followed by the player's personal custom filters.
 - **Filter Management Menu**: Right-clicking the filter button opens the filter management screen where players can activate presets, create new custom filter configurations with `+`, edit filter criteria (name, icon, online-only status, tags, sorting algorithm), or delete unwanted custom filters.
