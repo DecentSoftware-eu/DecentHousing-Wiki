@@ -15,7 +15,8 @@
     font-weight: 600;
     letter-spacing: 0.01em;
     border-bottom: 1px solid #141a26;
-    padding: 0.65rem 1rem !important;
+    padding: 0.65rem 1rem 0.65rem 2.35rem !important;
+    position: relative;
 }
 
 /* Collapsible details specific styling (e.g. installation steps) */
@@ -27,7 +28,10 @@
     position: relative;
 }
 
-.md-typeset details summary:before {
+.md-typeset .admonition-title:before,
+.md-typeset .admonition-title::before,
+.md-typeset summary:before,
+.md-typeset summary::before {
     left: 0.75rem !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
