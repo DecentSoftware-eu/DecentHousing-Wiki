@@ -18,7 +18,7 @@ The `admin build-area-factor` subcommand allows administrators to modify or set 
 The amount to add to the factor.
 
 ### `<value>` (Required in set)
-The factor value to set.
+The factor value to set (e.g. `1.0`, `1.5`, or `unlimited` to extend build area to the entire plot world without borders).
 
 ## Permissions
 

@@ -29,8 +29,8 @@ defaults-config:
   role-limit: 5
   build-area:
     # The default build area size factor (in percentage, where 1.0 is 100% of the template build area size).
-    # This is allowed to be extended as rewards up to 1.0.
-    # Must be between 0.1 and 1.0.
+    # This is allowed to be extended as rewards above 1.0 to enlarge the build area.
+    # Must be greater than 0.0.
     factor: 0.5
   # The default roles on new plots.
   # The owner and default roles are required, don't change the settings names
@@ -68,7 +68,7 @@ Plots are stored in the `housing-plots` bucket in your MinIO instance.
 
 - [Roles & Permissions](roles-and-permissions.md) - Role-based access control and per-plot permissions.
 - [Roles limit](roles-limit.md) - The maximum limit of custom roles per plot.
-- [Build area factor](build-area-factor.md) - The build area factor is an (optional) percentage of the template build area size that is allowed to be built on a plot. It can be extended up to 1.0 (100%).
+- [Build area factor](build-area-factor.md) - The build area factor is an (optional) percentage of the template build area size that is allowed to be built on a plot. It can be extended up to and above 1.0 (100%) to enlarge the build area.
 - [Player limit](player-limit.md) - Maximum player capacity on a plot.
 
 ## References
